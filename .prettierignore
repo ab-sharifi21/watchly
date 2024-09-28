@@ -1,0 +1,33 @@
+
+.next
+out
+
+# Ignore node_modules
+node_modules
+
+# Ignore package lock file
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore dotenv files (if applicable)
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Ignore public folder contents (optional, if you don't want to format static assets)
+public
+
+# Ignore specific config files (optional)
+.prettierrc
+.eslintrc
+tsconfig.json
+
+# Ignore coverage directory (if using coverage tools like Jest)
+coverage
+
+# Ignore specific file types (optional)
+*.log
+*.svg
