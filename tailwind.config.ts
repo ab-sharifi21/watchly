@@ -9,9 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
+        primary: '#df2144',
+        secondary: '#ffd600',
+        'bg-primary-color': '#303030',
+        'bg-secondary-color': '#202020',
       },
+    },
+    rotate: {
+      '180deg': '180deg',
     },
   },
   plugins: [],
