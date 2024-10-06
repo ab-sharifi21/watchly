@@ -1,16 +1,17 @@
 'use client';
 import styles from '../styles/button.module.css';
 
-export const Button = ({
-  buttonText,
-  children,
-}: {
+interface ButtonProps {
   buttonText: string;
   children?: React.ReactNode;
-}) => {
+  onClick?: () => void;
+}
+
+export const Button = ({ buttonText, children, onClick }: ButtonProps) => {
   return (
     <button
-      className={`border-3 relative flex cursor-pointer place-items-center gap-2 overflow-hidden rounded-md border-white/40 bg-primary px-4 py-1 text-[15px] font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:border-white/60 md:px-5 md:py-2 ${styles.shine}`}
+      onClick={onClick}
+      className={`border-3 flex cursor-pointer place-items-center gap-2 overflow-hidden rounded-md border-white/40 bg-primary px-4 py-1 text-[15px] text-white shadow-lg transition-all duration-300 hover:scale-105 hover:border-white/60 md:px-5 md:py-2 ${styles.shine}`}
     >
       <span>{buttonText}</span>
       {children}

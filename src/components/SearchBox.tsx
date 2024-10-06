@@ -1,5 +1,6 @@
 'use client';
 import useDevice from '@/hooks/useDevice';
+import { handleClickOutside } from '@/lib/utils';
 import { useState, useRef, useEffect } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { IoSearchOutline } from 'react-icons/io5';
@@ -9,6 +10,8 @@ export const SearchBox = () => {
   const [searchValue, setSearchValue] = useState<string>('');
   const [isSearchVisible, setIsSearchVisible] = useState<boolean>(false);
   const formRef = useRef<HTMLFormElement>(null);
+
+  console.log(searchValue)
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
@@ -22,21 +25,15 @@ export const SearchBox = () => {
     setIsSearchVisible(false);
   };
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (formRef.current && !formRef.current.contains(event.target as Node)) {
-      setIsSearchVisible(false);
-    }
-  };
-
   useEffect(() => {
     if (!isMobile) {
-      document.addEventListener('mousedown', handleClickOutside);
+      const handleOutsideClick = (event: MouseEvent) =>
+        handleClickOutside(event, formRef, handleModalClose);
+      document.addEventListener('mousedown', handleOutsideClick);
+      return () => {
+        document.removeEventListener('mousedown', handleOutsideClick);
+      };
     }
-    return () => {
-      if (!isMobile) {
-        document.removeEventListener('mousedown', handleClickOutside);
-      }
-    };
   }, [isMobile]);
 
   return (
@@ -67,7 +64,7 @@ export const SearchBox = () => {
                 onChange={handleFormChange}
                 type="search"
                 placeholder="What are you looking for?"
-                className="w-full rounded-md bg-slate-600 placeholder:text-sm px-3 py-1 outline-none"
+                className="w-full rounded-md bg-slate-600 px-3 py-1 outline-none placeholder:text-sm"
               />
             </div>
           </div>
@@ -75,12 +72,12 @@ export const SearchBox = () => {
       ) : (
         <form ref={formRef} className="flex-1 transition-all duration-300">
           {isSearchVisible && (
-            <div className='w-[15rem]'>
+            <div className="w-[15rem]">
               <input
                 onChange={handleFormChange}
                 type="search"
                 placeholder="What are you looking for?"
-                className="rounded-full w-full bg-bg-secondary-color px-4 py-2 outline-none transition-all duration-300 placeholder:text-sm"
+                className="w-full rounded-full bg-bg-secondary-color px-4 py-2 outline-none transition-all duration-300 placeholder:text-sm"
               />
             </div>
           )}
