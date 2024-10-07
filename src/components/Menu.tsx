@@ -32,24 +32,26 @@ export const Menu = ({ classes }: { classes?: string }) => {
   return (
     <>
       {isMobile ? (
-        <div className="relative group">
+        <div className="group relative">
           <button
             onClick={() => toggleMenu(isMenuOpen, setIsMenuOpen)}
-            className="outline-none flex gap-1 place-items-center"
+            className="flex place-items-center gap-1 outline-none"
           >
             Browse
-            <FaCaretDown className={`${isMenuOpen && 'rotate-180deg'} duration-300`} />
+            <FaCaretDown
+              className={`${isMenuOpen && 'rotate-180deg'} duration-300`}
+            />
           </button>
           {isMenuOpen && (
             <div
-              className="absolute top-full w-[7rem] mt-2 right-0 z-10 flex flex-col items-start bg-bg-secondary-color p-4 rounded-md shadow-lg"
+              className="absolute right-0 top-full z-10 mt-2 flex w-[7rem] flex-col items-start rounded-md bg-bg-secondary-color p-4 shadow-lg"
               onMouseLeave={() => closeMenu(setIsMenuOpen)}
             >
               <ul className="flex flex-col items-start gap-2">
                 {links.map((link) => (
                   <li key={link.id}>
                     <Link
-                      className={`hover:text-[#a0a0a0] text-sm ${
+                      className={`text-sm hover:text-[#a0a0a0] ${
                         link.url === pathname && 'text-[#a0a0a0]'
                       }`}
                       href={link.url}

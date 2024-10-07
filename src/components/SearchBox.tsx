@@ -11,7 +11,7 @@ export const SearchBox = () => {
   const [isSearchVisible, setIsSearchVisible] = useState<boolean>(false);
   const formRef = useRef<HTMLFormElement>(null);
 
-  console.log(searchValue)
+  console.log(searchValue);
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
