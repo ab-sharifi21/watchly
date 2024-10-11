@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { poppins } from '@/lib/fonts';
 import { Header } from '@/components';
+import { Providers } from '@/store/Providers';
 
 export const metadata: Metadata = {
   title: 'Watchly',
@@ -18,8 +19,10 @@ export default function RootLayout({
       <body
         className={`${poppins.className} min-h-screen bg-bg-primary-color text-white antialiased`}
       >
+        <Providers>
         <Header />
         {children}
+        </Providers>
       </body>
     </html>
   );
