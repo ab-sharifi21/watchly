@@ -9,10 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#df2144',
+        'primary-color': '#df2144',
         secondary: '#ffd600',
-        'bg-primary-color': '#303030',
-        'bg-secondary-color': '#202020',
+        'primary-bg-color': '#303030',
+        'secondary-bg-color': '#202020',
       },
     },
     rotate: {
