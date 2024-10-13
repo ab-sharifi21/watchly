@@ -44,7 +44,7 @@ export const Menu = ({ classes }: { classes?: string }) => {
           </button>
           {isMenuOpen && (
             <div
-              className="absolute right-0 top-full z-10 mt-2 flex w-[7rem] flex-col items-start rounded-md bg-bg-secondary-color p-4 shadow-lg"
+              className="absolute right-0 top-full z-10 mt-2 flex w-[7rem] flex-col items-start rounded-md bg-secondary-bg-color p-4 shadow-lg"
               onMouseLeave={() => closeMenu(setIsMenuOpen)}
             >
               <ul className="flex flex-col items-start gap-2">
