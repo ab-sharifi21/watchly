@@ -54,7 +54,7 @@ export const SearchBox = () => {
             onClick={handleModalClose}
           >
             <div
-              className="flex w-screen flex-col items-end gap-2 bg-bg-secondary-color px-4 py-2"
+              className="flex w-screen flex-col items-end gap-2 bg-secondary-bg-color px-4 py-2"
               onClick={(e) => e.stopPropagation()}
             >
               <button onClick={handleModalClose}>
@@ -72,12 +72,12 @@ export const SearchBox = () => {
       ) : (
         <form ref={formRef} className="flex-1 transition-all duration-300">
           {isSearchVisible && (
-            <div className="w-[15rem]">
+            <div className="w-[20rem]">
               <input
                 onChange={handleFormChange}
                 type="search"
                 placeholder="What are you looking for?"
-                className="w-full rounded-full bg-bg-secondary-color px-4 py-2 outline-none transition-all duration-300 placeholder:text-sm"
+                className="w-full rounded-full bg-secondary-bg-color px-4 py-2 outline-none transition-all duration-300 placeholder:text-sm"
               />
             </div>
           )}
