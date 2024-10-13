@@ -4,3 +4,6 @@ export { Menu } from './Menu';
 export { Button } from './Button';
 export { SearchBox } from './SearchBox';
 export { Logo } from './Logo';
+export { MovieInfo } from './MovieInfo';
+export { Trailer } from './MovieTrailer';
+export { Modal } from './Modal';
