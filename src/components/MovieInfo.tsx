@@ -15,7 +15,7 @@ export const MovieInfo = ({ movie, genres }: MovieInfoProps) => {
 
   const movieGenres = getOneMovieGenres(movie.genre_ids, genres);
   return (
-    <div className="absolute bottom-1/4 px-4 md:px-8">
+    <div className="absolute bottom-12 px-4 md:bottom-[20%] md:px-8 xl:bottom-1/4">
       <h2 className="text-2xl font-semibold">{movie.title}</h2>
       <div className="my-2 flex gap-2">
         <p className="flex place-items-center gap-1">
@@ -29,7 +29,7 @@ export const MovieInfo = ({ movie, genres }: MovieInfoProps) => {
           <span className="text-sm text-slate-400">({movie.vote_count})</span>
         </p>
         {movieGenres.map((genre) => (
-          <p key={genre.id} className="">
+          <p key={genre.id} className="text-sm">
             <span className="text-lg text-slate-400">|</span> {genre.name}
           </p>
         ))}

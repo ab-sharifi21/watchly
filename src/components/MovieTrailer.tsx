@@ -15,7 +15,6 @@ export const Trailer = ({ id }: { id: number | string }) => {
     const fetchTrailerData = async () => {
       try {
         const { results } = await getOneMovieTrailer(id);
-        console.log('results:', results);
         if (results && results.length > 0) {
           const trailer = results.find(
             (video: MovieTrailer) => video.type === 'Trailer',

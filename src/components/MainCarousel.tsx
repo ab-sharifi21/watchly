@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 import useDevice from '@/hooks/useDevice';
 import { Genre, MovieDetails } from '@/types/Types';
-import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 import { MovieInfo } from './MovieInfo';
 
 interface Movies {
@@ -35,7 +35,7 @@ const MainCarousel = ({ movies, genres }: Movies) => {
 
   return (
     <div
-      className={`relative ${isMobile ? 'h-[60vh]' : 'h-screen'} w-full overflow-hidden`}
+      className={`relative ${isMobile ? 'h-[70vh]' : 'h-screen'} w-full overflow-hidden`}
     >
       <div
         className="flex h-full w-full transition-transform duration-500"
@@ -57,25 +57,46 @@ const MainCarousel = ({ movies, genres }: Movies) => {
         ))}
       </div>
 
-      <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 transform place-items-center gap-2 space-x-2">
-        <button
-          onClick={prevSlide}
-          className="rounded-full bg-secondary-bg-color font-semibold text-primary-color md:p-1"
-        >
-          <GrFormPrevious className="h-10 w-10" />
-        </button>
+      {isMobile && (
+        <div className="absolute top-1/2 flex w-full justify-between px-2">
+          <button
+            onClick={prevSlide}
+            className="rounded-full bg-secondary-color bg-opacity-40 font-semibold text-primary-color"
+          >
+            <GrFormPrevious className="h-8 w-8" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="rounded-full bg-secondary-color bg-opacity-40 font-semibold text-primary-color"
+          >
+            <GrFormNext className="h-8 w-8" />
+          </button>
+        </div>
+      )}
+
+      <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 transform place-items-center gap-2 md:space-x-2">
+        {!isMobile && (
+          <button
+            onClick={prevSlide}
+            className="rounded-full bg-secondary-bg-color font-semibold text-primary-color"
+          >
+            <GrFormPrevious className="h-8 w-8" />
+          </button>
+        )}
         {movies.map((_, index) => (
           <div
             key={index}
-            className={`h-2 w-2 rounded-full ${index === currentSlide ? 'bg-white' : 'bg-primary-color'}`}
+            className={`h-2 w-2 rounded-full ${index === currentSlide ? 'bg-secondary-color' : 'bg-primary-color'}`}
           ></div>
         ))}
-        <button
-          onClick={nextSlide}
-          className="rounded-full bg-secondary-bg-color font-semibold text-primary-color md:p-1"
-        >
-          <GrFormNext className="h-10 w-10" />
-        </button>
+        {!isMobile && (
+          <button
+            onClick={nextSlide}
+            className="rounded-full bg-secondary-bg-color font-semibold text-primary-color"
+          >
+            <GrFormNext className="h-8 w-8" />
+          </button>
+        )}
       </div>
     </div>
   );

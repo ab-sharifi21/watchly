@@ -1,4 +1,5 @@
 'use client';
+import useDevice from '@/hooks/useDevice';
 import { useEffect } from 'react';
 
 interface ModalProps {
@@ -8,6 +9,8 @@ interface ModalProps {
 }
 
 export const Modal = ({ isModalOpen, setIsModalOpen, trailer }: ModalProps) => {
+  const { isMobile } = useDevice();
+
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -33,17 +36,17 @@ export const Modal = ({ isModalOpen, setIsModalOpen, trailer }: ModalProps) => {
 
   return (
     <>
-    <div
-  id="modal-box"
-  className={`absolute z-50 flex ${!isModalOpen ? 'hidden' : ''} h-[55vh] bottom-0 left-1/2 transform  flex-col items-center rounded-xl w-[50vw]`}
->
-  <iframe
-    className="absolute inset-0 h-full w-full rounded-xl"
-    src={`https://www.youtube.com/embed/${trailer}`}
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowFullScreen
-  ></iframe>
-</div>
+      <div
+        id="modal-box"
+        className={`absolute flex ${!isModalOpen ? 'hidden' : ''} h-[55vh] flex-col items-center rounded-xl ${isMobile ? '-top-1/2 w-[100vw]' : 'bottom-0 w-[50vw] translate-x-1/2 transform'} `}
+      >
+        <iframe
+          className="absolute inset-0 h-full w-full rounded-xl"
+          src={`https://www.youtube.com/embed/${trailer}`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
     </>
   );
 };
