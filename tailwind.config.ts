@@ -11,8 +11,17 @@ const config: Config = {
       colors: {
         'primary-color': '#df2144',
         'secondary-color': '#ffd600',
-        'primary-bg-color': '#303030',
+        'primary-bg-color': '#000000',
         'secondary-bg-color': '#202020',
+      },
+      keyframes: {
+        slideIn: {
+          '0%': { transform: 'translateX(-100%)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+      },
+      animation: {
+        slideIn: 'slideIn 0.5s forwards',
       },
     },
     rotate: {

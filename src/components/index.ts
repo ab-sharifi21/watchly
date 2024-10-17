@@ -7,3 +7,5 @@ export { Logo } from './Logo';
 export { MovieInfo } from './MovieInfo';
 export { Trailer } from './MovieTrailer';
 export { Modal } from './Modal';
+export { Slider } from './Slider';
+export { SlideItem } from './SlideItem';
