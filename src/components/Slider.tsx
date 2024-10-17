@@ -7,7 +7,6 @@ import { MovieDetails } from '@/types/Types';
 import Link from 'next/link';
 import { SlideItem } from './SlideItem';
 
-
 interface Props {
   movies: MovieDetails[];
   title?: string;
@@ -27,7 +26,7 @@ export const Slider: React.FC<Props> = ({ movies, title, path }) => {
     <section className="relative w-full overflow-hidden px-2 py-4">
       {path && (
         <div className="group mb-2 flex cursor-pointer items-center gap-2">
-          <h3 className="text-2xl font-semibold">{title}</h3>
+          <h3 className="text-2xl font-semibold lg:text-3xl">{title}</h3>
           <Link href={path}>
             <span className="duration-3000 hidden items-center text-xs text-secondary-color group-hover:flex group-hover:animate-slideIn">
               Explore more <GrFormNext className="h-5 w-5" />
@@ -52,7 +51,7 @@ export const Slider: React.FC<Props> = ({ movies, title, path }) => {
           <GrFormPrevious className="h-8 w-8 hover:scale-125" />
         </button>
         <button
-          className="rounded-full font-semibold text-primary-color"
+          className="rounded-full mr-2 font-semibold text-primary-color"
           onClick={scrollNext}
         >
           <GrFormNext className="h-8 w-8 hover:scale-125" />
