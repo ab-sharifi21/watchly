@@ -1,9 +1,9 @@
 import { formatDate } from '@/lib/utils';
-import { getOneMovieGenres } from '@/services/getOneMovieGenre';
 import { Genre, MovieDetails } from '@/types/Types';
 import { CiCalendar } from 'react-icons/ci';
 import { MdOutlineStar } from 'react-icons/md';
 import { Trailer } from './MovieTrailer';
+import { getOneMovieGenres } from '@/services';
 
 interface MovieInfoProps {
   movie: MovieDetails;

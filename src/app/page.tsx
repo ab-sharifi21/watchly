@@ -1,10 +1,12 @@
 import { HomeCarousel, Slider } from '@/components';
-import { getAiringTodaySeries } from '@/services/getAiringTodaySeries';
-import { getMoviesGenres } from '@/services/getMovieGenres';
-import { getPopularSeries } from '@/services/getPopularSeries';
-import { getTopRatedMovies } from '@/services/getTopRatedMovies';
-import { getTrendingMovies } from '@/services/getTrendingMovies';
-import { getUpcomingMovies } from '@/services/getUpcomingMovies';
+import {
+  getAiringTodaySeries,
+  getMoviesGenres,
+  getPopularSeries,
+  getTopRatedMovies,
+  getTrendingMovies,
+  getUpcomingMovies,
+} from '@/services';
 
 export default async function LandingHomePage() {
   const { results: trendingMovies } = await getTrendingMovies();
@@ -13,7 +15,6 @@ export default async function LandingHomePage() {
   const { results: upcomingMovies } = await getUpcomingMovies();
   const { results: popularSeries } = await getPopularSeries();
   const { results: airingTodaySeries } = await getAiringTodaySeries();
-  console.log(airingTodaySeries);
 
   return (
     <div className="">
