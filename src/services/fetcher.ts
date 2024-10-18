@@ -8,7 +8,7 @@ interface FetcherProps {
 
 export const fetcher = async ({ path, query, page = 1 }: FetcherProps) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/${path}?api_key=${process.env.API_KEY}&query=${query}&page=${page}`,
+    `https://api.themoviedb.org/3/${path}?api_key=${process.env.API_KEY}&query=${query}&language=en-US&page=${page}`,
   );
   const data = await response.json();
 
