@@ -9,3 +9,4 @@ export { Trailer } from './MovieTrailer';
 export { Modal } from './Modal';
 export { Slider } from './Slider';
 export { SlideItem } from './SlideItem';
+export { HomeCarousel } from './HomeCarousel';

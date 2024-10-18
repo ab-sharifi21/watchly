@@ -3,17 +3,18 @@
 import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
-import { MovieDetails } from '@/types/Types';
+import { MovieDetails, SeriesDetails } from '@/types/Types';
 import Link from 'next/link';
 import { SlideItem } from './SlideItem';
 
 interface Props {
-  movies: MovieDetails[];
+  data: MovieDetails[] | SeriesDetails[];
   title?: string;
   path?: string;
+  isSeries?: boolean;
 }
 
-export const Slider: React.FC<Props> = ({ movies, title, path }) => {
+export const Slider: React.FC<Props> = ({ data, title, path, isSeries }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     dragFree: true,
@@ -29,7 +30,7 @@ export const Slider: React.FC<Props> = ({ movies, title, path }) => {
           <h3 className="text-2xl font-semibold lg:text-3xl">{title}</h3>
           <Link href={path}>
             <span className="duration-3000 hidden items-center text-xs text-secondary-color group-hover:flex group-hover:animate-slideIn">
-              Explore more <GrFormNext className="h-5 w-5" />
+              Explore All <GrFormNext className="h-5 w-5" />
             </span>
           </Link>
         </div>
@@ -37,9 +38,19 @@ export const Slider: React.FC<Props> = ({ movies, title, path }) => {
 
       <div className="embla__viewport" ref={emblaRef}>
         <div className="flex gap-2">
-          {movies.map((movie, index) => (
-            <SlideItem key={index} movie={movie} />
+          {data.map((data, index) => (
+            <SlideItem key={index} data={data} isSeries={isSeries} />
           ))}
+          <article className="embla__slide h-[230px] w-[160px] flex-none rounded-lg bg-gradient-to-b from-white to-transparent text-primary-color">
+            {path && (
+              <Link
+                href={path}
+                className="flex h-full w-full cursor-pointer items-center justify-center font-semibold"
+              >
+                Explore All <GrFormNext className="h-5 w-5" />
+              </Link>
+            )}
+          </article>
         </div>
       </div>
 
@@ -51,7 +62,7 @@ export const Slider: React.FC<Props> = ({ movies, title, path }) => {
           <GrFormPrevious className="h-8 w-8 hover:scale-125" />
         </button>
         <button
-          className="rounded-full mr-2 font-semibold text-primary-color"
+          className="mr-2 rounded-full font-semibold text-primary-color"
           onClick={scrollNext}
         >
           <GrFormNext className="h-8 w-8 hover:scale-125" />
