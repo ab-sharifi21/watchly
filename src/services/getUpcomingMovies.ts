@@ -1,6 +1,6 @@
 import { fetcher } from './fetcher';
 
-export const getUpcomingMovies = async (page?: number) => {
+export const getUpcomingMovies = (page?: number) => {
   const path = 'movie/upcoming';
   return fetcher({ path, page });
 };

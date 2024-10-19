@@ -1,6 +1,6 @@
 import { fetcher } from './fetcher';
 
-export const getAiringTodaySeries = async (page?: number) => {
+export const getAiringTodaySeries = (page?: number) => {
   const path = 'tv/airing_today';
   return fetcher({ path, page });
 };
