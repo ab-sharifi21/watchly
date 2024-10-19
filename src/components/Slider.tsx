@@ -5,7 +5,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 import { MovieDetails, SeriesDetails } from '@/types/Types';
 import Link from 'next/link';
-import { SlideItem } from './SlideItem';
+import { VerticalMovieCard } from './VerticalMovieCard';
 
 interface Props {
   data: MovieDetails[] | SeriesDetails[];
@@ -39,7 +39,7 @@ export const Slider: React.FC<Props> = ({ data, title, path, isSeries }) => {
       <div className="embla__viewport" ref={emblaRef}>
         <div className="flex gap-2">
           {data.map((data, index) => (
-            <SlideItem key={index} data={data} isSeries={isSeries} />
+            <VerticalMovieCard key={index} data={data} isSeries={isSeries} />
           ))}
           <article className="embla__slide h-[230px] w-[160px] flex-none rounded-lg bg-gradient-to-b from-white to-transparent text-primary-color">
             {path && (

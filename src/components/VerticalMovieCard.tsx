@@ -11,7 +11,7 @@ interface Props {
   isSeries?: boolean;
 }
 
-export const SlideItem: React.FC<Props> = ({ data, isSeries }) => {
+export const VerticalMovieCard: React.FC<Props> = ({ data, isSeries }) => {
   const releaseDate = formatDate(
     isSeries
       ? (data as SeriesDetails).first_air_date
