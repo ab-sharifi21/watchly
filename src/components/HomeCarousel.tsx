@@ -43,16 +43,16 @@ export const HomeCarousel: React.FC<Props> = ({ movies, genres }) => {
       className={`embla relative overflow-hidden ${isMobile ? 'h-[70vh]' : 'h-screen'} w-full overflow-hidden`}
       ref={emblaRef}
     >
-      <div className="embla__container flex">
+      <div className="embla__container flex h-full w-full">
         {movies.map((movie) => (
           <div
             key={movie.id}
-            className="embla__slide relative min-w-0 flex-[0_0_100%]"
+            className="embla__slide relative h-full w-full flex-[0_0_100%]"
           >
             <img
               src={`${imageURL}${movie.backdrop_path}`}
               alt={movie.title}
-              className="min-h-full w-full object-cover"
+              className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent"></div>
             <MovieInfo movie={movie} genres={genres} />

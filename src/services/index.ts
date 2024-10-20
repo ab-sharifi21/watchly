@@ -7,3 +7,4 @@ export { getOneMovieTrailer } from './getMovieTrailer';
 export { getMoviesGenres } from './getMovieGenres';
 export { getAiringTodaySeries } from './getAiringTodaySeries';
 export { getTopRatedSeries } from './getTopRatedSeries';
+export { getTodaysTrendingMovies } from './getTodaysTrendingMovies';

@@ -6,6 +6,7 @@ import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 import { MovieDetails, SeriesDetails } from '@/types/Types';
 import Link from 'next/link';
 import { VerticalMovieCard } from './VerticalMovieCard';
+import { HorizontalMovieCard } from './HorizontalMovieCard';
 
 interface Props {
   data: MovieDetails[] | SeriesDetails[];
@@ -24,10 +25,10 @@ export const Slider: React.FC<Props> = ({ data, title, path, isSeries }) => {
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
   return (
-    <section className="relative w-full overflow-hidden px-2 py-4">
-      {path && (
+    <section className="relative w-full overflow-hidden px-2 py-4 my-4">
+      {path && !isSeries && (
         <div className="group mb-2 flex cursor-pointer items-center gap-2">
-          <h3 className="text-2xl font-semibold lg:text-3xl">{title}</h3>
+          <h3 className="text-xl font-semibold lg:text-3xl">{title}</h3>
           <Link href={path}>
             <span className="duration-3000 hidden items-center text-xs text-secondary-color group-hover:flex group-hover:animate-slideIn">
               Explore All <GrFormNext className="h-5 w-5" />
@@ -38,10 +39,27 @@ export const Slider: React.FC<Props> = ({ data, title, path, isSeries }) => {
 
       <div className="embla__viewport" ref={emblaRef}>
         <div className="flex gap-2">
-          {data.map((data, index) => (
-            <VerticalMovieCard key={index} data={data} isSeries={isSeries} />
-          ))}
-          <article className="embla__slide h-[230px] w-[160px] flex-none rounded-lg bg-gradient-to-b from-white to-transparent text-primary-color">
+          {isSeries && (
+            <article className="embla__slide h-[170px] w-[270px] flex-none rounded-lg bg-gradient-to-b from-black to-transparent">
+              <p className="flex h-full w-full items-center justify-center p-2 text-xl font-semibold text-slate-400">
+                {title}
+              </p>
+            </article>
+          )}
+          {data.map((item, index) =>
+            isSeries ? (
+              <HorizontalMovieCard
+                key={index}
+                data={item}
+                isSeries={isSeries}
+              />
+            ) : (
+              <VerticalMovieCard key={index} data={item} />
+            ),
+          )}
+          <article
+            className={`embla__slide ${!isSeries ? 'h-[230px] w-[160px]' : 'h-[170px] w-[270px]'} flex-none rounded-lg bg-gradient-to-b from-white to-transparent text-primary-color`}
+          >
             {path && (
               <Link
                 href={path}

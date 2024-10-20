@@ -3,7 +3,9 @@ import {
   getAiringTodaySeries,
   getMoviesGenres,
   getPopularSeries,
+  getTodaysTrendingMovies,
   getTopRatedMovies,
+  getTopRatedSeries,
   getTrendingMovies,
   getUpcomingMovies,
 } from '@/services';
@@ -15,29 +17,42 @@ export default async function LandingHomePage() {
   const { results: upcomingMovies } = await getUpcomingMovies();
   const { results: popularSeries } = await getPopularSeries();
   const { results: airingTodaySeries } = await getAiringTodaySeries();
+  const { results: topRatedSeries } = await getTopRatedSeries();
+  const { results: todaysTrendingMovies } = await getTodaysTrendingMovies();
 
   return (
     <div className="">
       <HomeCarousel movies={trendingMovies} genres={genres} />
       <Slider
         data={upcomingMovies}
-        title="Upcoming movies"
+        title="Exciting upcoming movies await!"
         path="/upcoming-movies"
       />
       <Slider
-        data={popularSeries}
-        title="Popular series"
-        path="/popular-series"
+        data={topRatedSeries}
+        title="Dive into the top-rated shows"
+        path="/top-series"
         isSeries
       />
       <Slider
         data={topRatedMovies}
-        title="Top rated movies"
+        title="Uncover the best-rated movies!"
         path="/top-movies"
       />
       <Slider
+        data={popularSeries}
+        title="Check out popular series everyone is talking about"
+        path="/popular-series"
+        isSeries
+      />
+      <Slider
+        data={todaysTrendingMovies}
+        title="Catch today's trending movies"
+        path="/popular-series"
+      />
+      <Slider
         data={airingTodaySeries}
-        title="Series airing today"
+        title="Check out the series airing today"
         path="/airing-today-series"
         isSeries
       />
