@@ -6,8 +6,8 @@ import { FaLinkedin } from 'react-icons/fa';
 
 export const Footer = () => {
   return (
-    <footer className="flex flex-col gap-3 items-center justify-around px-4 py-8 md:flex-row text-slate-400">
-      <div className="flex flex-col gap-2 items-center md:items-start order-3">
+    <footer className="flex flex-col items-center justify-around gap-3 px-4 py-8 text-slate-400 md:flex-row">
+      <div className="order-3 flex flex-col items-center gap-2 md:items-start">
         <Logo width={35} height={35} classes="text-3xl text-white" />
         <p className="max-w-[22rem] text-center md:text-left">
           Built to expand my web development skills and to offer you a seamless
@@ -16,36 +16,47 @@ export const Footer = () => {
       </div>
       <div className="flex flex-col gap-2">
         <h3 className="text-xl font-semibold text-white">Contacts</h3>
-        <ul className='flex gap-3'>
+        <ul className="flex gap-3">
           <li>
-            <Link href="mailto:ab.sharifi19@gmail.com" className='hover:text-primary-color'>
-              <TfiEmail className='h-7 w-7 hover:scale-110 duration-300' />
-            </Link>
-          </li>
-          <li>
-            <Link target="_blank" href="https://github.com/ab-sharifi21" className='hover:text-primary-color'>
-              <SiGithub className='h-7 w-7 hover:scale-110 duration-300' />
+            <Link
+              href="mailto:ab.sharifi19@gmail.com"
+              className="hover:text-primary-color"
+              title="Email"
+            >
+              <TfiEmail className="h-7 w-7 duration-300 hover:scale-110" />
             </Link>
           </li>
           <li>
             <Link
               target="_blank"
-              href="https://linkedin.com/in/abdullahsharifi" className='hover:text-primary-color'
+              href="https://github.com/ab-sharifi21"
+              className="hover:text-primary-color"
+              title="Github"
             >
-              <FaLinkedin className='h-7 w-7 hover:scale-110 duration-300' />
+              <SiGithub className="h-7 w-7 duration-300 hover:scale-110" />
+            </Link>
+          </li>
+          <li>
+            <Link
+              target="_blank"
+              href="https://linkedin.com/in/abdullahsharifi"
+              className="hover:text-primary-color"
+              title="Linkedin"
+            >
+              <FaLinkedin className="h-7 w-7 duration-300 hover:scale-110" />
             </Link>
           </li>
         </ul>
       </div>
-      <div className='flex flex-col gap-2'>
-      <h3 className="text-xl font-semibold text-white">Technologies</h3>
-      <ul className='text-center md:text-left'>
-        <li>TypeScript</li>
-        <li>React.js</li>
-        <li>Next.js</li>
-        <li>TailwindCSS</li>
-        <li>TMDB</li>
-      </ul>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-xl font-semibold text-white">Technologies</h3>
+        <ul className="text-center md:text-left">
+          <li>TypeScript</li>
+          <li>React.js</li>
+          <li>Next.js</li>
+          <li>TailwindCSS</li>
+          <li>TMDB</li>
+        </ul>
       </div>
     </footer>
   );
