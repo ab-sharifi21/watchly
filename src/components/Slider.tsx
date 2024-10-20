@@ -25,7 +25,7 @@ export const Slider: React.FC<Props> = ({ data, title, path, isSeries }) => {
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
   return (
-    <section className="relative w-full overflow-hidden px-2 py-4 my-4">
+    <section className="relative my-4 w-full overflow-hidden px-2 py-4">
       {path && !isSeries && (
         <div className="group mb-2 flex cursor-pointer items-center gap-2">
           <h3 className="text-xl font-semibold lg:text-3xl">{title}</h3>

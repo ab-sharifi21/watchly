@@ -1,4 +1,4 @@
-import { HomeCarousel, Slider } from '@/components';
+import { Footer, HomeCarousel, Slider } from '@/components';
 import {
   getAiringTodaySeries,
   getMoviesGenres,
@@ -56,6 +56,7 @@ export default async function LandingHomePage() {
         path="/airing-today-series"
         isSeries
       />
+      <Footer />
     </div>
   );
 }
