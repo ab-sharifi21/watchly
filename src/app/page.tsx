@@ -22,7 +22,7 @@ export default async function LandingHomePage() {
 
   return (
     <div className="">
-      <HomeCarousel movies={trendingMovies} genres={genres} />
+      <HomeCarousel data={trendingMovies} genres={genres} />
       <Slider
         data={upcomingMovies}
         title="Exciting upcoming movies await!"

@@ -3,15 +3,16 @@ import React, { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import useDevice from '@/hooks/useDevice';
-import { Genre, MovieDetails } from '@/types/Types';
+import { Genre, MovieDetails, SeriesDetails } from '@/types/Types';
 import { MovieInfo } from './MovieInfo';
 
 interface Props {
-  movies: MovieDetails[];
+  data: MovieDetails[] | SeriesDetails[];
   genres: Genre[];
+  isSeries?: boolean;
 }
 
-export const HomeCarousel: React.FC<Props> = ({ movies, genres }) => {
+export const HomeCarousel: React.FC<Props> = ({ data, genres, isSeries }) => {
   const { isMobile } = useDevice();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false }, [Autoplay()]);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -44,23 +45,27 @@ export const HomeCarousel: React.FC<Props> = ({ movies, genres }) => {
       ref={emblaRef}
     >
       <div className="embla__container flex h-full w-full">
-        {movies.map((movie) => (
+        {data.map((data) => (
           <div
-            key={movie.id}
+            key={data.id}
             className="embla__slide relative h-full w-full flex-[0_0_100%]"
           >
             <img
-              src={`${imageURL}${movie.backdrop_path}`}
-              alt={movie.title}
+              src={`${imageURL}${data.backdrop_path}`}
+              alt={
+                !isSeries
+                  ? (data as MovieDetails).title
+                  : (data as SeriesDetails).name
+              }
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent"></div>
-            <MovieInfo movie={movie} genres={genres} />
+            <MovieInfo data={data} genres={genres} isSeries={isSeries} />
           </div>
         ))}
       </div>
       <div className="embla__dots absolute bottom-4 left-1/2 flex -translate-x-1/2 transform space-x-2">
-        {movies.map((_, index) => (
+        {data.map((_, index) => (
           <button
             key={index}
             className={`embla__dot ${index === selectedIndex ? 'bg-secondary-color' : 'bg-primary-color'} h-2 w-2 rounded-full`}
