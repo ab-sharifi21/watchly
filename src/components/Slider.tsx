@@ -13,9 +13,16 @@ interface Props {
   title?: string;
   path?: string;
   isSeries?: boolean;
+  useHorizontalCard?: boolean;
 }
 
-export const Slider: React.FC<Props> = ({ data, title, path, isSeries }) => {
+export const Slider: React.FC<Props> = ({
+  data,
+  title,
+  path,
+  isSeries,
+  useHorizontalCard,
+}) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     dragFree: true,
@@ -26,7 +33,7 @@ export const Slider: React.FC<Props> = ({ data, title, path, isSeries }) => {
 
   return (
     <section className="relative my-4 w-full overflow-hidden px-2 py-4">
-      {path && !isSeries && (
+      {path && !useHorizontalCard && (
         <div className="group mb-2 flex cursor-pointer items-center gap-2">
           <h3 className="text-xl font-semibold lg:text-3xl">{title}</h3>
           <Link href={path}>
@@ -39,7 +46,7 @@ export const Slider: React.FC<Props> = ({ data, title, path, isSeries }) => {
 
       <div className="embla__viewport" ref={emblaRef}>
         <div className="flex gap-2">
-          {isSeries && (
+          {useHorizontalCard && (
             <article className="embla__slide h-[170px] w-[270px] flex-none rounded-lg bg-gradient-to-b from-black to-transparent">
               <p className="flex h-full w-full items-center justify-center p-2 text-xl font-semibold text-slate-400">
                 {title}
@@ -47,7 +54,7 @@ export const Slider: React.FC<Props> = ({ data, title, path, isSeries }) => {
             </article>
           )}
           {data.map((item, index) =>
-            isSeries ? (
+            useHorizontalCard ? (
               <HorizontalMovieCard
                 key={index}
                 data={item}
@@ -58,7 +65,7 @@ export const Slider: React.FC<Props> = ({ data, title, path, isSeries }) => {
             ),
           )}
           <article
-            className={`embla__slide ${!isSeries ? 'h-[230px] w-[160px]' : 'h-[170px] w-[270px]'} flex-none rounded-lg bg-gradient-to-b from-white to-transparent text-primary-color`}
+            className={`embla__slide ${!useHorizontalCard ? 'h-[230px] w-[160px]' : 'h-[170px] w-[270px]'} flex-none rounded-lg bg-gradient-to-b from-white to-transparent text-primary-color`}
           >
             {path && (
               <Link

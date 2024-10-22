@@ -33,6 +33,7 @@ export default async function LandingHomePage() {
         title="Dive into the top-rated shows"
         path="/top-series"
         isSeries
+        useHorizontalCard
       />
       <Slider
         data={topRatedMovies}
@@ -44,6 +45,7 @@ export default async function LandingHomePage() {
         title="Check out popular series everyone is talking about"
         path="/popular-series"
         isSeries
+        useHorizontalCard
       />
       <Slider
         data={todaysTrendingMovies}
@@ -55,6 +57,7 @@ export default async function LandingHomePage() {
         title="Check out the series airing today"
         path="/airing-today-series"
         isSeries
+        useHorizontalCard
       />
       <Footer />
     </div>

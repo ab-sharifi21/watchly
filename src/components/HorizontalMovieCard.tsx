@@ -26,7 +26,7 @@ export const HorizontalMovieCard: React.FC<Props> = ({ data, isSeries }) => {
         <Image
           width={170}
           height={270}
-          src={`https://image.tmdb.org/t/p/original${data.poster_path}`}
+          src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`}
           alt={`${isSeries ? (data as SeriesDetails).name : (data as MovieDetails).title}'s poster`}
           className="h-full w-full rounded-lg object-cover"
         />
