@@ -61,7 +61,7 @@ export const Slider: React.FC<Props> = ({
                 isSeries={isSeries}
               />
             ) : (
-              <VerticalMovieCard key={index} data={item} />
+              <VerticalMovieCard key={index} data={item} isSeries={isSeries} />
             ),
           )}
           <article
