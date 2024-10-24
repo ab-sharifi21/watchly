@@ -3,6 +3,7 @@ import { Logo } from './Logo';
 import { TfiEmail } from 'react-icons/tfi';
 import { SiGithub } from 'react-icons/si';
 import { FaLinkedin } from 'react-icons/fa';
+import { BsGlobe } from 'react-icons/bs';
 
 export const Footer = () => {
   return (
@@ -14,7 +15,7 @@ export const Footer = () => {
           movie experience. I hope you enjoy it!
         </p>
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col items-center gap-2 md:items-start">
         <h3 className="text-xl font-semibold text-white">Contacts</h3>
         <ul className="flex gap-3">
           <li>
@@ -44,6 +45,16 @@ export const Footer = () => {
               title="Linkedin"
             >
               <FaLinkedin className="h-7 w-7 duration-300 hover:scale-110" />
+            </Link>
+          </li>
+          <li>
+            <Link
+              target="_blank"
+              href="https://abdullah-sharifi.vercel.app"
+              className="hover:text-primary-color"
+              title="My portfolio"
+            >
+              <BsGlobe className="h-7 w-7 duration-300 hover:scale-110" />
             </Link>
           </li>
         </ul>
