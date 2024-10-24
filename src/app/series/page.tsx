@@ -6,6 +6,13 @@ import {
   getPopularSeries,
   getTopRatedSeries,
 } from '@/services';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Watchly - Series',
+  description:
+    'Explore the latest series, top-rated shows, and series airing today. Dive into the world of series with Watchly!',
+};
 
 export default async function SeriesPage() {
   const { results: trendingSeries } = await getPopularSeries();

@@ -5,6 +5,13 @@ import {
   getTrendingMovies,
   getUpcomingMovies,
 } from '@/services';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Watchly - Movies',
+  description:
+    'Explore the latest movies, top-rated films, and upcoming releases. Dive into the world of movies with Watchly!',
+};
 
 export default async function MoviesPage() {
   const { results: trendingMovies } = await getTrendingMovies();
