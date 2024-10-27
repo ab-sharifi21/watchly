@@ -10,3 +10,4 @@ export { getTopRatedSeries } from './getTopRatedSeries';
 export { getTodaysTrendingMovies } from './getTodaysTrendingMovies';
 export { getOnTheAirSeries } from './getOnTheAirSeries';
 export { getMovieInfoById } from './getMovieInfoById';
+export { getMovieActorsById } from './getMovieActorsById';
