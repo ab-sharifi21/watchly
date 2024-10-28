@@ -11,3 +11,4 @@ export { Slider } from './Slider';
 export { VerticalMovieCard } from './VerticalMovieCard';
 export { HomeCarousel } from './HomeCarousel';
 export { HorizontalMovieCard } from './HorizontalMovieCard';
+export { ActorsSlider } from './ActorsSlider';
