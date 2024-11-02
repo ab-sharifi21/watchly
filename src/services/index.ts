@@ -11,3 +11,5 @@ export { getTodaysTrendingMovies } from './getTodaysTrendingMovies';
 export { getOnTheAirSeries } from './getOnTheAirSeries';
 export { getMovieInfoById } from './getMovieInfoById';
 export { getMovieActorsById } from './getMovieActorsById';
+export { getSeriesInfoById } from './getSeriesInfoById';
+export { getSeriesActorsById } from './getSeriesActorsById';
