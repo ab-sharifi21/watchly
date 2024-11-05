@@ -5,7 +5,8 @@
 - [x] Create movies page
 - [x] Create series page
 - [x] Create a separate details page for each movie or series.
+- [x] Implement a mini player (modal) for watching movie trailers.
 - [ ] Add gender menu to movies and series page
+- [ ] Add pagination and infinite scroll in different movie and series page
 - [ ] Create search box to search movies and series by name and gender
-- [ ] Implement a mini player (modal) for watching movie trailers.
 - [ ] Implement search functionality for movies and series by name and genre.
