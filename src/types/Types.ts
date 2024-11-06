@@ -201,3 +201,9 @@ export interface TVShow {
   vote_average: number;
   vote_count: number;
 }
+
+export interface Route {
+  id: number;
+  text: string;
+  href: string;
+}
