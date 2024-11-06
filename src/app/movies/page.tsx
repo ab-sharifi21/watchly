@@ -1,4 +1,4 @@
-import { Footer, HomeCarousel, Slider } from '@/components';
+import { Footer, GenresMenu, HomeCarousel, Slider } from '@/components';
 import {
   getMoviesGenres,
   getTopRatedMovies,
@@ -23,6 +23,7 @@ export default async function MoviesPage() {
   return (
     <>
       <HomeCarousel data={trendingMovies} genres={genres} />
+      <GenresMenu />
       <Slider
         data={upcomingMovies}
         title="Dive into upcoming movies"
