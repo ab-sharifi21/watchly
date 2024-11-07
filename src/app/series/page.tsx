@@ -1,4 +1,4 @@
-import { Footer, HomeCarousel, Slider } from '@/components';
+import { Footer, GenresMenu, HomeCarousel, Slider } from '@/components';
 import {
   getAiringTodaySeries,
   getMoviesGenres,
@@ -24,6 +24,7 @@ export default async function SeriesPage() {
   return (
     <>
       <HomeCarousel data={trendingSeries} genres={genres} isSeries />
+      <GenresMenu isSeries />
       <Slider
         data={airingTodaySeries}
         title="Check out the series airing today"
