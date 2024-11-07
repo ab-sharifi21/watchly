@@ -17,7 +17,7 @@ export const GenresMenu = ({ isSeries }: Props) => {
     <nav className="mt-8 px-3">
       <button
         onClick={() => toggleMenu(isMenuOpen, setIsMenuOpen)}
-        className="flex place-items-center gap-1 text-secondary-color outline-none"
+        className="flex place-items-center gap-1 text-secondary-color outline-none hover:text-primary-color"
       >
         Explore all genres
         <FaCaretDown
