@@ -32,7 +32,7 @@ export const GenresMenu = ({ isSeries }: Props) => {
           <li key={genre.id} className="my-1">
             <Link
               className={`rounded-full border border-primary-color px-2 py-1 hover:text-secondary-color`}
-              href={`${isSeries ? '/series' : '/movies'} ${genre.href}`}
+              href={`${isSeries ? '/series' : '/movies'}${genre.href}`}
             >
               {genre.text}
             </Link>

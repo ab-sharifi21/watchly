@@ -4,32 +4,32 @@ export const genresRoutes: Route[] = [
   {
     id: 1,
     text: 'Action',
-    href: '/action',
+    href: '/genres/action',
   },
   {
     id: 2,
     text: 'Comedies',
-    href: '/comedy',
+    href: '/genres/comedy',
   },
   {
     id: 3,
     text: 'Romance',
-    href: '/romance',
+    href: '/genres/romance',
   },
   {
     id: 4,
     text: 'Documentaries',
-    href: '/documentary',
+    href: '/genres/documentary',
   },
   {
     id: 5,
     text: 'Horror',
-    href: '/horror',
+    href: '/genres/horror',
   },
   {
     id: 6,
     text: 'Fantasy',
-    href: '/fantasy',
+    href: '/genres/fantasy',
   },
   {
     id: 7,
@@ -44,46 +44,46 @@ export const genresRoutes: Route[] = [
   {
     id: 9,
     text: 'Crime',
-    href: '/crime',
+    href: '/genres/crime',
   },
   {
     id: 10,
     text: 'Drama',
-    href: '/drama',
+    href: '/genres/drama',
   },
   {
     id: 11,
     text: 'Family',
-    href: '/family',
+    href: '/genres/family',
   },
   {
     id: 12,
     text: 'History',
-    href: '/history',
+    href: '/genres/history',
   },
   {
     id: 13,
     text: 'Music',
-    href: '/music',
+    href: '/genres/music',
   },
   {
     id: 14,
     text: 'Mystery',
-    href: '/mystery',
+    href: '/genres/mystery',
   },
   {
     id: 15,
     text: 'War',
-    href: '/war',
+    href: '/genres/war',
   },
   {
     id: 16,
     text: 'Western',
-    href: '/western',
+    href: '/genres/western',
   },
   {
     id: 17,
     text: 'Thriller',
-    href: '/thriller',
+    href: '/genres/thriller',
   },
 ];
