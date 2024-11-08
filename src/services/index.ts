@@ -13,3 +13,4 @@ export { getMovieInfoById } from './getMovieInfoById';
 export { getMovieActorsById } from './getMovieActorsById';
 export { getSeriesInfoById } from './getSeriesInfoById';
 export { getSeriesActorsById } from './getSeriesActorsById';
+export { getMoviesByGenreId } from './getMoviesByGenreId';
