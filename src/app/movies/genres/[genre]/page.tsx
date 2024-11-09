@@ -1,4 +1,4 @@
-import { VerticalMovieCard } from '@/components';
+import { Footer, VerticalMovieCard } from '@/components';
 import { getMoviesByGenreId, getMoviesGenres } from '@/services';
 import { Genre, MovieDetails } from '@/types/Types';
 
@@ -27,15 +27,18 @@ export default async function GenrePage({ params }: Props) {
   const { results: movies } = await getMoviesByGenreId(genreId);
 
   return (
-    <main>
-      <h1 className="mb-4 ml-4 mt-16 text-2xl font-bold">
-        Enjoy endless {genreName} movies!
-      </h1>
-      <section className="flex flex-wrap items-center justify-around gap-4 px-4">
-        {movies.map((movie: MovieDetails) => {
-          return <VerticalMovieCard key={movie.id} data={movie} />;
-        })}
-      </section>
-    </main>
+    <>
+      <main className="">
+        <h1 className="mb-4 ml-4 mt-16 text-2xl font-bold">
+          Enjoy endless {genreName} movies!
+        </h1>
+        <section className="flex flex-wrap items-center justify-around gap-4 px-4">
+          {movies.map((movie: MovieDetails) => {
+            return <VerticalMovieCard key={movie.id} data={movie} />;
+          })}
+        </section>
+      </main>
+      <Footer />
+    </>
   );
 }
