@@ -8,7 +8,7 @@ interface Props {
   };
 }
 
-export const generateMetadata = async ({ params }: Props) => {
+export const generateMetadata = ({ params }: Props) => {
   const { genre } = params;
   return {
     title: `Watchly - ${genre}`,
