@@ -6,7 +6,12 @@ import Button from './Button';
 import { getOneMovieTrailer } from '@/services/getMovieTrailer';
 import { MovieTrailer } from '@/types/Types';
 
-export const Trailer = ({ id }: { id: number | string }) => {
+interface Props {
+  id: number;
+  isSeries?: boolean;
+}
+
+export const Trailer = ({ id, isSeries }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [trailer, setTrailer] = useState('');
@@ -14,7 +19,7 @@ export const Trailer = ({ id }: { id: number | string }) => {
   useEffect(() => {
     const fetchTrailerData = async () => {
       try {
-        const { results } = await getOneMovieTrailer(id);
+        const { results } = await getOneMovieTrailer(id, isSeries);
         if (results && results.length > 0) {
           const trailer = results.find(
             (video: MovieTrailer) => video.type === 'Trailer',
