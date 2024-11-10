@@ -77,7 +77,7 @@ export const MovieInfo = ({ data, genres, isSeries }: MovieInfoProps) => {
           </span>
         )}
       </div>
-      <Trailer id={data.id} />
+      <Trailer id={data.id} isSeries={isSeries} />
     </section>
   );
 };
