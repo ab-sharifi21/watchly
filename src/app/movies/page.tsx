@@ -27,7 +27,7 @@ export default async function MoviesPage() {
       <Slider
         data={upcomingMovies}
         title="Dive into upcoming movies"
-        path="/upcoming-movies"
+        path="movies/upcoming-movies"
       />
       <Slider
         data={topRatedMovies}

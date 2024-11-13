@@ -26,7 +26,7 @@ export default async function LandingHomePage() {
       <Slider
         data={upcomingMovies}
         title="Exciting upcoming movies await!"
-        path="/upcoming-movies"
+        path="movies/upcoming-movies"
       />
       <Slider
         data={topRatedSeries}
