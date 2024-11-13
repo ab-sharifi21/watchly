@@ -4,7 +4,6 @@ export { getOneMovieTrailer } from './getMovieTrailer';
 export { getMoviesGenres, getSeriesGenres } from './getMovieGenres';
 export { getAiringTodaySeries } from './getAiringTodaySeries';
 export { getTopRatedSeries } from './getTopRatedSeries';
-export { getTodaysTrendingMovies } from './getTodaysTrendingMovies';
 export { getOnTheAirSeries } from './getOnTheAirSeries';
 export { getMovieInfoById } from './getMovieInfoById';
 export { getMovieActorsById } from './getMovieActorsById';

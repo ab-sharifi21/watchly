@@ -3,7 +3,6 @@ import {
   getAiringTodaySeries,
   getMoviesGenres,
   getPopularSeries,
-  getTodaysTrendingMovies,
   getTopRatedSeries,
   getMovies,
 } from '@/services';
@@ -18,7 +17,7 @@ export default async function LandingHomePage() {
   const { results: popularSeries } = await getPopularSeries();
   const { results: airingTodaySeries } = await getAiringTodaySeries();
   const { results: topRatedSeries } = await getTopRatedSeries();
-  const { results: todaysTrendingMovies } = await getTodaysTrendingMovies();
+  const { results: todaysTrendingMovies } = await getMovies({ path: "trending/movie/day" });
 
   return (
     <div className="">

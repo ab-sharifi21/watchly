@@ -18,7 +18,7 @@ export default async function MoviesPage() {
   const { results: topRatedMovies } = await getMovies({
     path: 'movie/top_rated',
   });
-  const { results: todaysTrendingMovies } = await getMovies({ path: "trending/movie/week" });
+  const { results: todaysTrendingMovies } = await getMovies({ path: "trending/movie/day" });
 
   return (
     <>
