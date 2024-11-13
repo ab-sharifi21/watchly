@@ -1,4 +1,10 @@
 import { Footer, UpcomingMoviesContent } from '@/components';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Watcly - upcoming',
+  description: 'Enjoy upcoming movies',
+};
 
 export default async function UpcomingMoviesPage() {
   return (
