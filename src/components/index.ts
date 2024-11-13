@@ -18,3 +18,4 @@ export { SeriesGenrePageContent } from './SeriesGenrePageContent';
 export { Pagination } from './Pagination';
 export { UpcomingMoviesContent } from './UpcomingMoviesContent';
 export { TopRatedMoviesContent } from './TopRatedMoviesContent';
+export { TrendingMoviesContent } from './TrendingMoviesContent';
