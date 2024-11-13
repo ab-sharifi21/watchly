@@ -27,18 +27,18 @@ export default async function MoviesPage() {
       <Slider
         data={upcomingMovies}
         title="Dive into upcoming movies"
-        path="/upcoming-movies"
+        path="movies/upcoming-movies"
       />
       <Slider
         data={topRatedMovies}
         title="Best-rated movies of all time"
-        path="/top-movies"
+        path="movies/top-movies"
         useHorizontalCard
       />
       <Slider
         data={todaysTrendingMovies}
         title="Catch today's trending movies"
-        path="/popular-series"
+        path="movies/trending-movies"
       />
       <Footer />
     </>

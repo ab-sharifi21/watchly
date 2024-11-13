@@ -26,7 +26,7 @@ export default async function LandingHomePage() {
       <Slider
         data={upcomingMovies}
         title="Exciting upcoming movies await!"
-        path="/upcoming-movies"
+        path="movies/upcoming-movies"
       />
       <Slider
         data={topRatedSeries}
@@ -38,7 +38,7 @@ export default async function LandingHomePage() {
       <Slider
         data={topRatedMovies}
         title="Uncover the best-rated movies!"
-        path="/top-movies"
+        path="movies/top-movies"
       />
       <Slider
         data={popularSeries}
@@ -50,7 +50,7 @@ export default async function LandingHomePage() {
       <Slider
         data={todaysTrendingMovies}
         title="Catch today's trending movies"
-        path="/popular-series"
+        path="movies/trending-movies"
       />
       <Slider
         data={airingTodaySeries}
