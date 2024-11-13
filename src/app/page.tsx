@@ -50,7 +50,7 @@ export default async function LandingHomePage() {
       <Slider
         data={todaysTrendingMovies}
         title="Catch today's trending movies"
-        path="/popular-series"
+        path="movies/trending-movies"
       />
       <Slider
         data={airingTodaySeries}

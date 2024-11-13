@@ -38,7 +38,7 @@ export default async function MoviesPage() {
       <Slider
         data={todaysTrendingMovies}
         title="Catch today's trending movies"
-        path="/popular-series"
+        path="movies/trending-movies"
       />
       <Footer />
     </>
