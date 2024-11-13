@@ -10,6 +10,7 @@
 - [x] Create genres page for movies
 - [x] Create genres page for series
 - [x] Create infinite scroll in different movie and series page
+- [ ] Create special movies and series page
 - [ ] Add pagination to some movies and series pages
 - [ ] Create search box to search movies and series by name and gender
 - [ ] Implement search functionality for movies and series by name and genre.
