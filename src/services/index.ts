@@ -1,4 +1,3 @@
-export { getUpcomingMovies } from './getUpcomingMovies';
 export { getTrendingMovies } from './getTrendingMovies';
 export { getPopularSeries } from './getPopularSeries';
 export { getOneMovieGenres } from './getOneMovieGenre';

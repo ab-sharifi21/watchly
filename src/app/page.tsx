@@ -6,7 +6,6 @@ import {
   getTodaysTrendingMovies,
   getTopRatedSeries,
   getTrendingMovies,
-  getUpcomingMovies,
   getMovies,
 } from '@/services';
 
@@ -16,7 +15,7 @@ export default async function LandingHomePage() {
   const { results: topRatedMovies } = await getMovies({
     path: 'movie/top_rated',
   });
-  const { results: upcomingMovies } = await getUpcomingMovies();
+  const { results: upcomingMovies } = await getMovies({ path: "movie/upcoming" });
   const { results: popularSeries } = await getPopularSeries();
   const { results: airingTodaySeries } = await getAiringTodaySeries();
   const { results: topRatedSeries } = await getTopRatedSeries();

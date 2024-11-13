@@ -1,5 +1,5 @@
 'use client';
-import { getUpcomingMovies } from '@/services';
+import { getMovies } from '@/services';
 import { VerticalMovieCard } from './VerticalMovieCard';
 import { useEffect, useState } from 'react';
 import { MovieDetails } from '@/types/Types';
@@ -20,7 +20,7 @@ export const UpcomingMoviesContent = () => {
 
   const fetchMovies = async () => {
     setLoading(true);
-    const { results } = await getUpcomingMovies(page);
+    const { results } = await getMovies({ path: "movie/upcoming", page });
     setData(results);
     setLoading(false);
   };
