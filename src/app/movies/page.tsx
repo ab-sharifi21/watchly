@@ -1,7 +1,7 @@
 import { Footer, GenresMenu, HomeCarousel, Slider } from '@/components';
 import {
   getMoviesGenres,
-  getTopRatedMovies,
+  getMovies,
   getTrendingMovies,
   getUpcomingMovies,
 } from '@/services';
@@ -17,7 +17,9 @@ export default async function MoviesPage() {
   const { results: trendingMovies } = await getTrendingMovies();
   const { genres } = await getMoviesGenres();
   const { results: upcomingMovies } = await getUpcomingMovies();
-  const { results: topRatedMovies } = await getTopRatedMovies();
+  const { results: topRatedMovies } = await getMovies({
+    path: 'movie/top_rated',
+  });
   const { results: todaysTrendingMovies } = await getTrendingMovies();
 
   return (

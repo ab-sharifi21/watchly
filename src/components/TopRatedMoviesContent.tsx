@@ -1,5 +1,5 @@
 'use client';
-import { getTopRatedMovies } from '@/services';
+import { getMovies } from '@/services';
 import { VerticalMovieCard } from './VerticalMovieCard';
 import { useEffect, useState } from 'react';
 import { MovieDetails } from '@/types/Types';
@@ -20,7 +20,7 @@ export const TopRatedMoviesContent = () => {
 
   const fetchMovies = async () => {
     setLoading(true);
-    const { results } = await getTopRatedMovies(page);
+    const { results } = await getMovies({ path: 'movie/top_rated', page });
     setData(results);
     setLoading(false);
   };
