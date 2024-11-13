@@ -1,6 +1,5 @@
 export { getUpcomingMovies } from './getUpcomingMovies';
 export { getTrendingMovies } from './getTrendingMovies';
-export { getTopRatedMovies } from './getTopRatedMovies';
 export { getPopularSeries } from './getPopularSeries';
 export { getOneMovieGenres } from './getOneMovieGenre';
 export { getOneMovieTrailer } from './getMovieTrailer';
@@ -15,3 +14,4 @@ export { getSeriesInfoById } from './getSeriesInfoById';
 export { getSeriesActorsById } from './getSeriesActorsById';
 export { getMoviesByGenreId } from './getMoviesByGenreId';
 export { getSeriesByGenreId } from './getSeriesByGenreId';
+export { getMovies } from './getMovies';
