@@ -32,7 +32,7 @@ export default async function MoviesPage() {
       <Slider
         data={topRatedMovies}
         title="Best-rated movies of all time"
-        path="/top-movies"
+        path="movies/top-movies"
         useHorizontalCard
       />
       <Slider

@@ -38,7 +38,7 @@ export default async function LandingHomePage() {
       <Slider
         data={topRatedMovies}
         title="Uncover the best-rated movies!"
-        path="/top-movies"
+        path="movies/top-movies"
       />
       <Slider
         data={popularSeries}
