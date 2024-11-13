@@ -1,5 +1,5 @@
 'use client';
-import { getTrendingMovies } from '@/services';
+import { getMovies } from '@/services';
 import { VerticalMovieCard } from './VerticalMovieCard';
 import { useEffect, useState } from 'react';
 import { MovieDetails } from '@/types/Types';
@@ -20,7 +20,7 @@ export const TrendingMoviesContent = () => {
 
   const fetchMovies = async () => {
     setLoading(true);
-    const { results } = await getTrendingMovies(page);
+    const { results } = await getMovies({ path: "trending/movie/week", page });
     setData(results);
     setLoading(false);
   };
