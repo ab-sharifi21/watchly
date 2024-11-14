@@ -1,4 +1,5 @@
 import { Footer, HomeCarousel, Slider } from '@/components';
+import { paths } from '@/constants/constants';
 import {
   getAiringTodaySeries,
   getMoviesGenres,
@@ -8,16 +9,22 @@ import {
 } from '@/services';
 
 export default async function LandingHomePage() {
-  const { results: trendingMovies } = await getMovies({ path: "trending/movie/week" });
+  const { results: trendingMovies } = await getMovies({
+    path: paths.trendingMovies,
+  });
   const { genres } = await getMoviesGenres();
   const { results: topRatedMovies } = await getMovies({
-    path: 'movie/top_rated',
+    path: paths.topRatedMovies,
   });
-  const { results: upcomingMovies } = await getMovies({ path: "movie/upcoming" });
+  const { results: upcomingMovies } = await getMovies({
+    path: paths.upcomingMovies,
+  });
   const { results: popularSeries } = await getPopularSeries();
   const { results: airingTodaySeries } = await getAiringTodaySeries();
   const { results: topRatedSeries } = await getTopRatedSeries();
-  const { results: todaysTrendingMovies } = await getMovies({ path: "trending/movie/day" });
+  const { results: todaysTrendingMovies } = await getMovies({
+    path: paths.todaysTrendingovies,
+  });
 
   return (
     <div className="">

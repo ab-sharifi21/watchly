@@ -20,7 +20,7 @@ export const UpcomingMoviesContent = () => {
 
   const fetchMovies = async () => {
     setLoading(true);
-    const { results } = await getMovies({ path: "movie/upcoming", page });
+    const { results } = await getMovies({ path: 'movie/upcoming', page });
     setData(results);
     setLoading(false);
   };

@@ -20,7 +20,7 @@ export const TrendingMoviesContent = () => {
 
   const fetchMovies = async () => {
     setLoading(true);
-    const { results } = await getMovies({ path: "trending/movie/week", page });
+    const { results } = await getMovies({ path: 'trending/movie/week', page });
     setData(results);
     setLoading(false);
   };

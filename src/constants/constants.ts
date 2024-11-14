@@ -87,3 +87,10 @@ export const genresRoutes: Route[] = [
     href: '/genres/thriller',
   },
 ];
+
+export const paths = {
+  todaysTrendingovies: 'trending/movie/day',
+  trendingMovies: 'trending/movie/week',
+  upcomingMovies: 'movie/upcoming',
+  topRatedMovies: 'movie/top_rated',
+};
