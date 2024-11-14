@@ -1,11 +1,12 @@
 import { Footer, GenresMenu, HomeCarousel, Slider } from '@/components';
+import { paths } from '@/constants/constants';
 import {
   getAiringTodaySeries,
   getMoviesGenres,
   getOnTheAirSeries,
   getPopularSeries,
-  getTopRatedSeries,
 } from '@/services';
+import { getSeries } from '@/services/getSeries';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default async function SeriesPage() {
   const { results: trendingSeries } = await getPopularSeries();
   const { genres } = await getMoviesGenres();
   const { results: airingTodaySeries } = await getAiringTodaySeries();
-  const { results: topRatedSeries } = await getTopRatedSeries();
+  const { results: topRatedSeries } = await getSeries({ path: paths.topRatedSeries });
   const { results: onTheAirSeries } = await getOnTheAirSeries();
 
   return (
