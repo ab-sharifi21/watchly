@@ -1,4 +1,3 @@
-export { getPopularSeries } from './getPopularSeries';
 export { getOneMovieGenres } from './getOneMovieGenre';
 export { getOneMovieTrailer } from './getMovieTrailer';
 export { getMoviesGenres, getSeriesGenres } from './getMovieGenres';
@@ -11,3 +10,4 @@ export { getSeriesActorsById } from './getSeriesActorsById';
 export { getMoviesByGenreId } from './getMoviesByGenreId';
 export { getSeriesByGenreId } from './getSeriesByGenreId';
 export { getMovies } from './getMovies';
+export { getSeries } from './getSeries';
