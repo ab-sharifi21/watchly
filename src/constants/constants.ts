@@ -93,4 +93,8 @@ export const paths = {
   trendingMovies: 'trending/movie/week',
   upcomingMovies: 'movie/upcoming',
   topRatedMovies: 'movie/top_rated',
+  topRatedSeries: "tv/top_rated",
+  popularSeries: "tv/popular",
+  onTheAirSeries: "tv/on_the_air",
+  airingTodaySeries: "tv/airing_today",
 };
