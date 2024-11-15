@@ -17,5 +17,5 @@ export { GenrePageContent } from './GenrePageContent';
 export { SeriesGenrePageContent } from './SeriesGenrePageContent';
 export { Pagination } from './Pagination';
 export { UpcomingMoviesContent } from './UpcomingMoviesContent';
-export { TopRatedMoviesContent } from './TopRatedMoviesContent';
+export { MoviesContent } from './MoviesContent';
 export { TrendingMoviesContent } from './TrendingMoviesContent';

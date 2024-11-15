@@ -1,4 +1,5 @@
-import { Footer, TopRatedMoviesContent } from '@/components';
+import { Footer, MoviesContent } from '@/components';
+import { paths } from '@/constants/constants';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export default async function TopRatedMoviesPage() {
         <h1 className="mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color">
           Uncover the best-rated movies!
         </h1>
-        <TopRatedMoviesContent />
+        <MoviesContent path={paths.topRatedMovies} />
       </main>
       <Footer />
     </>
