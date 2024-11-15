@@ -1,6 +1,6 @@
+import { Metadata } from 'next';
 import { MoviesContent } from '@/components';
 import { paths } from '@/constants/constants';
-import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Watchly - top rated',

@@ -31,20 +31,20 @@ export default async function SeriesPage() {
       <Slider
         data={airingTodaySeries}
         title="Check out the series airing today"
-        path="/airing-today-series"
+        path="/series/airing-today-series"
         isSeries
       />
       <Slider
         data={topRatedSeries}
         title="Dive into the top-rated shows"
-        path="/top-series"
+        path="/series/top-series"
         isSeries
         useHorizontalCard
       />
       <Slider
         data={onTheAirSeries}
         title="Experience live entertainment!"
-        path="/on-air-series"
+        path="/series/on-air-series"
         isSeries
       />
     </>
