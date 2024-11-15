@@ -1,11 +1,6 @@
-import { Footer, GenresMenu, HomeCarousel, Slider } from '@/components';
-import {
-  getAiringTodaySeries,
-  getMoviesGenres,
-  getOnTheAirSeries,
-  getPopularSeries,
-  getTopRatedSeries,
-} from '@/services';
+import { GenresMenu, HomeCarousel, Slider } from '@/components';
+import { paths } from '@/constants/constants';
+import { getMoviesGenres, getSeries } from '@/services';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -15,15 +10,23 @@ export const metadata: Metadata = {
 };
 
 export default async function SeriesPage() {
-  const { results: trendingSeries } = await getPopularSeries();
+  const { results: popularSeries } = await getSeries({
+    path: paths.popularSeries,
+  });
   const { genres } = await getMoviesGenres();
-  const { results: airingTodaySeries } = await getAiringTodaySeries();
-  const { results: topRatedSeries } = await getTopRatedSeries();
-  const { results: onTheAirSeries } = await getOnTheAirSeries();
+  const { results: airingTodaySeries } = await getSeries({
+    path: paths.airingTodaySeries,
+  });
+  const { results: topRatedSeries } = await getSeries({
+    path: paths.topRatedSeries,
+  });
+  const { results: onTheAirSeries } = await getSeries({
+    path: paths.onTheAirSeries,
+  });
 
   return (
     <>
-      <HomeCarousel data={trendingSeries} genres={genres} isSeries />
+      <HomeCarousel data={popularSeries} genres={genres} isSeries />
       <GenresMenu isSeries />
       <Slider
         data={airingTodaySeries}
@@ -44,7 +47,6 @@ export default async function SeriesPage() {
         path="/on-air-series"
         isSeries
       />
-      <Footer />
     </>
   );
 }

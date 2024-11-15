@@ -1,11 +1,15 @@
 'use client';
-import { getTopRatedMovies } from '@/services';
+import { getMovies } from '@/services';
 import { VerticalMovieCard } from './VerticalMovieCard';
 import { useEffect, useState } from 'react';
 import { MovieDetails } from '@/types/Types';
 import { Pagination } from './Pagination';
 
-export const TopRatedMoviesContent = () => {
+interface Props {
+  path: string;
+}
+
+export const MoviesContent = ({ path }: Props) => {
   const [data, setData] = useState<MovieDetails[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
@@ -20,7 +24,7 @@ export const TopRatedMoviesContent = () => {
 
   const fetchMovies = async () => {
     setLoading(true);
-    const { results } = await getTopRatedMovies(page);
+    const { results } = await getMovies({ path, page });
     setData(results);
     setLoading(false);
   };

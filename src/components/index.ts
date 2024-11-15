@@ -16,6 +16,4 @@ export { ActorsSlider } from './ActorsSlider';
 export { GenrePageContent } from './GenrePageContent';
 export { SeriesGenrePageContent } from './SeriesGenrePageContent';
 export { Pagination } from './Pagination';
-export { UpcomingMoviesContent } from './UpcomingMoviesContent';
-export { TopRatedMoviesContent } from './TopRatedMoviesContent';
-export { TrendingMoviesContent } from './TrendingMoviesContent';
+export { MoviesContent } from './MoviesContent';

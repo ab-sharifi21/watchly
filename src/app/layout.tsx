@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { poppins } from '@/lib/fonts';
-import { Header } from '@/components';
+import { Footer, Header } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Watchly',
@@ -16,10 +16,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.className} min-h-screen bg-primary-bg-color text-white antialiased`}
+        className={`${poppins.className} flex min-h-screen flex-col bg-primary-bg-color text-white antialiased`}
       >
         <Header />
-        {children}
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );

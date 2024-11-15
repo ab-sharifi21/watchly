@@ -40,7 +40,7 @@ export const HomeCarousel: React.FC<Props> = ({ data, genres, isSeries }) => {
   }, [emblaApi, onSelect]);
 
   return (
-    <div
+    <section
       className={`embla relative overflow-hidden ${isMobile ? 'h-[70vh]' : 'h-screen'} w-full overflow-hidden`}
       ref={emblaRef}
     >
@@ -73,6 +73,6 @@ export const HomeCarousel: React.FC<Props> = ({ data, genres, isSeries }) => {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };

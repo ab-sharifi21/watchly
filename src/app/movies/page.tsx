@@ -1,10 +1,6 @@
-import { Footer, GenresMenu, HomeCarousel, Slider } from '@/components';
-import {
-  getMoviesGenres,
-  getTopRatedMovies,
-  getTrendingMovies,
-  getUpcomingMovies,
-} from '@/services';
+import { GenresMenu, HomeCarousel, Slider } from '@/components';
+import { paths } from '@/constants/constants';
+import { getMoviesGenres, getMovies } from '@/services';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -14,11 +10,19 @@ export const metadata: Metadata = {
 };
 
 export default async function MoviesPage() {
-  const { results: trendingMovies } = await getTrendingMovies();
+  const { results: trendingMovies } = await getMovies({
+    path: paths.trendingMovies,
+  });
   const { genres } = await getMoviesGenres();
-  const { results: upcomingMovies } = await getUpcomingMovies();
-  const { results: topRatedMovies } = await getTopRatedMovies();
-  const { results: todaysTrendingMovies } = await getTrendingMovies();
+  const { results: upcomingMovies } = await getMovies({
+    path: paths.upcomingMovies,
+  });
+  const { results: topRatedMovies } = await getMovies({
+    path: paths.topRatedMovies,
+  });
+  const { results: todaysTrendingMovies } = await getMovies({
+    path: paths.todaysTrendingovies,
+  });
 
   return (
     <>
@@ -40,7 +44,6 @@ export default async function MoviesPage() {
         title="Catch today's trending movies"
         path="movies/trending-movies"
       />
-      <Footer />
     </>
   );
 }
