@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import { Footer, TrendingMoviesContent } from '@/components';
+import { Footer, MoviesContent } from '@/components';
+import { paths } from '@/constants/constants';
 
 export const metadata: Metadata = {
   title: 'Watchly - trending',
@@ -13,7 +14,7 @@ export default async function TrendingMoviesPage() {
         <h1 className="mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color">
           Catch best trending movies!
         </h1>
-        <TrendingMoviesContent />
+        <MoviesContent path={paths.trendingMovies} />
       </main>
       <Footer />
     </>
