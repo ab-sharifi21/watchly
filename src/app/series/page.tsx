@@ -31,7 +31,7 @@ export default async function SeriesPage() {
       <Slider
         data={airingTodaySeries}
         title="Check out the series airing today"
-        path="/series/airing-today-series"
+        path="/series/airing-today"
         isSeries
       />
       <Slider
