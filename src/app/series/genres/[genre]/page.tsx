@@ -26,12 +26,10 @@ export default async function SeriesGenrePage({ params }: Props) {
 
   return (
     <>
-      <main className="">
-        <h1 className="mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color">
-          Dive into nonstop {genreName} series!
-        </h1>
-        <SeriesGenrePageContent genreId={genreId} />
-      </main>
+      <h1 className="mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color">
+        Dive into nonstop {genreName} series!
+      </h1>
+      <SeriesGenrePageContent genreId={genreId} />
     </>
   );
 }
