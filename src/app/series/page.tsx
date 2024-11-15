@@ -44,7 +44,7 @@ export default async function SeriesPage() {
       <Slider
         data={onTheAirSeries}
         title="Experience live entertainment!"
-        path="/series/on-air-series"
+        path="/series/on-air"
         isSeries
       />
     </>
