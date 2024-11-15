@@ -1,4 +1,4 @@
-import { Footer, HomeCarousel, Slider } from '@/components';
+import { HomeCarousel, Slider } from '@/components';
 import { paths } from '@/constants/constants';
 import { getMoviesGenres, getMovies, getSeries } from '@/services';
 
@@ -65,7 +65,6 @@ export default async function LandingHomePage() {
         isSeries
         useHorizontalCard
       />
-      <Footer />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Footer, MoviesContent } from '@/components';
+import { MoviesContent } from '@/components';
 import { paths } from '@/constants/constants';
 import { Metadata } from 'next';
 
@@ -16,7 +16,6 @@ export default async function UpcomingMoviesPage() {
         </h1>
         <MoviesContent path={paths.upcomingMovies} />
       </main>
-      <Footer />
     </>
   );
 }

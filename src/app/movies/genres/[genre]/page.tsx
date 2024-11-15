@@ -1,4 +1,4 @@
-import { Footer, GenrePageContent } from '@/components';
+import { GenrePageContent } from '@/components';
 import { getMoviesGenres } from '@/services';
 import { Genre } from '@/types/Types';
 
@@ -33,7 +33,6 @@ export default async function GenrePage({ params }: Props) {
         </h1>
         <GenrePageContent genreId={genreId} />
       </main>
-      <Footer />
     </>
   );
 }

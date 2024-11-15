@@ -1,4 +1,4 @@
-import { Footer, GenresMenu, HomeCarousel, Slider } from '@/components';
+import { GenresMenu, HomeCarousel, Slider } from '@/components';
 import { paths } from '@/constants/constants';
 import { getMoviesGenres, getSeries } from '@/services';
 import { Metadata } from 'next';
@@ -47,7 +47,6 @@ export default async function SeriesPage() {
         path="/on-air-series"
         isSeries
       />
-      <Footer />
     </>
   );
 }

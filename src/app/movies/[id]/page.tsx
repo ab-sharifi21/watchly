@@ -1,4 +1,4 @@
-import { ActorsSlider, Footer, MovieInfo } from '@/components';
+import { ActorsSlider, MovieInfo } from '@/components';
 import { getMovieActorsById, getMovieInfoById } from '@/services';
 import Image from 'next/image';
 
@@ -42,7 +42,6 @@ export default async function MoviePage({ params }: Props) {
         />
       </section>
       <ActorsSlider actors={movieActors} />
-      <Footer />
     </>
   );
 }

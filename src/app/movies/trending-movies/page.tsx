@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { Footer, MoviesContent } from '@/components';
+import { MoviesContent } from '@/components';
 import { paths } from '@/constants/constants';
 
 export const metadata: Metadata = {
@@ -16,7 +16,6 @@ export default async function TrendingMoviesPage() {
         </h1>
         <MoviesContent path={paths.trendingMovies} />
       </main>
-      <Footer />
     </>
   );
 }

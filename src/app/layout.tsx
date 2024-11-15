@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { poppins } from '@/lib/fonts';
-import { Header } from '@/components';
+import { Footer, Header } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Watchly',
@@ -20,6 +20,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
