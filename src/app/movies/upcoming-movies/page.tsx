@@ -1,4 +1,5 @@
-import { Footer, UpcomingMoviesContent } from '@/components';
+import { Footer, MoviesContent } from '@/components';
+import { paths } from '@/constants/constants';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export default async function UpcomingMoviesPage() {
         <h1 className="mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color">
           Exciting upcoming movies await!
         </h1>
-        <UpcomingMoviesContent />
+        <MoviesContent path={paths.upcomingMovies} />
       </main>
       <Footer />
     </>
