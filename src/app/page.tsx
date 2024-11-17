@@ -37,7 +37,7 @@ export default async function LandingHomePage() {
       <Slider
         data={topRatedSeries}
         title="Dive into the top-rated shows"
-        path="/top-series"
+        path="/series/top-series"
         isSeries
         useHorizontalCard
       />
@@ -49,7 +49,7 @@ export default async function LandingHomePage() {
       <Slider
         data={popularSeries}
         title="Check out popular series everyone is talking about"
-        path="/popular-series"
+        path="/series/popular"
         isSeries
         useHorizontalCard
       />
@@ -61,7 +61,7 @@ export default async function LandingHomePage() {
       <Slider
         data={airingTodaySeries}
         title="Check out the series airing today"
-        path="/airing-today-series"
+        path="/series/airing-today"
         isSeries
         useHorizontalCard
       />
