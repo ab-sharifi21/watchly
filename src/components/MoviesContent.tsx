@@ -7,9 +7,10 @@ import { Pagination } from './Pagination';
 
 interface Props {
   path: string;
+  isSeries?: boolean;
 }
 
-export const MoviesContent = ({ path }: Props) => {
+export const MoviesContent = ({ path, isSeries }: Props) => {
   const [data, setData] = useState<MovieDetails[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
@@ -49,7 +50,13 @@ export const MoviesContent = ({ path }: Props) => {
     <>
       <section className="flex flex-wrap items-center justify-center gap-4 px-4">
         {!loading ? (
-          data.map((movie) => <VerticalMovieCard key={movie.id} data={movie} />)
+          data.map((movie) => (
+            <VerticalMovieCard
+              key={movie.id}
+              isSeries={isSeries}
+              data={movie}
+            />
+          ))
         ) : (
           <p>Loading...</p>
         )}
