@@ -9,3 +9,5 @@ export { getMoviesByGenreId } from './getMoviesByGenreId';
 export { getSeriesByGenreId } from './getSeriesByGenreId';
 export { getMovies } from './getMovies';
 export { getSeries } from './getSeries';
+export { getMovieByName } from './getMovieByName';
+export { getSeriesByName } from './getSeriesByName';
