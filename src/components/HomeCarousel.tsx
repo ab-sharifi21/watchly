@@ -17,9 +17,7 @@ export const HomeCarousel: React.FC<Props> = ({ data, genres, isSeries }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false }, [Autoplay()]);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const imageURL = isMobile
-    ? process.env.NEXT_PUBLIC_IMAGE_BASE_URL_MOBILE
-    : process.env.NEXT_PUBLIC_IMAGE_BASE_URL_DESKTOP;
+  const imageURL = process.env.NEXT_PUBLIC_IMAGE_BASE_URL_DESKTOP;
 
   const scrollTo = useCallback(
     (index: number) => {
