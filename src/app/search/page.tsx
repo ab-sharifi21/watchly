@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { getMovieByName, getSeriesByName } from '@/services';
 import { MovieDetails, SeriesDetails } from '@/types/Types';
@@ -68,4 +68,11 @@ const SearchPage = () => {
   );
 };
 
-export default SearchPage;
+// Wrap SearchPage in Suspense
+const SuspenseSearchPage = () => (
+  <Suspense fallback={<div>Loading search...</div>}>
+    <SearchPage />
+  </Suspense>
+);
+
+export default SuspenseSearchPage;
