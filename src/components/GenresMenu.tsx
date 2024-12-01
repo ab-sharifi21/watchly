@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const GenresMenu = ({ isSeries }: Props) => {
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
 
   return (
     <nav className="mt-8 px-3">
