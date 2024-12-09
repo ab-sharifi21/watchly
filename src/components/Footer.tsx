@@ -7,7 +7,7 @@ import { BsGlobe } from 'react-icons/bs';
 
 export const Footer = () => {
   return (
-    <footer className="flex flex-col items-center justify-around gap-3 px-4 py-8 text-slate-400 md:flex-row">
+    <footer className="flex flex-col items-center justify-around gap-6 md:gap-3 px-4 py-8 text-slate-400 md:flex-row">
       <div className="order-3 flex flex-col items-center gap-2 md:items-start">
         <Logo width={35} height={35} classes="text-3xl text-white" />
         <p className="max-w-[22rem] text-center md:text-left">
