@@ -51,20 +51,21 @@ export const MovieInfo = ({ data, genres, isSeries }: MovieInfoProps) => {
         </div>
         {movieGenres.length > 0
           ? movieGenres.map((genre) => (
-              <p key={genre.id} className="text-sm lg:text-[1rem]">
-                <span className="text-lg text-slate-400">|</span> {genre.name}
-              </p>
-            ))
+            <p key={genre.id} className="text-sm lg:text-[1rem]">
+              <span className="text-lg text-slate-400">|</span> {genre.name}
+            </p>
+          ))
           : genres.slice(0, 2).map((genre) => (
-              <p key={genre.id} className="text-sm lg:text-[1rem]">
-                <span className="text-lg text-slate-400">|</span> {genre.name}
-              </p>
-            ))}
+            <p key={genre.id} className="text-sm lg:text-[1rem]">
+              <span className="text-lg text-slate-400">|</span> {genre.name}
+            </p>
+          ))}
       </div>
 
-      <p className="max-w-[350px] text-sm md:max-w-[500px] lg:max-w-[800px] lg:text-[16px]">
+      <p className="max-w-full text-sm line-clamp-5 md:line-calmp-none md:max-w-[500px] lg:max-w-[800px] lg:text-[16px]">
         {data.overview}
       </p>
+
       <div className="my-2 flex flex-col gap-0 md:flex-row md:gap-4">
         <span className="flex place-items-center gap-1 text-sm text-slate-400">
           <CiCalendar className="text-normal h-5 w-5 text-primary-color" />{' '}
