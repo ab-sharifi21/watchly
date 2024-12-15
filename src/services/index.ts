@@ -11,3 +11,5 @@ export { getMovies } from './getMovies';
 export { getSeries } from './getSeries';
 export { getMovieByName } from './getMovieByName';
 export { getSeriesByName } from './getSeriesByName';
+export { getMovieWatchProviders } from './getMovieWatchProviders';
+export { getSeriesWatchProvider } from './getSeriesWatchProvider';
