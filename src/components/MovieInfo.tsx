@@ -51,18 +51,18 @@ export const MovieInfo = ({ data, genres, isSeries }: MovieInfoProps) => {
         </div>
         {movieGenres.length > 0
           ? movieGenres.map((genre) => (
-            <p key={genre.id} className="text-sm lg:text-[1rem]">
-              <span className="text-lg text-slate-400">|</span> {genre.name}
-            </p>
-          ))
+              <p key={genre.id} className="text-sm lg:text-[1rem]">
+                <span className="text-lg text-slate-400">|</span> {genre.name}
+              </p>
+            ))
           : genres.slice(0, 2).map((genre) => (
-            <p key={genre.id} className="text-sm lg:text-[1rem]">
-              <span className="text-lg text-slate-400">|</span> {genre.name}
-            </p>
-          ))}
+              <p key={genre.id} className="text-sm lg:text-[1rem]">
+                <span className="text-lg text-slate-400">|</span> {genre.name}
+              </p>
+            ))}
       </div>
 
-      <p className="max-w-full text-sm line-clamp-5 md:line-calmp-none md:max-w-[500px] lg:max-w-[800px] lg:text-[16px]">
+      <p className="md:line-calmp-none line-clamp-5 max-w-full text-sm md:max-w-[500px] lg:max-w-[800px] lg:text-[16px]">
         {data.overview}
       </p>
 

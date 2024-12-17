@@ -1,9 +1,10 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { Menu, Button, SearchBox, Logo } from './index';
+import { Menu, Button, SearchBox, Logo, LogInFormModal } from './index';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,8 +32,30 @@ export const Header = () => {
       </div>
       <div className="flex place-items-center gap-2">
         <SearchBox />
-        <Button buttonText="Log in" />
+        <Button buttonText="Log in" onClick={() => setIsModalOpen(true)} />
       </div>
+      <LogInFormModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      >
+        <h2 className="mb-4 text-xl font-semibold">Welcome to Watchly</h2>
+        <form className="flex flex-col gap-4">
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-full rounded-md border bg-black/60 px-3 py-2 outline-none"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full rounded-md border bg-black/60 px-3 py-2 outline-none"
+          />
+          <div className="flex w-full justify-end gap-4">
+            <Button buttonText="Log In" />
+            <Button buttonText="Sign Up" />
+          </div>
+        </form>
+      </LogInFormModal>
     </header>
   );
 };
