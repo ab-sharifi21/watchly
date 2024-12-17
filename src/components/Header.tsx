@@ -37,25 +37,7 @@ export const Header = () => {
       <LogInFormModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-      >
-        <h2 className="mb-4 text-xl font-semibold">Welcome to Watchly</h2>
-        <form className="flex flex-col gap-4">
-          <input
-            type="email"
-            placeholder="Email"
-            className="w-full rounded-md border bg-black/60 px-3 py-2 outline-none"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-full rounded-md border bg-black/60 px-3 py-2 outline-none"
-          />
-          <div className="flex w-full justify-end gap-4">
-            <Button buttonText="Log In" />
-            <Button buttonText="Sign Up" />
-          </div>
-        </form>
-      </LogInFormModal>
+      />
     </header>
   );
 };
