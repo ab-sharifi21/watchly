@@ -18,4 +18,3 @@ export { SeriesGenrePageContent } from './SeriesGenrePageContent';
 export { Pagination } from './Pagination';
 export { MoviesContent } from './MoviesContent';
 export { LogInFormModal } from './LogInFormModal';
-export { SignUpFormModal } from './SignUpFormModal';
