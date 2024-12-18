@@ -29,7 +29,6 @@ export default async function MoviePage({ params }: Props) {
   const { backdrop_path, genres, poster_path, title } = movieInfo;
   const { cast: movieActors } = await getMovieActorsById(id);
   const { results: watchProviders } = await getMovieWatchProviders(id);
-  console.log(watchProviders);
 
   return (
     <>
