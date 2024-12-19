@@ -9,6 +9,7 @@ import { CiCalendar, CiClock2 } from 'react-icons/ci';
 import { MdOutlineStar } from 'react-icons/md';
 import { Trailer } from './MovieTrailer';
 import { getOneMovieGenres } from '@/services';
+import { titleFont } from '@/lib/fonts';
 
 interface MovieInfoProps {
   data: MovieDetails | SeriesDetails | DetailedMovie;
@@ -30,7 +31,9 @@ export const MovieInfo = ({ data, genres, isSeries }: MovieInfoProps) => {
 
   return (
     <section className="absolute bottom-12 px-4 md:bottom-20 md:px-8">
-      <h2 className="text-2xl font-semibold lg:text-3xl">
+      <h2
+        className={`${titleFont.className} text-2xl font-semibold lg:text-3xl`}
+      >
         {!isSeries
           ? (data as MovieDetails).title
           : (data as SeriesDetails).name}
@@ -51,18 +54,18 @@ export const MovieInfo = ({ data, genres, isSeries }: MovieInfoProps) => {
         </div>
         {movieGenres.length > 0
           ? movieGenres.map((genre) => (
-            <p key={genre.id} className="text-sm lg:text-[1rem]">
-              <span className="text-lg text-slate-400">|</span> {genre.name}
-            </p>
-          ))
+              <p key={genre.id} className="text-sm lg:text-[1rem]">
+                <span className="text-lg text-slate-400">|</span> {genre.name}
+              </p>
+            ))
           : genres.slice(0, 2).map((genre) => (
-            <p key={genre.id} className="text-sm lg:text-[1rem]">
-              <span className="text-lg text-slate-400">|</span> {genre.name}
-            </p>
-          ))}
+              <p key={genre.id} className="text-sm lg:text-[1rem]">
+                <span className="text-lg text-slate-400">|</span> {genre.name}
+              </p>
+            ))}
       </div>
 
-      <p className="max-w-full text-sm line-clamp-5 md:line-calmp-none md:max-w-[500px] lg:max-w-[800px] lg:text-[16px]">
+      <p className="md:line-calmp-none line-clamp-5 max-w-full text-sm md:max-w-[500px] lg:max-w-[800px] lg:text-[16px]">
         {data.overview}
       </p>
 

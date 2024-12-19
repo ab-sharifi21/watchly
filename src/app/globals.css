@@ -2,16 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .custom-scrollbar::-webkit-scrollbar {
-    @apply w-2;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-primary-color rounded-md;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-track {
-    @apply bg-none;
-  }
-  
+  @apply w-2;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply rounded-md bg-primary-color;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-none;
+}

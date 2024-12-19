@@ -1,7 +1,12 @@
 import Image from 'next/image';
 import { ActorsSlider, MovieInfo } from '@/components';
-import { getSeriesActorsById, getSeriesInfoById, getSeriesWatchProvider } from '@/services';
+import {
+  getSeriesActorsById,
+  getSeriesInfoById,
+  getSeriesWatchProvider,
+} from '@/services';
 import { FlateratedProvider } from '@/types/Types';
+import { titleFont } from '@/lib/fonts';
 
 interface Props {
   params: {
@@ -43,21 +48,25 @@ export default async function SeriesPage({ params }: Props) {
         />
       </section>
       <ActorsSlider actors={seriesActors} />
-      {watchProviders.ES &&
+      {watchProviders.ES && (
         <section>
-          <h3 className="px-4 text-2xl mb-3 font-semibold">Where to watch: </h3>
+          <h3
+            className={`${titleFont.className} mb-3 px-4 text-2xl font-semibold`}
+          >
+            Where to watch:{' '}
+          </h3>
           <div className="flex flex-wrap gap-4 px-4">
             {watchProviders.ES.flatrate.map((provider: FlateratedProvider) => (
               <span
                 key={provider.provider_name}
-                className="rounded-lg border px-4 py-2 text-sm font-semibold border-primary-color hover:bg-secondary-color duration-300 hover:text-black hover:cursor-pointer"
+                className="rounded-lg border border-primary-color px-4 py-2 text-sm font-semibold duration-300 hover:cursor-pointer hover:bg-secondary-color hover:text-black"
               >
                 {provider.provider_name}
               </span>
             ))}
           </div>
         </section>
-      }
+      )}
     </>
   );
 }
