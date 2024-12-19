@@ -28,7 +28,9 @@ export default async function GenrePage({ params }: Props) {
 
   return (
     <>
-      <h1 className={`${titleFont.className} mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color`}>
+      <h1
+        className={`${titleFont.className} mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color`}
+      >
         Dive into nonstop {genreName} entertainment!
       </h1>
       <GenrePageContent genreId={genreId} />

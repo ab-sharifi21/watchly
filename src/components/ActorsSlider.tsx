@@ -14,7 +14,9 @@ export const ActorsSlider: React.FC<Props> = ({ actors }) => {
 
   return (
     <section className="my-8">
-      <h3 className={`${titleFont.className} px-2 text-2xl font-semibold`}>Get to know the actors:</h3>
+      <h3 className={`${titleFont.className} px-2 text-2xl font-semibold`}>
+        Get to know the actors:
+      </h3>
       <div className="embla mt-4 overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex gap-5">
           {actors

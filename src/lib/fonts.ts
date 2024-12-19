@@ -12,5 +12,5 @@ export const caveat = Caveat({
 
 export const titleFont = Montserrat_Alternates({
   subsets: ['latin'],
-  weight: ['700', '500', '600']
-})
+  weight: ['700', '500', '600'],
+});

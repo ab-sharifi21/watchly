@@ -11,7 +11,9 @@ export const metadata: Metadata = {
 export default async function UpcomingMoviesPage() {
   return (
     <>
-      <h1 className={`${titleFont.className} mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color`}>
+      <h1
+        className={`${titleFont.className} mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color`}
+      >
         Exciting upcoming movies await!
       </h1>
       <MoviesContent path={paths.upcomingMovies} />

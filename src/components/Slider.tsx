@@ -36,7 +36,11 @@ export const Slider: React.FC<Props> = ({
     <section className="relative my-4 w-full overflow-hidden px-2 py-4">
       {path && !useHorizontalCard && (
         <div className="group mb-2 flex cursor-pointer items-center gap-2">
-          <h3 className={`${titleFont.className} text-xl font-semibold lg:text-3xl`}>{title}</h3>
+          <h3
+            className={`${titleFont.className} text-xl font-semibold lg:text-3xl`}
+          >
+            {title}
+          </h3>
           <Link href={path}>
             <span className="duration-3000 hidden items-center text-xs text-secondary-color group-hover:flex group-hover:animate-slideIn">
               Explore All <GrFormNext className="h-5 w-5" />
@@ -49,7 +53,9 @@ export const Slider: React.FC<Props> = ({
         <div className="flex gap-2">
           {useHorizontalCard && (
             <article className="embla__slide h-[170px] w-[270px] flex-none rounded-lg bg-gradient-to-b from-black to-transparent">
-              <p className={`${titleFont.className} flex h-full w-full items-center justify-center p-2 text-xl font-semibold text-slate-400`}>
+              <p
+                className={`${titleFont.className} flex h-full w-full items-center justify-center p-2 text-xl font-semibold text-slate-400`}
+              >
                 {title}
               </p>
             </article>

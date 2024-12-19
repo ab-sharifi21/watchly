@@ -45,7 +45,9 @@ const SearchPage = () => {
 
   if (!movies.length && !series.length) {
     return (
-      <p className={`${titleFont.className} mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color`}>
+      <p
+        className={`${titleFont.className} mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color`}
+      >
         No results found for{' '}
         <span className="italic text-secondary-color">{query}</span>.
       </p>
@@ -54,7 +56,9 @@ const SearchPage = () => {
 
   return (
     <section className="">
-      <h1 className={`${titleFont.className} mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color`}>
+      <h1
+        className={`${titleFont.className} mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color`}
+      >
         Search Results for {query}
       </h1>
       <div className="flex flex-wrap items-center justify-center gap-4 px-4">

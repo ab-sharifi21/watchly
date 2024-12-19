@@ -1,4 +1,5 @@
 import { SeriesGenrePageContent } from '@/components';
+import { titleFont } from '@/lib/fonts';
 import { getSeriesGenres } from '@/services';
 import { Genre } from '@/types/Types';
 
@@ -26,7 +27,9 @@ export default async function SeriesGenrePage({ params }: Props) {
 
   return (
     <>
-      <h1 className="mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color">
+      <h1
+        className={`${titleFont.className} mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color`}
+      >
         Dive into nonstop {genreName} series!
       </h1>
       <SeriesGenrePageContent genreId={genreId} />
