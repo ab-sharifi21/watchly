@@ -4,6 +4,7 @@ import { TfiEmail } from 'react-icons/tfi';
 import { SiGithub } from 'react-icons/si';
 import { FaLinkedin } from 'react-icons/fa';
 import { BsGlobe } from 'react-icons/bs';
+import { titleFont } from '@/lib/fonts';
 
 export const Footer = () => {
   return (
@@ -16,7 +17,7 @@ export const Footer = () => {
         </p>
       </div>
       <div className="flex flex-col items-center gap-2 md:items-start">
-        <h3 className="text-xl font-semibold text-white">Contacts</h3>
+        <h3 className={`${titleFont.className} text-xl font-semibold text-white`}>Contacts</h3>
         <ul className="flex gap-3">
           <li>
             <Link
@@ -60,7 +61,7 @@ export const Footer = () => {
         </ul>
       </div>
       <div className="flex flex-col gap-2">
-        <h3 className="text-xl font-semibold text-white">Technologies</h3>
+        <h3 className={`${titleFont.className} text-xl font-semibold text-white`}>Technologies</h3>
         <ul className="text-center md:text-left">
           <li>TypeScript</li>
           <li>React.js</li>
