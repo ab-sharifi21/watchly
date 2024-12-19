@@ -1,4 +1,5 @@
 import { ActorsSlider, MovieInfo } from '@/components';
+import { titleFont } from '@/lib/fonts';
 import { getMovieActorsById, getMovieInfoById, getMovieWatchProviders } from '@/services';
 import { FlateratedProvider } from '@/types/Types';
 import Image from 'next/image';
@@ -25,7 +26,6 @@ export default async function MoviePage({ params }: Props) {
   const { backdrop_path, genres, poster_path, title } = movieInfo;
   const { cast: movieActors } = await getMovieActorsById(id);
   const { results: watchProviders } = await getMovieWatchProviders(id);
-  console.log(watchProviders)
 
   return (
     <>
@@ -47,8 +47,8 @@ export default async function MoviePage({ params }: Props) {
       <ActorsSlider actors={movieActors} />
       {watchProviders.ES &&
         <section>
-          <h3 className="px-4 text-2xl mb-3 font-semibold">Where to watch: </h3>
-          <div className="flex flex-wrap gap-4 px-4">
+          <h3 className={`${titleFont.className} px-2 text-2xl mb-3 font-semibold`}>Where to watch: </h3>
+          <div className="flex flex-wrap gap-4 px-2">
             {watchProviders.ES.flatrate.map((provider: FlateratedProvider) => (
               <span
                 key={provider.provider_name}
