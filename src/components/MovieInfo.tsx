@@ -9,6 +9,7 @@ import { CiCalendar, CiClock2 } from 'react-icons/ci';
 import { MdOutlineStar } from 'react-icons/md';
 import { Trailer } from './MovieTrailer';
 import { getOneMovieGenres } from '@/services';
+import { titleFont } from '@/lib/fonts';
 
 interface MovieInfoProps {
   data: MovieDetails | SeriesDetails | DetailedMovie;
@@ -30,7 +31,7 @@ export const MovieInfo = ({ data, genres, isSeries }: MovieInfoProps) => {
 
   return (
     <section className="absolute bottom-12 px-4 md:bottom-20 md:px-8">
-      <h2 className="text-2xl font-semibold lg:text-3xl">
+      <h2 className={`${titleFont.className} text-2xl font-semibold lg:text-3xl`}>
         {!isSeries
           ? (data as MovieDetails).title
           : (data as SeriesDetails).name}
