@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { MoviesContent } from '@/components';
 import { paths } from '@/constants/constants';
+import { titleFont } from '@/lib/fonts';
 
 export const metadata: Metadata = {
   title: 'Watchly - top rated',
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 export default async function TopRatedMoviesPage() {
   return (
     <>
-      <h1 className="mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color">
+      <h1 className={`${titleFont.className} mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color`}>
         Uncover the best-rated movies!
       </h1>
       <MoviesContent path={paths.topRatedMovies} />
