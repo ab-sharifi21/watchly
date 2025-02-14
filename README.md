@@ -2,7 +2,7 @@
 
 ![Status](https://img.shields.io/badge/Status-In_Progress-red)
 
-[Demo](https://watchly-app.vercel.app/)
+🌐[Demo](https://watchly-app.vercel.app/)
 
 <div align="center">
     <img src="./public/images/home.png" />
@@ -25,10 +25,35 @@ Watchly makes it easy to find and enjoy movies and series. Explore popular title
 
 ## Installation
 
-1. Clone the project 👉 `git clone git@github.com:ab-sharifi21/watchly.git`
-2. Install the dependencies 👉 `npm install`
-3. Rename the `.env.example` to `.env.local`
-4. Run the app with 👉 `npm run dev`
+1. Clone the project 👇
+
+```bash
+git clone git@github.com:ab-sharifi21/watchly.git
+```
+
+2. Install the dependencies 👇
+
+```bash
+npm install
+```
+
+3. Copy the contents of .env.example to .env.local 👇
+
+```bash
+cp .env.example .env.local
+```
+
+4. Run the app with 👇
+
+```bash
+npm run dev
+```
+
+5. To access the app open you browser and go to 👇
+
+```bash
+http://localhost:3000
+```
 
 ## Technologies
 
