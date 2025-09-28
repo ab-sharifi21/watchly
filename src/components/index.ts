@@ -17,3 +17,4 @@ export { GenrePageContent } from './GenrePageContent';
 export { SeriesGenrePageContent } from './SeriesGenrePageContent';
 export { Pagination } from './Pagination';
 export { MoviesContent } from './MoviesContent';
+export { WatchProviderBadge } from './WatchProviderBadge';

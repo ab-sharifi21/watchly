@@ -1,12 +1,12 @@
-import { ActorsSlider, MovieInfo } from '@/components';
+import Image from 'next/image';
 import { titleFont } from '@/lib/fonts';
+import { ActorsSlider, MovieInfo, WatchProviderBadge } from '@/components';
 import {
   getMovieActorsById,
   getMovieInfoById,
   getMovieWatchProviders,
 } from '@/services';
 import { FlateratedProvider } from '@/types/Types';
-import Image from 'next/image';
 
 interface Props {
   params: {
@@ -59,21 +59,17 @@ export default async function MoviePage({ params }: Props) {
           <div className="flex flex-wrap gap-4 px-2">
             {watchProviders.ES?.flatrate?.map(
               (provider: FlateratedProvider) => (
-                <span
-                  key={provider.provider_name}
-                  className="rounded-lg border border-primary-color px-4 py-2 text-sm font-semibold duration-300 hover:cursor-pointer hover:bg-secondary-color hover:text-black"
-                >
-                  {provider.provider_name}
-                </span>
+                <WatchProviderBadge
+                  key={provider.provider_id}
+                  providerName={provider.provider_name}
+                />
               ),
             )}
             {watchProviders.ES?.rent?.map((provider: FlateratedProvider) => (
-              <span
-                key={provider.provider_name}
-                className="rounded-lg border border-primary-color px-4 py-2 text-sm font-semibold duration-300 hover:cursor-pointer hover:bg-secondary-color hover:text-black"
-              >
-                {provider.provider_name}
-              </span>
+              <WatchProviderBadge
+                key={provider.provider_id}
+                providerName={provider.provider_name}
+              />
             ))}
           </div>
         </section>
