@@ -9,7 +9,7 @@ import { VerticalMovieCard } from './VerticalMovieCard';
 import { HorizontalMovieCard } from './HorizontalMovieCard';
 import { titleFont } from '@/lib/fonts';
 
-interface Props {
+interface SliderProps {
   data: MovieDetails[] | SeriesDetails[];
   title?: string;
   path?: string;
@@ -17,7 +17,7 @@ interface Props {
   useHorizontalCard?: boolean;
 }
 
-export const Slider: React.FC<Props> = ({
+export const Slider: React.FC<SliderProps> = ({
   data,
   title,
   path,

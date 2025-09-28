@@ -57,7 +57,17 @@ export default async function MoviePage({ params }: Props) {
             Where to watch:{' '}
           </h3>
           <div className="flex flex-wrap gap-4 px-2">
-            {watchProviders.ES.flatrate.map((provider: FlateratedProvider) => (
+            {watchProviders.ES?.flatrate?.map(
+              (provider: FlateratedProvider) => (
+                <span
+                  key={provider.provider_name}
+                  className="rounded-lg border border-primary-color px-4 py-2 text-sm font-semibold duration-300 hover:cursor-pointer hover:bg-secondary-color hover:text-black"
+                >
+                  {provider.provider_name}
+                </span>
+              ),
+            )}
+            {watchProviders.ES?.rent?.map((provider: FlateratedProvider) => (
               <span
                 key={provider.provider_name}
                 className="rounded-lg border border-primary-color px-4 py-2 text-sm font-semibold duration-300 hover:cursor-pointer hover:bg-secondary-color hover:text-black"
