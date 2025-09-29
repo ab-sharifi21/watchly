@@ -1,30 +1,17 @@
 import { HomeCarousel, Slider } from '@/components';
-import { paths } from '@/constants/constants';
-import { getMoviesGenres, getMovies, getSeries } from '@/services';
+import { fetchHomePageData } from '@/services';
 
 export default async function LandingHomePage() {
-  const { results: trendingMovies } = await getMovies({
-    path: paths.trendingMovies,
-  });
-  const { genres } = await getMoviesGenres();
-  const { results: topRatedMovies } = await getMovies({
-    path: paths.topRatedMovies,
-  });
-  const { results: upcomingMovies } = await getMovies({
-    path: paths.upcomingMovies,
-  });
-  const { results: popularSeries } = await getSeries({
-    path: paths.popularSeries,
-  });
-  const { results: airingTodaySeries } = await getSeries({
-    path: paths.airingTodaySeries,
-  });
-  const { results: topRatedSeries } = await getSeries({
-    path: paths.topRatedSeries,
-  });
-  const { results: todaysTrendingMovies } = await getMovies({
-    path: paths.todaysTrendingovies,
-  });
+  const {
+    trendingMovies,
+    genres,
+    upcomingMovies,
+    topRatedMovies,
+    airingTodaySeries,
+    popularSeries,
+    todaysTrendingMovies,
+    topRatedSeries,
+  } = await fetchHomePageData();
 
   return (
     <div className="">

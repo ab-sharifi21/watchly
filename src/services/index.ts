@@ -13,3 +13,4 @@ export { getMovieByName } from './getMovieByName';
 export { getSeriesByName } from './getSeriesByName';
 export { getMovieWatchProviders } from './getMovieWatchProviders';
 export { getSeriesWatchProvider } from './getSeriesWatchProvider';
+export { fetchHomePageData } from './fetchHomePageData';
