@@ -1,7 +1,6 @@
-import { GenresMenu, HomeCarousel, Slider } from '@/components';
-import { paths } from '@/constants/constants';
-import { getMoviesGenres, getMovies } from '@/services';
 import { Metadata } from 'next';
+import { GenresMenu, HomeCarousel, Slider } from '@/components';
+import { fetchMoviesPageData } from '@/services';
 
 export const metadata: Metadata = {
   title: 'Watchly - Movies',
@@ -10,19 +9,13 @@ export const metadata: Metadata = {
 };
 
 export default async function MoviesPage() {
-  const { results: trendingMovies } = await getMovies({
-    path: paths.trendingMovies,
-  });
-  const { genres } = await getMoviesGenres();
-  const { results: upcomingMovies } = await getMovies({
-    path: paths.upcomingMovies,
-  });
-  const { results: topRatedMovies } = await getMovies({
-    path: paths.topRatedMovies,
-  });
-  const { results: todaysTrendingMovies } = await getMovies({
-    path: paths.todaysTrendingovies,
-  });
+  const {
+    trendingMovies,
+    genres,
+    upcomingMovies,
+    topRatedMovies,
+    todaysTrendingMovies,
+  } = await fetchMoviesPageData();
 
   return (
     <>

@@ -27,7 +27,7 @@ export async function fetchHomePageData() {
   const { results: topRatedSeries } = await getSeries({
     path: paths.topRatedSeries,
   });
-  
+
   const { results: todaysTrendingMovies } = await getMovies({
     path: paths.todaysTrendingovies,
   });
