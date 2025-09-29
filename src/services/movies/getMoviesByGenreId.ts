@@ -1,5 +1,5 @@
 import { MovieDetails } from '@/types/Types';
-import { fetcher } from './fetcher';
+import { fetcher } from '../fetcher';
 
 export const getMoviesByGenreId = (
   genreId: number,

@@ -1,4 +1,4 @@
-import { fetcher } from './fetcher';
+import { fetcher } from '../fetcher';
 
 export const getSeriesWatchProvider = (seriesId: string | number) => {
   const path = `tv/${seriesId}/watch/providers`;

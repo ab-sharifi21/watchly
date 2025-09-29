@@ -1,4 +1,4 @@
-import { fetcher } from './fetcher';
+import { fetcher } from '../fetcher';
 
 export const getMoviesGenres = () => {
   const path = 'genre/movie/list';

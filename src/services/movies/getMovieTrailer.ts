@@ -1,4 +1,4 @@
-import { fetcher } from './fetcher';
+import { fetcher } from '../fetcher';
 
 export const getOneMovieTrailer = (id: number, isSeries?: boolean) => {
   const path = isSeries ? `tv/${id}/videos` : `movie/${id}/videos`;
