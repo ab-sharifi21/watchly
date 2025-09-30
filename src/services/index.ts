@@ -15,3 +15,4 @@ export { getMovieWatchProviders } from './movies/getMovieWatchProviders';
 export { getSeriesWatchProvider } from './series/getSeriesWatchProvider';
 export { fetchHomePageData } from './fetchHomePageData';
 export { fetchMoviesPageData } from './fetchMoviesPageData';
+export { fetchSeriesPageData } from './fetchSeriesPageData';
