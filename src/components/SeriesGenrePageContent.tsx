@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, } from 'react';
+import { useCallback } from 'react';
 import { VerticalMovieCard } from './VerticalMovieCard';
 import { SeriesDetails } from '@/types/Types';
 import { getSeriesByGenreId } from '@/services';
@@ -12,13 +12,10 @@ interface Props {
 }
 
 export const SeriesGenrePageContent = ({ genreId }: Props) => {
-
-
   const fetchSeries = useCallback(async () => {
     const { results } = await getSeriesByGenreId(genreId);
     return results;
   }, [genreId]);
-
 
   const { data, loading } = useInfiniteScroll(fetchSeries);
 
@@ -27,9 +24,7 @@ export const SeriesGenrePageContent = ({ genreId }: Props) => {
       {data.map((series: SeriesDetails) => {
         return <VerticalMovieCard key={series.id} data={series} isSeries />;
       })}
-      {loading && (
-        <AnimatedLoader containerClassName="mt-4" />
-      )}
+      {loading && <AnimatedLoader containerClassName="mt-4" />}
     </section>
   );
 };

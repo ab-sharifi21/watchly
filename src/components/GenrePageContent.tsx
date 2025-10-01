@@ -28,9 +28,7 @@ export const GenrePageContent = ({ genreId }: GenrePageContentProps) => {
       {data.map((movie: MovieDetails) => {
         return <VerticalMovieCard key={movie.id} data={movie} />;
       })}
-      {loading && (
-        <AnimatedLoader containerClassName="mt-4" />
-      )}
+      {loading && <AnimatedLoader containerClassName="mt-4" />}
     </section>
   );
 };
