@@ -52,7 +52,7 @@ const SearchPage = () => {
   }, [query]);
 
   if (loading) {
-    return <AnimatedLoader />;
+    return <AnimatedLoader containerClassName='mt-[7rem]' />;
   }
 
   if (error) {
