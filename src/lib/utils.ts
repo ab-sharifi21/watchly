@@ -22,6 +22,11 @@ export const closeMenu = (
 };
 
 export const formatDate = (dateString: string): string => {
+  // Handle null, undefined, or empty string
+  if (!dateString || typeof dateString !== 'string') {
+    return 'Unknown Date';
+  }
+
   const months = [
     'January',
     'February',
