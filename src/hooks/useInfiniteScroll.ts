@@ -1,11 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
-import { MovieDetails } from '@/types/Types';
 
-export const useInfiniteScroll = (
-  fetchFunction: (page: number) => Promise<MovieDetails[]>,
+export const useInfiniteScroll = <T>(
+  fetchFunction: (page: number) => Promise<T[]>,
 ) => {
   const [page, setPage] = useState<number>(1);
-  const [data, setData] = useState<MovieDetails[]>([]);
+  const [data, setData] = useState<T[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   // Function to fetch data
@@ -45,5 +44,12 @@ export const useInfiniteScroll = (
     return () => window.removeEventListener('scroll', handleScroll);
   }, [loading]);
 
-  return { data, loading };
+  // Reset function for new searches
+  const resetData = useCallback(() => {
+    setData([]);
+    setPage(1);
+    setLoading(false);
+  }, []);
+
+  return { data, loading, page, resetData };
 };

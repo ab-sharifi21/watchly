@@ -1,57 +1,107 @@
 'use client';
 
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { getMovieByName, getSeriesByName } from '@/services';
 import { MovieDetails, SeriesDetails } from '@/types/Types';
 import { VerticalMovieCard, AnimatedLoader } from '@/components';
 import { titleFont } from '@/lib/fonts';
+import { useInfiniteScroll } from '@/hooks/useInfiniteScroll';
 
 const SearchPage = () => {
-  const [movies, setMovies] = useState([]);
-  const [series, setSeries] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [totalMovies, setTotalMovies] = useState(0);
   const [totalSeries, setTotalSeries] = useState(0);
   const [showMovies, setShowMovies] = useState(true);
+  const [initialLoading, setInitialLoading] = useState(true);
   const searchParams = useSearchParams();
   const query = searchParams.get('query');
 
+  // Create fetch functions for movies and series
+  const fetchMovies = useCallback(async (page: number): Promise<MovieDetails[]> => {
+    if (!query) return [];
+    try {
+      const { results } = await getMovieByName({
+        path: 'search/movie',
+        query: `${encodeURIComponent(query)}`,
+        page,
+      });
+      return results;
+    } catch (err) {
+      console.error('Error fetching movies:', err);
+      return [];
+    }
+  }, [query]);
+
+  const fetchSeries = useCallback(async (page: number): Promise<SeriesDetails[]> => {
+    if (!query) return [];
+    try {
+      const { results } = await getSeriesByName({
+        path: 'search/tv',
+        query: `${encodeURIComponent(query)}`,
+        page,
+      });
+      return results;
+    } catch (err) {
+      console.error('Error fetching series:', err);
+      return [];
+    }
+  }, [query]);
+
+  // Use infinite scroll hook
+  const {
+    data: movies,
+    loading: moviesLoading,
+    resetData: resetMovies
+  } = useInfiniteScroll<MovieDetails>(fetchMovies);
+
+  const {
+    data: series,
+    loading: seriesLoading,
+    resetData: resetSeries
+  } = useInfiniteScroll<SeriesDetails>(fetchSeries);
+
+  // Get initial totals and handle query changes
   useEffect(() => {
     if (query) {
-      const fetchMovies = async () => {
-        setLoading(true);
-        setError(null); // Clear any previous errors
+      const fetchInitialData = async () => {
+        setInitialLoading(true);
+        setError(null);
 
         try {
-          const { results: movies, total_results: totalMoviesCount } =
-            await getMovieByName({
+          // Reset infinite scroll data
+          resetMovies();
+          resetSeries();
+
+          // Get first page to get total counts
+          const [moviesResponse, seriesResponse] = await Promise.all([
+            getMovieByName({
               path: 'search/movie',
               query: `${encodeURIComponent(query)}`,
-            });
-          const { results: series, total_results: totalSeriesCount } =
-            await getSeriesByName({
+              page: 1,
+            }),
+            getSeriesByName({
               path: 'search/tv',
               query: `${encodeURIComponent(query)}`,
-            });
-          setMovies(movies);
-          setSeries(series);
-          setTotalMovies(totalMoviesCount);
-          setTotalSeries(totalSeriesCount);
+              page: 1,
+            }),
+          ]);
+
+          setTotalMovies(moviesResponse.total_results);
+          setTotalSeries(seriesResponse.total_results);
         } catch (err) {
           setError('Something went wrong while searching. Please try again.');
           console.error('Search error:', err);
         } finally {
-          setLoading(false); // Always stop loading, whether success or error
+          setInitialLoading(false);
         }
       };
 
-      fetchMovies();
+      fetchInitialData();
     }
-  }, [query]);
+  }, [query, resetMovies, resetSeries]);
 
-  if (loading) {
+  if (initialLoading) {
     return <AnimatedLoader containerClassName='mt-[7rem]' />;
   }
 
@@ -112,17 +162,29 @@ const SearchPage = () => {
         </div>
       </div>
       {showMovies ? (
-        <div className="flex flex-wrap items-center justify-center gap-4 px-4">
-          {movies.map((movie: MovieDetails) => {
-            return <VerticalMovieCard key={movie.id} data={movie} />;
-          })}
-        </div>
+        <>
+          <div className="flex flex-wrap items-center justify-center gap-4 px-4">
+            {movies.map((movie: MovieDetails) => {
+              return <VerticalMovieCard key={movie.id} data={movie} />;
+            })}
+          </div>
+          {moviesLoading && (
+            <AnimatedLoader containerClassName="mt-4" />
+          )}
+        </>
       ) : (
-        <div className="flex flex-wrap items-center justify-center gap-4 px-4">
-          {series.map((series: SeriesDetails) => {
-            return <VerticalMovieCard key={series.id} data={series} isSeries />;
-          })}
-        </div>
+        <>
+          <div className="flex flex-wrap items-center justify-center gap-4 px-4">
+            {series.map((series: SeriesDetails) => {
+              return <VerticalMovieCard key={series.id} data={series} isSeries />;
+            })}
+          </div>
+          {seriesLoading && (
+            <div className="flex justify-center py-4">
+              <AnimatedLoader containerClassName="mt-4" />
+            </div>
+          )}
+        </>
       )}
     </section>
   );
