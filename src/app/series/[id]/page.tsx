@@ -31,7 +31,6 @@ export default async function SeriesPage({ params }: Props) {
   const { backdrop_path, genres, poster_path, original_name } = seriesInfo;
   const { cast: seriesActors } = await getSeriesActorsById(id);
   const { results: watchProviders } = await getSeriesWatchProvider(id);
-  console.log('watchProviders', watchProviders);
 
   return (
     <>
