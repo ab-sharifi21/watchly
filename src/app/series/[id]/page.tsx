@@ -1,3 +1,5 @@
+'use server';
+
 import Image from 'next/image';
 import { ActorsSlider, MovieInfo } from '@/components';
 import {
@@ -29,14 +31,21 @@ export default async function SeriesPage({ params }: Props) {
   const { backdrop_path, genres, poster_path, original_name } = seriesInfo;
   const { cast: seriesActors } = await getSeriesActorsById(id);
   const { results: watchProviders } = await getSeriesWatchProvider(id);
+  console.log('watchProviders', watchProviders);
 
   return (
     <>
       <section
-        style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url(https://image.tmdb.org/t/p/original/${backdrop_path})`,
-        }}
-        className={`bg-no-repeat} relative h-[70vh] w-full bg-cover md:h-screen`}
+        style={
+          {
+            '--bg-mobile': `linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url(https://image.tmdb.org/t/p/original${poster_path})`,
+            '--bg-desktop': `linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url(https://image.tmdb.org/t/p/original/${backdrop_path})`,
+          } as React.CSSProperties & {
+            '--bg-mobile': string;
+            '--bg-desktop': string;
+          }
+        }
+        className="relative h-[70vh] w-full bg-[image:var(--bg-mobile)] bg-contain bg-center bg-no-repeat md:h-screen md:bg-[image:var(--bg-desktop)] md:bg-cover"
       >
         <MovieInfo data={seriesInfo} genres={genres} isSeries />
         <Image

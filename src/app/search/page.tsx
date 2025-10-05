@@ -146,24 +146,24 @@ const SearchPage = () => {
   return (
     <section>
       <div className="m-4 mt-16 flex items-center justify-between gap-4">
-        <h1 className={`${titleFont.className} text-2xl`}>
+        <h1 className={`${titleFont.className} text-xl md:text-2xl`}>
           Results found for {query}{' '}
           <span className="text-primary-color">&lt;</span>
           {totalMovies + totalSeries}
           <span className="text-primary-color">&gt;</span>
         </h1>
-        <div className="flex gap-4">
+        <div className="flex items-center justify-center gap-4">
           <button
             onClick={() => setShowMovies(true)}
-            className={`rounded border p-1 pl-2 pr-2 duration-200 hover:border-primary-color hover:bg-primary-color ${showMovies ? 'border-red-500 bg-primary-color' : 'border-white'}`}
+            className={`w-[5rem] rounded border p-1 pl-2 pr-2 text-xs duration-200 hover:border-primary-color hover:bg-primary-color md:w-[6rem] md:text-sm ${showMovies ? 'border-red-500 bg-primary-color' : 'border-white'}`}
           >
-            {totalMovies} movies found
+            {totalMovies} movies
           </button>
           <button
             onClick={() => setShowMovies(false)}
-            className={`rounded border p-1 pl-2 pr-2 duration-200 hover:border-primary-color hover:bg-primary-color ${!showMovies ? 'border-primary-color bg-primary-color' : 'border-white'}`}
+            className={`w-[5rem] rounded border p-1 pl-2 pr-2 text-xs duration-200 hover:border-primary-color hover:bg-primary-color md:w-[6rem] md:text-sm ${!showMovies ? 'border-primary-color bg-primary-color' : 'border-white'}`}
           >
-            {totalSeries} series found
+            {totalSeries} series
           </button>
         </div>
       </div>
@@ -171,7 +171,9 @@ const SearchPage = () => {
         <>
           <div className="flex flex-wrap items-center justify-center gap-4 px-4">
             {movies.map((movie: MovieDetails) => {
-              return <VerticalMovieCard key={movie.id} data={movie} />;
+              return (
+                <VerticalMovieCard key={movie.backdrop_path} data={movie} />
+              );
             })}
           </div>
           {moviesLoading && <AnimatedLoader containerClassName="mt-4" />}

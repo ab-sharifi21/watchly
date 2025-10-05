@@ -17,8 +17,6 @@ export const HomeCarousel: React.FC<Props> = ({ data, genres, isSeries }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false }, [Autoplay()]);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const imageURL = process.env.NEXT_PUBLIC_IMAGE_BASE_URL_DESKTOP;
-
   const scrollTo = useCallback(
     (index: number) => {
       if (emblaApi) emblaApi.scrollTo(index);
@@ -43,22 +41,21 @@ export const HomeCarousel: React.FC<Props> = ({ data, genres, isSeries }) => {
       ref={emblaRef}
     >
       <div className="embla__container flex h-full w-full">
-        {data.map((data) => (
+        {data.map((item) => (
           <div
-            key={data.id}
-            className="embla__slide relative h-full w-full flex-[0_0_100%]"
-          >
-            <img
-              src={`${imageURL}${data.backdrop_path}`}
-              alt={
-                !isSeries
-                  ? (data as MovieDetails).title
-                  : (data as SeriesDetails).name
+            key={item.id}
+            style={
+              {
+                '--bg-mobile': `linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url(https://image.tmdb.org/t/p/original${item.poster_path})`,
+                '--bg-desktop': `linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url(https://image.tmdb.org/t/p/original/${item.backdrop_path})`,
+              } as React.CSSProperties & {
+                '--bg-mobile': string;
+                '--bg-desktop': string;
               }
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent"></div>
-            <MovieInfo data={data} genres={genres} isSeries={isSeries} />
+            }
+            className="embla__slide relative h-full w-full flex-[0_0_100%] bg-[image:var(--bg-mobile)] bg-contain bg-center bg-no-repeat md:bg-[image:var(--bg-desktop)] md:bg-cover"
+          >
+            <MovieInfo data={item} genres={genres} isSeries={isSeries} />
           </div>
         ))}
       </div>
