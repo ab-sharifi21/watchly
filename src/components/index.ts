@@ -19,3 +19,4 @@ export { Pagination } from './Pagination';
 export { MoviesContent } from './MoviesContent';
 export { WatchProviderBadge } from './WatchProviderBadge';
 export { AnimatedLoader } from './AnimatedLoader';
+export { SeeMoreLink } from './SeeMoreLink';

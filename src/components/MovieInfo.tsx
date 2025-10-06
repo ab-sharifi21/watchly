@@ -10,6 +10,7 @@ import { MdOutlineStar } from 'react-icons/md';
 import { Trailer } from './MovieTrailer';
 import { getOneMovieGenres } from '@/services';
 import { titleFont } from '@/lib/fonts';
+import { SeeMoreLink } from './SeeMoreLink';
 
 interface MovieInfoProps {
   data: MovieDetails | SeriesDetails | DetailedMovie;
@@ -65,9 +66,10 @@ export const MovieInfo = ({ data, genres, isSeries }: MovieInfoProps) => {
             ))}
       </div>
 
-      <p className="md:line-calmp-none line-clamp-5 max-w-full text-sm md:max-w-[500px] lg:max-w-[800px] lg:text-[16px]">
+      <p className="line-clamp-5 max-w-full text-sm md:line-clamp-none md:max-w-[500px] lg:max-w-[800px] lg:text-[16px]">
         {data.overview}
       </p>
+      <SeeMoreLink id={data.id} isSeries={isSeries} />
 
       <div className="my-2 flex flex-col gap-0 md:flex-row md:gap-4">
         <span className="flex place-items-center gap-1 text-sm text-slate-400">
