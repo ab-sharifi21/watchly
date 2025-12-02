@@ -2,7 +2,7 @@
 
 ![Status](https://img.shields.io/badge/Status-In_Progress-red)
 
-🌐[Demo](https://watchly-app.vercel.app/)
+🌐 [Demo](https://watchly-app.vercel.app/)
 
 <div align="center">
     <img src="./public/images/home.png" />

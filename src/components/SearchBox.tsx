@@ -95,6 +95,7 @@ export const SearchBox = () => {
             <input
               onChange={handleFormChange}
               type="search"
+              autoFocus
               placeholder="What are you looking for?"
               className="w-full rounded-full bg-secondary-bg-color px-4 py-2 outline-none placeholder:text-sm"
             />

@@ -12,11 +12,11 @@ export const useInfiniteScroll = <T>(
   const fetchData = useCallback(
     async (currentPage: number) => {
       if (!hasMore) return; // Don't fetch if no more data
-      
+
       setLoading(true);
       try {
         const results = await fetchFunction(currentPage);
-        
+
         // If results are empty or less than expected, we've reached the end
         if (results.length === 0) {
           setHasMore(false);
@@ -44,7 +44,11 @@ export const useInfiniteScroll = <T>(
       const scrollHeight = document.documentElement.scrollHeight;
       const clientHeight = document.documentElement.clientHeight;
 
-      if (scrollHeight - scrollTop - clientHeight < 300 && !loading && hasMore) {
+      if (
+        scrollHeight - scrollTop - clientHeight < 300 &&
+        !loading &&
+        hasMore
+      ) {
         setPage((prevPage) => prevPage + 1);
       }
     };
