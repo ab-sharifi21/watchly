@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { Menu, Button, SearchBox, Logo } from './index';
 
 export const Header = () => {
@@ -31,7 +32,9 @@ export const Header = () => {
       </div>
       <div className="flex place-items-center gap-2">
         <SearchBox />
-        <Button buttonText="Log in" />
+        <Link href="/login">
+          <Button buttonText="Log in" />
+        </Link>
       </div>
     </header>
   );
