@@ -18,9 +18,7 @@ export default function RootLayout({
       <body
         className={`${poppins.className} custom-scrollbar flex min-h-screen flex-col bg-primary-bg-color text-white antialiased`}
       >
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );
