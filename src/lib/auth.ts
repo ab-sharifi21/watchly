@@ -46,6 +46,30 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: 'jwt',
   },
+  callbacks: {
+    // Persist user info to the token right after sign in
+    async jwt({ token, user }) {
+      if (user) {
+        // `user` is returned from authorize() above
+        (token as any).id = (user as any).id;
+        (token as any).name = (user as any).name;
+        (token as any).email = (user as any).email;
+      }
+      return token;
+    },
+    // Make token info available in the session object
+    async session({ session, token }) {
+      if (token) {
+        (session as any).user = {
+          ...(session as any).user,
+          id: (token as any).id,
+          name: (token as any).name,
+          email: (token as any).email,
+        };
+      }
+      return session;
+    },
+  },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: '/login',

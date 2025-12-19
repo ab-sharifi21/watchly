@@ -67,7 +67,7 @@ export const Modal = ({ isModalOpen, setIsModalOpen, trailer }: ModalProps) => {
           {/* Close Button */}
           <button
             onClick={closeModal}
-            className="absolute -right-10 -top-5 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-zinc-800/90 text-white transition-all hover:scale-110 hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-white sm:-right-12"
+            className="absolute right-0 top-0 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-zinc-800/90 text-white transition-all hover:scale-110 hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-white sm:-right-12"
             aria-label="Close modal"
           >
             <IoMdClose />

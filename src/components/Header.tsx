@@ -1,10 +1,13 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useSession, signOut } from 'next-auth/react';
 import { Menu, Button, SearchBox, Logo } from './index';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const { data: session } = useSession();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,9 +35,25 @@ export const Header = () => {
       </div>
       <div className="flex place-items-center gap-2">
         <SearchBox />
-        <Link href="/login">
-          <Button buttonText="Log in" />
-        </Link>
+
+        {session?.user ? (
+          <div className="flex items-center gap-3">
+            <span className="hidden text-sm text-gray-200 sm:inline">
+              {session.user.name ?? session.user.email}
+            </span>
+
+            <button
+              onClick={() => signOut({ callbackUrl: '/' })}
+              className="rounded bg-primary-color px-3 py-1 text-white"
+            >
+              Sign out
+            </button>
+          </div>
+        ) : (
+          <Link href="/login">
+            <Button buttonText="Log in" />
+          </Link>
+        )}
       </div>
     </header>
   );
