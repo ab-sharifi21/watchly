@@ -1,3 +1,5 @@
+'use client';
+
 import { formatDate } from '@/lib/utils';
 import {
   DetailedMovie,
@@ -11,6 +13,7 @@ import { Trailer } from './MovieTrailer';
 import { getOneMovieGenres } from '@/services';
 import { titleFont } from '@/lib/fonts';
 import { SeeMoreLink } from './SeeMoreLink';
+import { MediaActionButtons } from './MediaActionButtons';
 
 interface MovieInfoProps {
   data: MovieDetails | SeriesDetails | DetailedMovie;
@@ -70,6 +73,19 @@ export const MovieInfo = ({ data, genres, isSeries }: MovieInfoProps) => {
         {data.overview}
       </p>
       <SeeMoreLink id={data.id} isSeries={isSeries} />
+
+      <div className="my-3">
+        <MediaActionButtons
+          mediaId={data.id}
+          mediaType={isSeries ? 'tv' : 'movie'}
+          title={
+            !isSeries
+              ? (data as MovieDetails).title
+              : (data as SeriesDetails).name
+          }
+          posterPath={data.poster_path}
+        />
+      </div>
 
       <div className="my-2 flex flex-col gap-0 md:flex-row md:gap-4">
         <span className="flex place-items-center gap-1 text-sm text-slate-400">
