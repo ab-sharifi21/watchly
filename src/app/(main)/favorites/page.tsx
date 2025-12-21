@@ -2,6 +2,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
+import { FaHeart } from 'react-icons/fa';
 import { SavedMediaGrid } from '@/components';
 import { titleFont } from '@/lib/fonts';
 
@@ -25,11 +26,12 @@ export default async function FavoritesPage() {
   }));
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto mt-16 px-4">
       <div className="mb-8">
         <h1
-          className={`${titleFont.className} text-3xl font-bold text-white md:text-4xl`}
+          className={`${titleFont.className} flex items-center gap-2 font-bold text-white`}
         >
+          <FaHeart />
           My Favorites
         </h1>
         <p className="mt-2 text-slate-400">
