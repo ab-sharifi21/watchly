@@ -1,12 +1,13 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import { useSession } from 'next-auth/react';
 import useDevice from '@/hooks/useDevice';
 import { FaCaretDown } from 'react-icons/fa';
 import { closeMenu, toggleMenu } from '@/lib/utils';
 
-const links = [
+const baseLinks = [
   {
     id: 1,
     name: 'Home',
@@ -24,10 +25,29 @@ const links = [
   },
 ];
 
+const authLinks = [
+  {
+    id: 4,
+    name: 'Watchlist',
+    url: '/watchlist',
+  },
+  {
+    id: 5,
+    name: 'Favorites',
+    url: '/favorites',
+  },
+];
+
 export const Menu = ({ classes }: { classes?: string }) => {
   const pathname = usePathname();
+  const { data: session } = useSession();
   const { isMobile } = useDevice();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
+  // Conditionally add authenticated links
+  const links = useMemo(() => {
+    return session ? [...baseLinks, ...authLinks] : baseLinks;
+  }, [session]);
 
   return (
     <>
