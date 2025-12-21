@@ -1,7 +1,7 @@
 'use client';
 import { getMovies } from '@/services';
 import { VerticalMovieCard } from './VerticalMovieCard';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { MovieDetails } from '@/types/Types';
 import { Pagination } from './Pagination';
 
@@ -23,16 +23,16 @@ export const MoviesContent = ({ path, isSeries }: Props) => {
     setPage(1);
   }
 
-  const fetchMovies = async () => {
+  const fetchMovies = useCallback(async () => {
     setLoading(true);
     const { results } = await getMovies({ path, page });
     setData(results);
     setLoading(false);
-  };
+  }, [path, page]);
 
   useEffect(() => {
     fetchMovies();
-  }, [page]);
+  }, [fetchMovies]);
 
   const handlePageChange = (newPage: number) => {
     setPage(newPage);

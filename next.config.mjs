@@ -3,9 +3,6 @@ const nextConfig = {
   images: {
     domains: ['image.tmdb.org'],
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     ignoreBuildErrors: false,
   },
