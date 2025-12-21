@@ -14,58 +14,57 @@ const SearchPage = () => {
   const [totalSeries, setTotalSeries] = useState(0);
   const [showMovies, setShowMovies] = useState(true);
   const [initialLoading, setInitialLoading] = useState(true);
+  const [movies, setMovies] = useState<MovieDetails[]>([]);
+  const [series, setSeries] = useState<SeriesDetails[]>([]);
   const searchParams = useSearchParams();
   const query = searchParams.get('query');
 
-  // Create fetch functions for movies and series
-  const fetchMovies = useCallback(
-    async (page: number): Promise<MovieDetails[]> => {
+  // Create fetch function that switches based on showMovies
+  const fetchData = useCallback(
+    async (page: number): Promise<(MovieDetails | SeriesDetails)[]> => {
       if (!query) return [];
       try {
-        const { results } = await getMovieByName({
-          path: 'search/movie',
-          query: `${encodeURIComponent(query)}`,
-          page,
-        });
-        return results;
+        if (showMovies) {
+          const { results } = await getMovieByName({
+            path: 'search/movie',
+            query: `${encodeURIComponent(query)}`,
+            page,
+          });
+          return results;
+        } else {
+          const { results } = await getSeriesByName({
+            path: 'search/tv',
+            query: `${encodeURIComponent(query)}`,
+            page,
+          });
+          return results;
+        }
       } catch (err) {
-        console.error('Error fetching movies:', err);
+        console.error('Error fetching data:', err);
         return [];
       }
     },
-    [query],
-  );
-
-  const fetchSeries = useCallback(
-    async (page: number): Promise<SeriesDetails[]> => {
-      if (!query) return [];
-      try {
-        const { results } = await getSeriesByName({
-          path: 'search/tv',
-          query: `${encodeURIComponent(query)}`,
-          page,
-        });
-        return results;
-      } catch (err) {
-        console.error('Error fetching series:', err);
-        return [];
-      }
-    },
-    [query],
+    [query, showMovies],
   );
 
   // Use infinite scroll hook
-  const {
-    data: movies,
-    loading: moviesLoading,
-    resetData: resetMovies,
-  } = useInfiniteScroll<MovieDetails>(fetchMovies);
+  const { data, loading, resetData } = useInfiniteScroll<
+    MovieDetails | SeriesDetails
+  >(fetchData);
 
-  const {
-    data: series,
-    loading: seriesLoading,
-    resetData: resetSeries,
-  } = useInfiniteScroll<SeriesDetails>(fetchSeries);
+  // Update movies or series when data changes
+  useEffect(() => {
+    if (showMovies) {
+      setMovies(data as MovieDetails[]);
+    } else {
+      setSeries(data as SeriesDetails[]);
+    }
+  }, [data, showMovies]);
+
+  // Reset data when switching between movies and series
+  useEffect(() => {
+    resetData();
+  }, [showMovies, resetData]);
 
   // Get initial totals and handle query changes
   useEffect(() => {
@@ -75,9 +74,10 @@ const SearchPage = () => {
         setError(null);
 
         try {
-          // Reset infinite scroll data
-          resetMovies();
-          resetSeries();
+          // Reset infinite scroll data and local state
+          resetData();
+          setMovies([]);
+          setSeries([]);
 
           // Get first page to get total counts
           const [moviesResponse, seriesResponse] = await Promise.all([
@@ -105,7 +105,7 @@ const SearchPage = () => {
 
       fetchInitialData();
     }
-  }, [query, resetMovies, resetSeries]);
+  }, [query, resetData]);
 
   if (initialLoading) {
     return <AnimatedLoader containerClassName="mt-[7rem]" />;
@@ -145,27 +145,25 @@ const SearchPage = () => {
 
   return (
     <section>
-      <div className="m-4 mt-16 flex items-center justify-between gap-4">
-        <h1 className={`${titleFont.className} text-xl md:text-2xl`}>
+      <div className="m-4 mt-16 flex items-center gap-4">
+        <p className={`${titleFont.className} text-slate-400`}>
           Results found for {query}{' '}
           <span className="text-primary-color">&lt;</span>
           {totalMovies + totalSeries}
           <span className="text-primary-color">&gt;</span>
-        </h1>
-        <div className="flex items-center justify-center gap-4">
-          <button
-            onClick={() => setShowMovies(true)}
-            className={`w-[5rem] rounded border p-1 pl-2 pr-2 text-xs duration-200 hover:border-primary-color hover:bg-primary-color md:w-[6rem] md:text-sm ${showMovies ? 'border-red-500 bg-primary-color' : 'border-white'}`}
-          >
-            {totalMovies} movies
-          </button>
-          <button
-            onClick={() => setShowMovies(false)}
-            className={`w-[5rem] rounded border p-1 pl-2 pr-2 text-xs duration-200 hover:border-primary-color hover:bg-primary-color md:w-[6rem] md:text-sm ${!showMovies ? 'border-primary-color bg-primary-color' : 'border-white'}`}
-          >
-            {totalSeries} series
-          </button>
-        </div>
+        </p>
+        <span
+          className={`cursor-pointer text-sm text-slate-300 transition-all duration-200 hover:scale-110 hover:text-slate-400 hover:underline ${showMovies && 'text-slate-400 underline'}`}
+          onClick={() => setShowMovies(true)}
+        >
+          {totalMovies} movies
+        </span>
+        <span
+          className={`cursor-pointer text-sm text-slate-300 transition-all duration-200 hover:scale-110 hover:text-slate-400 hover:underline ${!showMovies && 'text-slate-400 underline'}`}
+          onClick={() => setShowMovies(false)}
+        >
+          {totalSeries} series
+        </span>
       </div>
       {showMovies ? (
         <>
@@ -176,7 +174,7 @@ const SearchPage = () => {
               );
             })}
           </div>
-          {moviesLoading && <AnimatedLoader containerClassName="mt-4" />}
+          {loading && <AnimatedLoader containerClassName="mt-4" />}
         </>
       ) : (
         <>
@@ -187,7 +185,7 @@ const SearchPage = () => {
               );
             })}
           </div>
-          {seriesLoading && (
+          {loading && (
             <div className="flex justify-center py-4">
               <AnimatedLoader containerClassName="mt-4" />
             </div>

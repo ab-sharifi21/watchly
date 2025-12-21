@@ -50,7 +50,7 @@ export const SearchBox = () => {
       {!isSearchVisible && (
         <button
           onClick={handleSearchClick}
-          className="rounded-full bg-slate-600 p-2 outline-none"
+          className="rounded-full bg-slate-600 p-2 outline-none transition-all duration-200 hover:scale-110 hover:bg-slate-500"
         >
           <IoSearchOutline className="text-white" />
         </button>
