@@ -21,3 +21,5 @@ export { WatchProviderBadge } from './WatchProviderBadge';
 export { AnimatedLoader } from './AnimatedLoader';
 export { SeeMoreLink } from './SeeMoreLink';
 export { MediaActionButtons } from './MediaActionButtons';
+export { SavedMediaCard } from './SavedMediaCard';
+export { SavedMediaGrid } from './SavedMediaGrid';
