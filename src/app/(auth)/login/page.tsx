@@ -36,7 +36,7 @@ export default function LoginPage() {
       // Success! Redirect to home
       router.push('/');
       router.refresh();
-    } catch (error) {
+    } catch {
       setError('Something went wrong');
     } finally {
       setLoading(false);
@@ -171,7 +171,7 @@ export default function LoginPage() {
 
           {/* Register Link */}
           <p className="text-center text-gray-400">
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <Link
               href="/register"
               className="font-semibold text-primary-color transition-colors hover:text-primary-color/80 hover:underline"

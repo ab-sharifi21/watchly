@@ -51,7 +51,7 @@ function RegisterPage() {
 
       // Registration successful, redirect to login
       router.push('/login');
-    } catch (error) {
+    } catch {
       setError('Something went wrong');
     } finally {
       setLoading(false);

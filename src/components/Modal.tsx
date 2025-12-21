@@ -1,7 +1,6 @@
 'use client';
 import { useEffect } from 'react';
 import { IoMdClose } from 'react-icons/io';
-import useDevice from '@/hooks/useDevice';
 
 interface ModalProps {
   isModalOpen: boolean;
@@ -10,8 +9,6 @@ interface ModalProps {
 }
 
 export const Modal = ({ isModalOpen, setIsModalOpen, trailer }: ModalProps) => {
-  const { isMobile } = useDevice();
-
   const closeModal = () => {
     setIsModalOpen(false);
   };

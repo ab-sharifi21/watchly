@@ -10,7 +10,7 @@ export async function GET() {
   }
 
   const items = await prisma.favorite.findMany({
-    where: { userId: (session.user as any).id },
+    where: { userId: session.user.id },
     orderBy: { createdAt: 'desc' },
   });
 
@@ -33,7 +33,7 @@ export async function POST(request: Request) {
   try {
     const created = await prisma.favorite.create({
       data: {
-        userId: (session.user as any).id,
+        userId: session.user.id,
         mediaId,
         mediaType,
         title: title ?? '',
@@ -41,18 +41,16 @@ export async function POST(request: Request) {
       },
     });
     return NextResponse.json(created, { status: 201 });
-  } catch (err: any) {
+  } catch (err: unknown) {
     // If already exists, return 409
-    return NextResponse.json(
-      { error: err?.message ?? 'Could not create' },
-      { status: 409 },
-    );
+    const message = err instanceof Error ? err.message : 'Could not create';
+    return NextResponse.json({ error: message }, { status: 409 });
   }
 }
 
 export async function DELETE(request: Request) {
   const session = await getServerSession(authOptions);
-  if (!session?.user || !(session.user as any).id) {
+  if (!session?.user?.id) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
@@ -64,7 +62,7 @@ export async function DELETE(request: Request) {
   }
 
   const deleted = await prisma.favorite.deleteMany({
-    where: { userId: (session.user as any).id, mediaId, mediaType },
+    where: { userId: session.user.id, mediaId, mediaType },
   });
 
   return NextResponse.json({ deletedCount: deleted.count });
