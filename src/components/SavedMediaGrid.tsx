@@ -70,11 +70,11 @@ export const SavedMediaGrid = ({
 
   if (items.length === 0) {
     return (
-      <div className="flex min-h-[400px] flex-col items-center justify-center rounded-lg border-2 border-dashed border-slate-700 bg-slate-800/30 p-12 text-center">
+      <div className="flex min-h-[390px] flex-col items-center justify-center rounded-lg border-2 border-dashed border-slate-700 bg-slate-800/30 px-12 py-0 text-center">
         {type === 'favorites' ? (
           <>
-            <FaHeart className="mb-4 h-16 w-16 text-slate-600" />
-            <h3 className="mb-2 text-xl font-semibold text-slate-300">
+            <FaHeart className="mb-4 h-14 w-14 text-slate-600" />
+            <h3 className="mb-2 text-lg font-semibold text-slate-300">
               No Favorites Yet
             </h3>
             <p className="text-slate-400">
@@ -83,8 +83,8 @@ export const SavedMediaGrid = ({
           </>
         ) : (
           <>
-            <FaBookmark className="mb-4 h-16 w-16 text-slate-600" />
-            <h3 className="mb-2 text-xl font-semibold text-slate-300">
+            <FaBookmark className="mb-4 h-14 w-14 text-slate-600" />
+            <h3 className="mb-2 text-lg font-semibold text-slate-300">
               No Items in Watchlist
             </h3>
             <p className="text-slate-400">
@@ -107,6 +107,7 @@ export const SavedMediaGrid = ({
           title={item.title}
           posterPath={item.posterPath}
           onRemove={handleRemove}
+          type={type}
         />
       ))}
     </div>

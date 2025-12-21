@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaTrash } from 'react-icons/fa';
+import { FaBookmark, FaHeart } from 'react-icons/fa';
 import { IoPlayCircleOutline } from 'react-icons/io5';
 import { useState } from 'react';
 
@@ -13,6 +13,7 @@ interface SavedMediaCardProps {
   title: string;
   posterPath: string | null;
   onRemove: (id: string) => Promise<void>;
+  type: 'favorites' | 'watchlist';
 }
 
 export const SavedMediaCard = ({
@@ -22,6 +23,7 @@ export const SavedMediaCard = ({
   title,
   posterPath,
   onRemove,
+  type,
 }: SavedMediaCardProps) => {
   const [isRemoving, setIsRemoving] = useState(false);
   const href =
@@ -45,14 +47,22 @@ export const SavedMediaCard = ({
   return (
     <article className="group relative h-[230px] w-full flex-none rounded-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.4)]">
       <Link href={href} className="block h-full w-full cursor-pointer">
-        {/* Remove button - top left instead of rating */}
         <button
           onClick={handleRemove}
           disabled={isRemoving}
-          className="absolute left-2 top-2 z-20 flex items-center gap-1 rounded-full bg-red-600/90 px-2 py-1 backdrop-blur-sm transition-all duration-300 hover:scale-110 hover:bg-red-700 disabled:opacity-50"
+          className="absolute left-2 top-2 z-20 text-primary-color backdrop-blur-sm transition-all duration-300 hover:scale-125"
           aria-label="Remove from list"
+          title={
+            type === 'favorites'
+              ? 'Remove from favorites'
+              : 'Remove from watchlist'
+          }
         >
-          <FaTrash className="h-3 w-3 text-white" />
+          {type === 'favorites' ? (
+            <FaHeart className="h-4 w-4" />
+          ) : (
+            <FaBookmark className="h-4 w-4" />
+          )}
         </button>
 
         <div className="relative h-full w-full overflow-hidden rounded-xl">
