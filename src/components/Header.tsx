@@ -80,6 +80,12 @@ export const Header = () => {
                     {session.user.name}
                   </span>
                 </div>
+                <Link
+                  href="/profile"
+                  className="block w-full px-4 py-2.5 text-left text-sm text-slate-300 transition-colors hover:bg-slate-700 hover:text-white"
+                >
+                  Profile
+                </Link>
                 <button
                   onClick={() => signOut({ callbackUrl: '/' })}
                   className="w-full px-4 py-2.5 text-left text-sm text-slate-300 transition-colors hover:bg-slate-700 hover:text-white"
