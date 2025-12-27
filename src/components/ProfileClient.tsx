@@ -9,6 +9,8 @@ import {
   FaHeart,
   FaBookmark,
 } from 'react-icons/fa';
+import Button from './Button';
+import { signOut } from 'next-auth/react';
 
 interface ProfileClientProps {
   user: {
@@ -34,6 +36,11 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordMessage, setPasswordMessage] = useState('');
+
+  const [isConfirmingDelete, setIsConfirmingDelete] = useState(false);
+  const [deletePassword, setDeletePassword] = useState('');
+  const [deleteMessage, setDeleteMessage] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const router = useRouter();
 
@@ -119,6 +126,33 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
       month: 'long',
       day: 'numeric',
     });
+  };
+
+  const handleDeleteAccount = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsDeleting(true);
+    setDeleteMessage('');
+
+    try {
+      const response = await fetch('/api/user/delete', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: deletePassword }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Sign out and redirect to home
+        await signOut({ callbackUrl: '/' });
+      } else {
+        setDeleteMessage(data.error || 'Failed to delete account');
+      }
+    } catch {
+      setDeleteMessage('An error occurred');
+    } finally {
+      setIsDeleting(false);
+    }
   };
 
   return (
@@ -329,6 +363,70 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
           </form>
         )}
       </div>
+
+      {/* Delete Account Section */}
+      <div className="mb-6">
+        <h3 className="mb-2 text-xl font-semibold text-red-400">Danger Zone</h3>
+        <p className="text slate-400 mb-4 text-sm">
+          Once you delete your account, there is no going back. This will delete
+          your profile, your watchlist and your favorites.
+        </p>
+        <Button
+          onClick={() => setIsConfirmingDelete(true)}
+          buttonText="Delete Account"
+        />
+      </div>
+
+      {/* Delete Confirmation Modal */}
+      {isConfirmingDelete && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
+          <div className="w-full max-w-md rounded-lg bg-secondary-bg-color p-6 shadow-xl">
+            <h3 className="mb-4 text-xl font-semibold text-red-400">
+              Delete Account
+            </h3>
+            <p className="mb-4 text-sm text-slate-300">
+              This action cannot be undone. Please enter your password to
+              confirm.
+            </p>
+
+            <form onSubmit={handleDeleteAccount}>
+              <input
+                type="password"
+                value={deletePassword}
+                onChange={(e) => setDeletePassword(e.target.value)}
+                placeholder="Enter your password"
+                className="mb-4 w-full rounded-md border border-slate-600 bg-slate-700 px-4 py-2 text-white focus:border-red-500 focus:outline-none"
+                required
+              />
+
+              {deleteMessage && (
+                <p className="mb-4 text-sm text-red-500">{deleteMessage}</p>
+              )}
+
+              <div className="flex gap-2">
+                <button
+                  type="submit"
+                  disabled={isDeleting}
+                  className="rounded-md bg-red-600 px-4 py-2 text-sm text-white transition-colors hover:bg-red-700 disabled:opacity-50"
+                >
+                  {isDeleting ? 'Deleting...' : 'Yes, Delete My Account'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsConfirmingDelete(false);
+                    setDeletePassword('');
+                    setDeleteMessage('');
+                  }}
+                  className="rounded-md bg-slate-600 px-4 py-2 text-sm text-white transition-colors hover:bg-slate-700"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
