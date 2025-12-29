@@ -24,13 +24,10 @@ export const SavedMediaGrid = ({
   type,
 }: SavedMediaGridProps) => {
   const [items, setItems] = useState(initialItems);
-  const [removingIds, setRemovingIds] = useState<Set<string>>(new Set());
 
   const handleRemove = async (id: string) => {
     const item = items.find((i) => i.id === id);
     if (!item) return;
-
-    setRemovingIds((prev) => new Set(prev).add(id));
 
     // Optimistic update
     setItems((prev) => prev.filter((i) => i.id !== id));
@@ -59,12 +56,6 @@ export const SavedMediaGrid = ({
             new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
         ),
       );
-    } finally {
-      setRemovingIds((prev) => {
-        const next = new Set(prev);
-        next.delete(id);
-        return next;
-      });
     }
   };
 

@@ -38,7 +38,7 @@ export const Trailer = ({ id, isSeries }: Props) => {
     };
 
     fetchTrailerData();
-  }, [id]);
+  }, [id, isSeries]);
 
   const openModal = () => {
     setIsModalOpen(true);

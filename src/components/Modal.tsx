@@ -1,7 +1,6 @@
 'use client';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { IoMdClose } from 'react-icons/io';
-import useDevice from '@/hooks/useDevice';
 
 interface ModalProps {
   isModalOpen: boolean;
@@ -10,11 +9,9 @@ interface ModalProps {
 }
 
 export const Modal = ({ isModalOpen, setIsModalOpen, trailer }: ModalProps) => {
-  const { isMobile } = useDevice();
-
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setIsModalOpen(false);
-  };
+  }, [setIsModalOpen]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -46,7 +43,7 @@ export const Modal = ({ isModalOpen, setIsModalOpen, trailer }: ModalProps) => {
       document.removeEventListener('keydown', handleEscape);
       document.body.style.overflow = 'unset';
     };
-  }, [isModalOpen]);
+  }, [isModalOpen, closeModal]);
 
   if (!isModalOpen) return null;
 

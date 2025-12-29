@@ -10,7 +10,7 @@ export async function GET() {
   }
 
   const items = await prisma.watchlist.findMany({
-    where: { userId: (session.user as any).id },
+    where: { userId: session.user.id },
     orderBy: { createdAt: 'desc' },
   });
 
@@ -33,7 +33,7 @@ export async function POST(request: Request) {
   try {
     const created = await prisma.watchlist.create({
       data: {
-        userId: (session.user as any).id,
+        userId: session.user.id,
         mediaId,
         mediaType,
         title: title ?? '',
@@ -41,11 +41,9 @@ export async function POST(request: Request) {
       },
     });
     return NextResponse.json(created, { status: 201 });
-  } catch (err: any) {
-    return NextResponse.json(
-      { error: err?.message ?? 'Could not create' },
-      { status: 409 },
-    );
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : 'Could not create';
+    return NextResponse.json({ error: message }, { status: 409 });
   }
 }
 
@@ -63,7 +61,7 @@ export async function DELETE(request: Request) {
   }
 
   const deleted = await prisma.watchlist.deleteMany({
-    where: { userId: (session.user as any).id, mediaId, mediaType },
+    where: { userId: session.user.id, mediaId, mediaType },
   });
 
   return NextResponse.json({ deletedCount: deleted.count });
