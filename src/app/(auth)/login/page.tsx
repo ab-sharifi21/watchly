@@ -5,7 +5,7 @@ import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { titleFont, poppins } from '@/lib/fonts';
-import { Logo } from '@/components';
+import { Button, Logo } from '@/components';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -131,10 +131,11 @@ export default function LoginPage() {
             </div>
 
             {/* Submit Button */}
-            <button
+            <Button
               type="submit"
               disabled={loading}
-              className="w-full rounded-lg bg-primary-color px-4 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-primary-color/90 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
+              buttonText=""
+              className="w-full px-4 py-3 text-center font-semibold disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
             >
               {loading ? (
                 <span className="flex items-center justify-center gap-2">
@@ -159,7 +160,7 @@ export default function LoginPage() {
               ) : (
                 'Sign In'
               )}
-            </button>
+            </Button>
           </form>
 
           {/* Divider */}
