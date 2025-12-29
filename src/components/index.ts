@@ -23,3 +23,4 @@ export { SeeMoreLink } from './SeeMoreLink';
 export { MediaActionButtons } from './MediaActionButtons';
 export { SavedMediaCard } from './SavedMediaCard';
 export { SavedMediaGrid } from './SavedMediaGrid';
+export { ProfileClient } from './ProfileClient';

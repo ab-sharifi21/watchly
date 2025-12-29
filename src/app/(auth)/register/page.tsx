@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { poppins, titleFont } from '@/lib/fonts';
-import { Logo } from '@/components';
+import { Button, Logo } from '@/components';
 
 function RegisterPage() {
   const router = useRouter();
@@ -184,10 +184,11 @@ function RegisterPage() {
             </div>
 
             {/* Submit Button */}
-            <button
+            <Button
+              buttonText=""
               type="submit"
               disabled={loading}
-              className="w-full rounded-lg bg-primary-color px-4 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-primary-color/90 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
+              className="w-full px-4 py-3 font-semibold shadow-lg transition-all duration-300 hover:scale-105 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
             >
               {loading ? (
                 <span className="flex items-center justify-center gap-2">
@@ -212,7 +213,7 @@ function RegisterPage() {
               ) : (
                 'Sign Up'
               )}
-            </button>
+            </Button>
           </form>
 
           {/* Divider */}
@@ -227,7 +228,7 @@ function RegisterPage() {
             Already have an account?{' '}
             <Link
               href="/login"
-              className="font-semibold text-primary-color transition-colors hover:text-primary-color/80 hover:underline"
+              className="font-semibold text-primary-color transition-colors hover:scale-110 hover:text-primary-color/80 hover:underline"
             >
               Sign In
             </Link>
