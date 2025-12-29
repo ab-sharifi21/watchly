@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { signOut } from 'next-auth/react';
 import {
   FaRegUser,
   FaEnvelope,
@@ -10,7 +11,6 @@ import {
   FaBookmark,
 } from 'react-icons/fa';
 import Button from './Button';
-import { signOut } from 'next-auth/react';
 
 interface ProfileClientProps {
   user: {
@@ -214,12 +214,12 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
               </label>
               <p className="text-white">{user.name}</p>
             </div>
-            <button
+            <Button
+              type="button"
+              buttonText="Edit Name"
               onClick={() => setIsEditingName(true)}
-              className="rounded-md bg-blue-600 px-4 py-2 text-sm text-white transition-colors hover:bg-blue-700"
-            >
-              Edit Name
-            </button>
+              className="bg-blue-600 px-4 py-2 text-sm transition-colors hover:bg-blue-700"
+            />
           </div>
         ) : (
           <form onSubmit={handleUpdateName}>
@@ -235,23 +235,21 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
               minLength={2}
             />
             <div className="flex gap-2">
-              <button
+              <Button
+                buttonText={isUpdating ? 'Saving...' : 'Save'}
                 type="submit"
                 disabled={isUpdating}
-                className="rounded-md bg-blue-600 px-4 py-2 text-sm text-white transition-colors hover:bg-blue-700 disabled:opacity-50"
-              >
-                {isUpdating ? 'Saving...' : 'Save'}
-              </button>
-              <button
+                className="bg-blue-600 px-4 py-2 text-sm transition-colors hover:bg-blue-700 disabled:opacity-50"
+              />
+              <Button
+                buttonText="Cancel"
                 type="button"
                 onClick={() => {
                   setIsEditingName(false);
                   setName(user.name);
                 }}
-                className="rounded-md bg-slate-600 px-4 py-2 text-sm text-white transition-colors hover:bg-slate-700"
-              >
-                Cancel
-              </button>
+                className="bg-slate-600 px-4 py-2 text-sm transition-colors hover:bg-slate-700"
+              />
             </div>
             {updateMessage && (
               <p
@@ -284,12 +282,12 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
               </label>
               <p className="text-slate-300">••••••••</p>
             </div>
-            <button
+            <Button
+              type="button"
+              buttonText="Change Password"
               onClick={() => setIsChangingPassword(true)}
-              className="rounded-md bg-blue-600 px-4 py-2 text-sm text-white transition-colors hover:bg-blue-700"
-            >
-              Change Password
-            </button>
+              className="bg-blue-600 px-4 py-2 text-sm transition-colors hover:bg-blue-700"
+            />
           </div>
         ) : (
           <form onSubmit={handleChangePassword}>
@@ -332,14 +330,14 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
               />
             </div>
             <div className="flex gap-2">
-              <button
+              <Button
+                buttonText={isUpdating ? 'Changing...' : 'Change Password'}
                 type="submit"
                 disabled={isUpdating}
-                className="rounded-md bg-blue-600 px-4 py-2 text-sm text-white transition-colors hover:bg-blue-700 disabled:opacity-50"
-              >
-                {isUpdating ? 'Changing...' : 'Change Password'}
-              </button>
-              <button
+                className="bg-blue-600 px-4 py-2 text-sm transition-colors hover:bg-blue-700 disabled:opacity-50"
+              />
+              <Button
+                buttonText="Cancel"
                 type="button"
                 onClick={() => {
                   setIsChangingPassword(false);
@@ -348,10 +346,8 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
                   setConfirmPassword('');
                   setPasswordMessage('');
                 }}
-                className="rounded-md bg-slate-600 px-4 py-2 text-sm text-white transition-colors hover:bg-slate-700"
-              >
-                Cancel
-              </button>
+                className="bg-slate-600 px-4 py-2 text-sm transition-colors hover:bg-slate-700"
+              />
             </div>
             {passwordMessage && (
               <p
@@ -395,7 +391,7 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
                 value={deletePassword}
                 onChange={(e) => setDeletePassword(e.target.value)}
                 placeholder="Enter your password"
-                className="mb-4 w-full rounded-md border border-slate-600 bg-slate-700 px-4 py-2 text-white focus:border-red-500 focus:outline-none"
+                className="mb-4 w-full rounded-lg border border-white/10 bg-primary-bg-color px-4 py-3 placeholder-gray-500 transition-all duration-200 focus:border-primary-color focus:outline-none"
                 required
               />
 
@@ -404,24 +400,21 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
               )}
 
               <div className="flex gap-2">
-                <button
-                  type="submit"
-                  disabled={isDeleting}
-                  className="rounded-md bg-red-600 px-4 py-2 text-sm text-white transition-colors hover:bg-red-700 disabled:opacity-50"
-                >
-                  {isDeleting ? 'Deleting...' : 'Yes, Delete My Account'}
-                </button>
-                <button
+                <Button
+                  buttonText={
+                    isDeleting ? 'Deleting...' : 'Yes, Delete My Account'
+                  }
+                />
+                <Button
                   type="button"
                   onClick={() => {
                     setIsConfirmingDelete(false);
                     setDeletePassword('');
                     setDeleteMessage('');
                   }}
-                  className="rounded-md bg-slate-600 px-4 py-2 text-sm text-white transition-colors hover:bg-slate-700"
-                >
-                  Cancel
-                </button>
+                  buttonText="Cancel"
+                  className="bg-blue-600 px-4 py-2 text-sm text-white transition-colors duration-200 hover:bg-blue-700"
+                />
               </div>
             </form>
           </div>
