@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import toast from 'react-hot-toast';
 import { titleFont, poppins } from '@/lib/fonts';
 import { Button, Logo } from '@/components';
 
@@ -36,6 +37,14 @@ export default function LoginPage() {
       // Success! Redirect to home
       router.push('/');
       router.refresh();
+      toast.success('Successfully logged in', {
+        position: 'bottom-right',
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      });
     } catch {
       setError('Something went wrong');
     } finally {
