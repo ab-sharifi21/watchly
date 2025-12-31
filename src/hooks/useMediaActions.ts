@@ -2,6 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import { useEffect, useState, useCallback } from 'react';
+import toast from 'react-hot-toast';
 
 interface MediaItem {
   id: string;
@@ -100,13 +101,40 @@ export function useFavorites() {
               ),
             );
           }
+          toast.error('Something went wrong. Please try again.', {
+            position: 'bottom-right',
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+          });
           throw new Error('Failed to toggle favorite');
         }
 
         // Refresh to get the real server data
         await fetchFavorites();
+        toast.success(
+          isCurrentlyFavorite ? 'Removed from favorites' : 'Added to favorites',
+          {
+            position: 'bottom-right',
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+          },
+        );
       } catch (error) {
         console.error('Error toggling favorite:', error);
+        toast.error('Something went wrong. Please try again.', {
+          position: 'bottom-right',
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        });
       } finally {
         setLoading(false);
       }
@@ -211,13 +239,35 @@ export function useWatchlist() {
               ),
             );
           }
+          toast.error('Something went wrong. Please try again.', {
+            position: 'bottom-right',
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+          });
           throw new Error('Failed to toggle watchlist');
         }
 
         // Refresh to get the real server data
         await fetchWatchlist();
+        toast.success(
+          isCurrentlyInWatchlist
+            ? 'Removed from watchlist'
+            : 'Added to watchlist',
+          {
+            position: 'bottom-right',
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+          },
+        );
       } catch (error) {
         console.error('Error toggling watchlist:', error);
+        toast.error('Something went wrong. Please try again.');
       } finally {
         setLoading(false);
       }
