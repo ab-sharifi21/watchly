@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { SavedMediaCard } from './SavedMediaCard';
 import { FaHeart, FaBookmark } from 'react-icons/fa';
+import toast from 'react-hot-toast';
 
 interface MediaItem {
   id: string;
@@ -47,9 +48,30 @@ export const SavedMediaGrid = ({
       if (!res.ok) {
         throw new Error('Failed to remove');
       }
+
+      toast.success(
+        type === 'favorites'
+          ? 'Removed from favorites'
+          : 'Removed from watchlist',
+        {
+          position: 'bottom-right',
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        },
+      );
     } catch (error) {
       console.error('Error removing item:', error);
-      // Revert optimistic update
+      toast.error('Something went wrong. Please try again.', {
+        position: 'bottom-right',
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      });
       setItems((prev) =>
         [...prev, item].sort(
           (a, b) =>

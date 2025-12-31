@@ -10,6 +10,7 @@ import {
   FaHeart,
   FaBookmark,
 } from 'react-icons/fa';
+import toast from 'react-hot-toast';
 import Button from './Button';
 
 interface ProfileClientProps {
@@ -29,7 +30,6 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
   const [isEditingName, setIsEditingName] = useState(false);
   const [name, setName] = useState(user.name);
   const [isUpdating, setIsUpdating] = useState(false);
-  const [updateMessage, setUpdateMessage] = useState('');
 
   const [isChangingPassword, setIsChangingPassword] = useState(false);
   const [currentPassword, setCurrentPassword] = useState('');
@@ -52,7 +52,6 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
     }
 
     setIsUpdating(true);
-    setUpdateMessage('');
 
     try {
       const response = await fetch('/api/user/update', {
@@ -61,20 +60,38 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
         body: JSON.stringify({ name: name.trim() }),
       });
 
-      const data = await response.json();
-
       if (response.ok) {
-        setUpdateMessage('Name updated successfully!');
+        toast.success('Name updated successfully!', {
+          position: 'bottom-right',
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        });
         setIsEditingName(false);
         router.refresh();
       } else {
-        setUpdateMessage(data.error || 'Failed to update name');
+        toast.error('Failed to update name', {
+          position: 'bottom-right',
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        });
       }
     } catch {
-      setUpdateMessage('An error occurred');
+      toast.error('An error occurred', {
+        position: 'bottom-right',
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      });
     } finally {
       setIsUpdating(false);
-      setTimeout(() => setUpdateMessage(''), 3000);
     }
   };
 
@@ -104,7 +121,14 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
       const data = await response.json();
 
       if (response.ok) {
-        setPasswordMessage('Password changed successfully!');
+        toast.success('Password changed successfully!', {
+          position: 'bottom-right',
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        });
         setCurrentPassword('');
         setNewPassword('');
         setConfirmPassword('');
@@ -145,6 +169,14 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
       if (response.ok) {
         // Sign out and redirect to home
         await signOut({ callbackUrl: '/' });
+        toast.success('Account deleted successfully', {
+          position: 'bottom-right',
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        });
       } else {
         setDeleteMessage(data.error || 'Failed to delete account');
       }
@@ -218,7 +250,7 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
               type="button"
               buttonText="Edit Name"
               onClick={() => setIsEditingName(true)}
-              className="bg-blue-600 px-4 py-2 text-sm transition-colors hover:bg-blue-700"
+              className="bg-blue-600 transition-colors hover:bg-blue-700"
             />
           </div>
         ) : (
@@ -239,7 +271,7 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
                 buttonText={isUpdating ? 'Saving...' : 'Save'}
                 type="submit"
                 disabled={isUpdating}
-                className="bg-blue-600 px-4 py-2 text-sm transition-colors hover:bg-blue-700 disabled:opacity-50"
+                className="bg-blue-600 transition-colors hover:bg-blue-700 disabled:opacity-50"
               />
               <Button
                 buttonText="Cancel"
@@ -248,16 +280,9 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
                   setIsEditingName(false);
                   setName(user.name);
                 }}
-                className="bg-slate-600 px-4 py-2 text-sm transition-colors hover:bg-slate-700"
+                className="bg-slate-600 transition-colors hover:bg-slate-700"
               />
             </div>
-            {updateMessage && (
-              <p
-                className={`mt-2 text-sm ${updateMessage.includes('success') ? 'text-green-500' : 'text-red-500'}`}
-              >
-                {updateMessage}
-              </p>
-            )}
           </form>
         )}
 
@@ -286,7 +311,7 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
               type="button"
               buttonText="Change Password"
               onClick={() => setIsChangingPassword(true)}
-              className="bg-blue-600 px-4 py-2 text-sm transition-colors hover:bg-blue-700"
+              className="bg-blue-600 text-sm transition-colors hover:bg-blue-700"
             />
           </div>
         ) : (
@@ -334,7 +359,7 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
                 buttonText={isUpdating ? 'Changing...' : 'Change Password'}
                 type="submit"
                 disabled={isUpdating}
-                className="bg-blue-600 px-4 py-2 text-sm transition-colors hover:bg-blue-700 disabled:opacity-50"
+                className="bg-blue-600 transition-colors hover:bg-blue-700 disabled:opacity-50"
               />
               <Button
                 buttonText="Cancel"
@@ -346,7 +371,7 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
                   setConfirmPassword('');
                   setPasswordMessage('');
                 }}
-                className="bg-slate-600 px-4 py-2 text-sm transition-colors hover:bg-slate-700"
+                className="bg-slate-600 transition-colors hover:bg-slate-700"
               />
             </div>
             {passwordMessage && (
@@ -401,6 +426,8 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
 
               <div className="flex gap-2">
                 <Button
+                  type="submit"
+                  disabled={isDeleting}
                   buttonText={
                     isDeleting ? 'Deleting...' : 'Yes, Delete My Account'
                   }
@@ -413,7 +440,7 @@ export const ProfileClient = ({ user }: ProfileClientProps) => {
                     setDeleteMessage('');
                   }}
                   buttonText="Cancel"
-                  className="bg-blue-600 px-4 py-2 text-sm text-white transition-colors duration-200 hover:bg-blue-700"
+                  className="bg-blue-600 transition-colors duration-200 hover:bg-blue-700"
                 />
               </div>
             </form>
