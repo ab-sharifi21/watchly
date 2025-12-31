@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { poppins, titleFont } from '@/lib/fonts';
 import { Button, Logo } from '@/components';
+import toast from 'react-hot-toast';
 
 function RegisterPage() {
   const router = useRouter();
@@ -51,8 +52,23 @@ function RegisterPage() {
 
       // Registration successful, redirect to login
       router.push('/login');
+      toast.success('Registration successful! Please log in.', {
+        position: 'bottom-right',
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      });
     } catch {
-      setError('Something went wrong');
+      toast.error('Something went wrong', {
+        position: 'bottom-right',
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      });
     } finally {
       setLoading(false);
     }
