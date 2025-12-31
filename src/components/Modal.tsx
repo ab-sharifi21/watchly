@@ -1,5 +1,6 @@
 'use client';
 import { useCallback, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { IoMdClose } from 'react-icons/io';
 
 interface ModalProps {
@@ -47,7 +48,7 @@ export const Modal = ({ isModalOpen, setIsModalOpen, trailer }: ModalProps) => {
 
   if (!isModalOpen) return null;
 
-  return (
+  return createPortal(
     <>
       {/* Backdrop */}
       <div
@@ -64,7 +65,7 @@ export const Modal = ({ isModalOpen, setIsModalOpen, trailer }: ModalProps) => {
           {/* Close Button */}
           <button
             onClick={closeModal}
-            className="absolute right-0 top-0 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-zinc-800/90 text-white transition-all hover:scale-110 hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-white sm:-right-12"
+            className="absolute -right-4 -top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-slate-700 text-white transition-all hover:scale-110 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-white"
             aria-label="Close modal"
           >
             <IoMdClose />
@@ -85,6 +86,7 @@ export const Modal = ({ isModalOpen, setIsModalOpen, trailer }: ModalProps) => {
           </div>
         </div>
       </div>
-    </>
+    </>,
+    document.body,
   );
 };
