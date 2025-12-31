@@ -46,7 +46,14 @@ export default function LoginPage() {
         },
       });
     } catch {
-      setError('Something went wrong');
+      toast.error('Something went wrong', {
+        position: 'bottom-right',
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      });
     } finally {
       setLoading(false);
     }
