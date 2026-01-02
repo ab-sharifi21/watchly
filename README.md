@@ -10,17 +10,21 @@
 
 ## Description
 
-Watchly makes it easy to find and enjoy movies and series. Explore popular titles, browse by genres, and search for what you love. Watch trailers in a mini player, scroll through endless content, or use pages to jump around. Fully responsive, so you can enjoy it anytime, anywhere, on any device. It’s built for fun and easy watching!
+Watchly is your personal movie and TV series companion. Discover trending content, browse by genres, and search for your favorites. Create an account to save movies to your favorites and watchlist, manage your profile, and get instant feedback with toast notifications. Watch trailers in a sleek modal player and enjoy a fully responsive experience on any device.
 
-## Key Feature
+## Key Features
 
+- **🔐 User Authentication**: Secure login and registration with password encryption.
+- **❤️ Favorites & Watchlist**: Save your favorite movies and series, and create a watchlist for later.
+- **👤 User Profile**: Update your display name, change password, and manage your account.
 - **🎥 Popular Titles**: Discover trending movies and series on the homepage.
 - **🔍 Search Functionality**: Quickly find movies and series by name.
-- **🎞️ Trailers in Mini Player**: Watch movie and series trailers in a sleek, responsive modal.
-- **🗂️ Genre Browsing**: Explore movies and series by genres with dedicated pages.
+- **🎞️ Trailers in Mini Player**: Watch trailers in a sleek, responsive modal.
+- **🗂️ Genre Browsing**: Explore content by genres with dedicated pages.
 - **📜 Infinite Scrolling**: Browse content seamlessly with endless scrolling.
 - **📄 Pagination**: Navigate content effortlessly with paginated sections.
 - **📑 Detailed Pages**: Access detailed information about individual movies and series.
+- **🔔 Toast Notifications**: Get instant feedback for all your actions.
 - **📱 Fully Responsive**: Enjoy Watchly on any device—desktop, tablet, or mobile.
 
 ## Installation
@@ -61,6 +65,11 @@ http://localhost:3000
 - React.js
 - Next.js
 - TailwindCSS
+- NextAuth.js
+- Prisma
+- PostgreSQL (Neon)
+- bcryptjs
+- react-hot-toast
 - CSS
 - HTML
-- TMDB
+- TMDB API
