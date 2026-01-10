@@ -1,5 +1,6 @@
-import { HomeCarousel, Slider } from '@/components';
+import { HomeCarousel } from '@/components';
 import { fetchHomePageData } from '@/services';
+import { Slider } from '@/shared/components';
 
 export default async function LandingHomePage() {
   const {

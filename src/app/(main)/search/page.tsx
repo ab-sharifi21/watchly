@@ -4,7 +4,8 @@ import { Suspense, useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { getMovieByName, getSeriesByName } from '@/services';
 import { MovieDetails, SeriesDetails } from '@/types/Types';
-import { VerticalMovieCard, AnimatedLoader } from '@/components';
+import { VerticalMovieCard } from '@/components';
+import { AnimatedLoader } from '@/shared/components';
 import { titleFont } from '@/lib/fonts';
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll';
 

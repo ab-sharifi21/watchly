@@ -1,10 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { FaCirclePlay } from 'react-icons/fa6';
-import { Modal } from './Modal';
-import Button from './Button';
 import { getOneMovieTrailer } from '@/services/movies/getMovieTrailer';
 import { MovieTrailer } from '@/types/Types';
+import { Button, Modal } from '@/shared/components';
 
 interface Props {
   id: number;

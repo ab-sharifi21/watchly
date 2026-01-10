@@ -5,8 +5,8 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 import { MovieDetails, SeriesDetails } from '@/types/Types';
 import Link from 'next/link';
-import { VerticalMovieCard } from './VerticalMovieCard';
-import { HorizontalMovieCard } from './HorizontalMovieCard';
+import { VerticalMovieCard } from '../../components/VerticalMovieCard';
+import { HorizontalMovieCard } from '../../components/HorizontalMovieCard';
 import { titleFont } from '@/lib/fonts';
 
 interface SliderProps {

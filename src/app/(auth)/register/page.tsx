@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { poppins, titleFont } from '@/lib/fonts';
-import { Button, Logo } from '@/components';
 import toast from 'react-hot-toast';
+import { Button, Logo } from '@/shared/components';
 
 function RegisterPage() {
   const router = useRouter();

@@ -12,8 +12,8 @@ import { MdOutlineStar } from 'react-icons/md';
 import { Trailer } from './MovieTrailer';
 import { getOneMovieGenres } from '@/services';
 import { titleFont } from '@/lib/fonts';
-import { SeeMoreLink } from './SeeMoreLink';
 import { MediaActionButtons } from './MediaActionButtons';
+import { SeeMoreLink } from '@/shared/components';
 
 interface MovieInfoProps {
   data: MovieDetails | SeriesDetails | DetailedMovie;

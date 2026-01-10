@@ -1,5 +1,5 @@
 'use client';
-import styles from '../styles/button.module.css';
+import styles from '../../styles/button.module.css';
 
 interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';

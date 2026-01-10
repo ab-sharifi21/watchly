@@ -3,7 +3,7 @@ import { getMovies } from '@/services';
 import { VerticalMovieCard } from './VerticalMovieCard';
 import { useCallback, useEffect, useState } from 'react';
 import { MovieDetails } from '@/types/Types';
-import { Pagination } from './Pagination';
+import { Pagination } from '@/shared/components';
 
 interface Props {
   path: string;
