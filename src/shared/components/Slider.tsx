@@ -5,7 +5,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 import { MovieDetails, SeriesDetails } from '@/types/Types';
 import Link from 'next/link';
-import { VerticalMovieCard } from '../../components/VerticalMovieCard';
+import { VerticalMediaCard } from './VerticalMediaCard';
 import { HorizontalMovieCard } from '../../components/HorizontalMovieCard';
 import { titleFont } from '@/lib/fonts';
 
@@ -68,7 +68,7 @@ export const Slider: React.FC<SliderProps> = ({
                 isSeries={isSeries}
               />
             ) : (
-              <VerticalMovieCard key={index} data={item} isSeries={isSeries} />
+              <VerticalMediaCard key={index} data={item} isSeries={isSeries} />
             ),
           )}
           <article

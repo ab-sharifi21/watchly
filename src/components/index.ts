@@ -1,6 +1,5 @@
 export { MovieInfo } from './MovieInfo';
 export { Trailer } from './MovieTrailer';
-export { VerticalMovieCard } from './VerticalMovieCard';
 export { HomeCarousel } from './HomeCarousel';
 export { HorizontalMovieCard } from './HorizontalMovieCard';
 export { GenresMenu } from './GenresMenu';

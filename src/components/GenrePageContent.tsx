@@ -3,7 +3,7 @@
 import { useCallback } from 'react';
 import { getMoviesByGenreId } from '@/services';
 import { MovieDetails } from '@/types/Types';
-import { VerticalMovieCard } from './VerticalMovieCard';
+import { VerticalMediaCard } from '@/shared/components';
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll';
 import { AnimatedLoader } from '@/shared/components';
 
@@ -26,7 +26,7 @@ export const GenrePageContent = ({ genreId }: GenrePageContentProps) => {
   return (
     <section className="flex flex-wrap items-center justify-around gap-4 px-4">
       {data.map((movie: MovieDetails) => {
-        return <VerticalMovieCard key={movie.id} data={movie} />;
+        return <VerticalMediaCard key={movie.id} data={movie} />;
       })}
       {loading && <AnimatedLoader containerClassName="mt-4" />}
     </section>
