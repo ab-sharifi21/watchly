@@ -5,11 +5,11 @@ import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { titleFont } from '@/lib/fonts';
 
-interface Props {
+interface ActorsSliderProps {
   actors: ActorDetails[];
 }
 
-export const ActorsSlider: React.FC<Props> = ({ actors }) => {
+export const ActorsSlider: React.FC<ActorsSliderProps> = ({ actors }) => {
   const [emblaRef] = useEmblaCarousel({ loop: true, dragFree: true });
 
   return (

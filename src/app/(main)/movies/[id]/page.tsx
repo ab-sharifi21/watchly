@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { titleFont } from '@/lib/fonts';
-import { ActorsSlider, MovieInfo, WatchProviderBadge } from '@/components';
+import { MovieInfo, WatchProviderBadge } from '@/components';
+import { ActorsSlider } from '@/shared/components';
 import {
   getMovieActorsById,
   getMovieInfoById,

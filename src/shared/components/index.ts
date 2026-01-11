@@ -9,3 +9,4 @@ export { SearchBox } from './SearchBox';
 export { Slider } from './Slider';
 export { Pagination } from './Pagination';
 export { SeeMoreLink } from './SeeMoreLink';
+export { ActorsSlider } from './ActorsSlider';

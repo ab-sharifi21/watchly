@@ -4,7 +4,6 @@ export { VerticalMovieCard } from './VerticalMovieCard';
 export { HomeCarousel } from './HomeCarousel';
 export { HorizontalMovieCard } from './HorizontalMovieCard';
 export { GenresMenu } from './GenresMenu';
-export { ActorsSlider } from './ActorsSlider';
 export { GenrePageContent } from './GenrePageContent';
 export { SeriesGenrePageContent } from './SeriesGenrePageContent';
 export { MoviesContent } from './MoviesContent';

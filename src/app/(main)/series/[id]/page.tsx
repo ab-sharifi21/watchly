@@ -1,7 +1,8 @@
 'use server';
 
 import Image from 'next/image';
-import { ActorsSlider, MovieInfo } from '@/components';
+import { MovieInfo } from '@/components';
+import { ActorsSlider } from '@/shared/components';
 import {
   getSeriesActorsById,
   getSeriesInfoById,
