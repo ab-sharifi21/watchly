@@ -6,7 +6,6 @@ export { GenrePageContent } from './GenrePageContent';
 export { SeriesGenrePageContent } from './SeriesGenrePageContent';
 export { MoviesContent } from './MoviesContent';
 export { WatchProviderBadge } from './WatchProviderBadge';
-export { MediaActionButtons } from './MediaActionButtons';
 export { SavedMediaCard } from './SavedMediaCard';
 export { SavedMediaGrid } from './SavedMediaGrid';
 export { ProfileClient } from './ProfileClient';

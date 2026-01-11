@@ -12,3 +12,4 @@ export { SeeMoreLink } from './SeeMoreLink';
 export { ActorsSlider } from './ActorsSlider';
 export { VerticalMediaCard } from './VerticalMediaCard';
 export { HorizontalMediaCard } from './HorizontalMediaCard';
+export { MediaActionButtons } from './MediaActionButtons';
