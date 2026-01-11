@@ -6,12 +6,15 @@ import Link from 'next/link';
 import React from 'react';
 import { IoPlayCircleOutline } from 'react-icons/io5';
 
-interface Props {
+interface HorizontalMediaCardProps {
   data: MovieDetails | SeriesDetails;
   isSeries?: boolean;
 }
 
-export const HorizontalMovieCard: React.FC<Props> = ({ data, isSeries }) => {
+export const HorizontalMediaCard: React.FC<HorizontalMediaCardProps> = ({
+  data,
+  isSeries,
+}) => {
   const releaseDate = formatDate(
     isSeries
       ? (data as SeriesDetails).first_air_date

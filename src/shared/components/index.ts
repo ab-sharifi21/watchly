@@ -11,3 +11,4 @@ export { Pagination } from './Pagination';
 export { SeeMoreLink } from './SeeMoreLink';
 export { ActorsSlider } from './ActorsSlider';
 export { VerticalMediaCard } from './VerticalMediaCard';
+export { HorizontalMediaCard } from './HorizontalMediaCard';
