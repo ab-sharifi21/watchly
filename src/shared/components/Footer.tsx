@@ -10,12 +10,12 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative mt-auto border-t border-white/5 bg-gradient-to-b from-transparent to-black/20">
+    <footer className="relative mt-16 bg-gradient-to-b from-transparent to-black/20">
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-16">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-2 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-16 lg:gap-24">
           {/* Brand Section */}
-          <div className="lg:col-span-2">
+          <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <Logo width={40} height={40} classes="text-4xl text-white mb-4" />
             <p className="max-w-md text-sm leading-relaxed text-slate-400">
               Built to expand my web development skills and to offer you a
@@ -141,7 +141,7 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 border-t border-white/5 pt-8">
+        <div className="border-t border-white/5 py-4">
           <div className="flex flex-col items-center justify-between gap-4 text-sm text-slate-500 md:flex-row">
             <p>
               © {currentYear} Watchly. Built with ❤️ by{' '}
