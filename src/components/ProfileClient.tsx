@@ -11,7 +11,7 @@ import {
   FaBookmark,
 } from 'react-icons/fa';
 import toast from 'react-hot-toast';
-import Button from './Button';
+import { Button } from '@/shared/components';
 
 interface ProfileClientProps {
   user: {

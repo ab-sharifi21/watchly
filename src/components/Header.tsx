@@ -4,7 +4,8 @@ import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/react';
 import { FaRegUser } from 'react-icons/fa';
-import { Menu, Button, SearchBox, Logo } from './index';
+import { Menu, SearchBox, Logo } from './index';
+import { Button } from '@/shared/components';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
