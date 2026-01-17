@@ -1,5 +1,4 @@
 export { Header } from './Header';
-export { Footer } from './Footer';
 export { Menu } from './Menu';
 export { SearchBox } from './SearchBox';
 export { Logo } from './Logo';
