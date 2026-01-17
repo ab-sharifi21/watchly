@@ -5,7 +5,7 @@ import { getMoviesByGenreId } from '@/services';
 import { MovieDetails } from '@/types/Types';
 import { VerticalMovieCard } from './VerticalMovieCard';
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll';
-import { AnimatedLoader } from './AnimatedLoader';
+import { AnimatedLoader } from '@/shared/components';
 
 interface GenrePageContentProps {
   genreId: number;

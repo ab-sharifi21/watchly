@@ -16,7 +16,6 @@ export { SeriesGenrePageContent } from './SeriesGenrePageContent';
 export { Pagination } from './Pagination';
 export { MoviesContent } from './MoviesContent';
 export { WatchProviderBadge } from './WatchProviderBadge';
-export { AnimatedLoader } from './AnimatedLoader';
 export { SeeMoreLink } from './SeeMoreLink';
 export { MediaActionButtons } from './MediaActionButtons';
 export { SavedMediaCard } from './SavedMediaCard';
