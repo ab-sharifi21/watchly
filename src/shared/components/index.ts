@@ -6,3 +6,4 @@ export { Header } from './Header';
 export { MediaActionButtons } from './MediaActionButtons';
 export { Logo } from './Logo';
 export { Menu } from './Menu';
+export { SearchBox } from './SearchBox';
