@@ -1,6 +1,5 @@
 export { Menu } from './Menu';
 export { SearchBox } from './SearchBox';
-export { Logo } from './Logo';
 export { MovieInfo } from './MovieInfo';
 export { Trailer } from './MovieTrailer';
 export { Modal } from './Modal';

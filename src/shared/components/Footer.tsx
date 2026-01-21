@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Logo } from '../../components/Logo';
+import { Logo } from './Logo';
 import { TfiEmail } from 'react-icons/tfi';
 import { SiGithub } from 'react-icons/si';
 import { FaLinkedin } from 'react-icons/fa';

@@ -6,8 +6,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import toast from 'react-hot-toast';
 import { titleFont, poppins } from '@/lib/fonts';
-import { Logo } from '@/components';
-import { Button } from '@/shared/components';
+import { Button, Logo } from '@/shared/components';
 
 export default function LoginPage() {
   const router = useRouter();

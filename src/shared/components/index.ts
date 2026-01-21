@@ -4,3 +4,4 @@ export { AnimatedLoader } from './AnimatedLoader';
 export { Footer } from './Footer';
 export { Header } from './Header';
 export { MediaActionButtons } from './MediaActionButtons';
+export { Logo } from './Logo';

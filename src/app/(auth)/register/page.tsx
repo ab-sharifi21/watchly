@@ -4,8 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { poppins, titleFont } from '@/lib/fonts';
-import { Logo } from '@/components';
-import { Button } from '@/shared/components';
+import { Button, Logo } from '@/shared/components';
 import toast from 'react-hot-toast';
 
 function RegisterPage() {
