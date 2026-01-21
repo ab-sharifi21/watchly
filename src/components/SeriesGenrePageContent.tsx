@@ -1,11 +1,10 @@
 'use client';
 
 import { useCallback } from 'react';
-import { VerticalMovieCard } from './VerticalMovieCard';
 import { SeriesDetails } from '@/types/Types';
 import { getSeriesByGenreId } from '@/services';
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll';
-import { AnimatedLoader } from '@/shared/components';
+import { AnimatedLoader, VerticalMediaCard } from '@/shared/components';
 
 interface Props {
   genreId: number;
@@ -22,7 +21,7 @@ export const SeriesGenrePageContent = ({ genreId }: Props) => {
   return (
     <section className="flex flex-wrap items-center justify-around gap-4 px-4">
       {data.map((series: SeriesDetails) => {
-        return <VerticalMovieCard key={series.id} data={series} isSeries />;
+        return <VerticalMediaCard key={series.id} data={series} isSeries />;
       })}
       {loading && <AnimatedLoader containerClassName="mt-4" />}
     </section>

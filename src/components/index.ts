@@ -2,7 +2,6 @@ export { MovieInfo } from './MovieInfo';
 export { Trailer } from './MovieTrailer';
 export { Modal } from './Modal';
 export { Slider } from './Slider';
-export { VerticalMovieCard } from './VerticalMovieCard';
 export { HomeCarousel } from './HomeCarousel';
 export { GenresMenu } from './GenresMenu';
 export { GenrePageContent } from './GenrePageContent';

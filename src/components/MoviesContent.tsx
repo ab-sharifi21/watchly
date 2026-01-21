@@ -1,9 +1,10 @@
 'use client';
-import { getMovies } from '@/services';
-import { VerticalMovieCard } from './VerticalMovieCard';
+
 import { useCallback, useEffect, useState } from 'react';
+import { getMovies } from '@/services';
 import { MovieDetails } from '@/types/Types';
 import { Pagination } from './Pagination';
+import { VerticalMediaCard } from '@/shared/components';
 
 interface Props {
   path: string;
@@ -51,7 +52,7 @@ export const MoviesContent = ({ path, isSeries }: Props) => {
       <section className="flex flex-wrap items-center justify-center gap-4 px-4">
         {!loading ? (
           data.map((movie) => (
-            <VerticalMovieCard
+            <VerticalMediaCard
               key={movie.id}
               isSeries={isSeries}
               data={movie}
