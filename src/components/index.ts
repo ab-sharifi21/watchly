@@ -1,4 +1,3 @@
-export { Header } from './Header';
 export { Menu } from './Menu';
 export { SearchBox } from './SearchBox';
 export { Logo } from './Logo';

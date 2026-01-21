@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/react';
 import { FaRegUser } from 'react-icons/fa';
-import { Menu, SearchBox, Logo } from './index';
+import { Menu, SearchBox, Logo } from '../../components/index';
 import { Button } from '@/shared/components';
 
 export const Header = () => {
