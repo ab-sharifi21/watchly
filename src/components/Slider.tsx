@@ -6,7 +6,7 @@ import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 import { MovieDetails, SeriesDetails } from '@/types/Types';
 import Link from 'next/link';
 import { VerticalMovieCard } from './VerticalMovieCard';
-import { HorizontalMovieCard } from './HorizontalMovieCard';
+import { HorizontalMediaCard } from '@/shared/components';
 import { titleFont } from '@/lib/fonts';
 
 interface SliderProps {
@@ -62,7 +62,7 @@ export const Slider: React.FC<SliderProps> = ({
           )}
           {data.map((item, index) =>
             useHorizontalCard ? (
-              <HorizontalMovieCard
+              <HorizontalMediaCard
                 key={index}
                 data={item}
                 isSeries={isSeries}
