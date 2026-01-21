@@ -1,4 +1,3 @@
-export { Menu } from './Menu';
 export { SearchBox } from './SearchBox';
 export { MovieInfo } from './MovieInfo';
 export { Trailer } from './MovieTrailer';
