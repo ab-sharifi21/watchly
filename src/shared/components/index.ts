@@ -13,3 +13,4 @@ export { WatchProviderBadge } from './WatchProviderBadge';
 export { Modal } from './Modal';
 export { Trailer } from './MovieTrailer';
 export { SeeMoreLink } from './SeeMoreLink';
+export { MediaInfo } from './MediaInfo';

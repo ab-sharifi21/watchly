@@ -1,4 +1,3 @@
-export { MovieInfo } from './MovieInfo';
 export { Slider } from './Slider';
 export { HomeCarousel } from './HomeCarousel';
 export { GenresMenu } from './GenresMenu';

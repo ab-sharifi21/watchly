@@ -4,7 +4,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import useDevice from '@/hooks/useDevice';
 import { Genre, MovieDetails, SeriesDetails } from '@/types/Types';
-import { MovieInfo } from './MovieInfo';
+import { MediaInfo } from '@/shared/components';
 
 interface Props {
   data: MovieDetails[] | SeriesDetails[];
@@ -55,7 +55,7 @@ export const HomeCarousel: React.FC<Props> = ({ data, genres, isSeries }) => {
             }
             className="embla__slide relative h-full w-full flex-[0_0_100%] bg-[image:var(--bg-mobile)] bg-contain bg-center bg-no-repeat md:bg-[image:var(--bg-desktop)] md:bg-cover"
           >
-            <MovieInfo data={item} genres={genres} isSeries={isSeries} />
+            <MediaInfo data={item} genres={genres} isSeries={isSeries} />
           </div>
         ))}
       </div>

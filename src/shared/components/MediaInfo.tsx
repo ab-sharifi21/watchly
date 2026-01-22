@@ -13,13 +13,13 @@ import { getOneMovieGenres } from '@/services';
 import { titleFont } from '@/lib/fonts';
 import { MediaActionButtons, Trailer, SeeMoreLink } from '@/shared/components';
 
-interface MovieInfoProps {
+interface MediaInfoProps {
   data: MovieDetails | SeriesDetails | DetailedMovie;
   genres: Genre[];
   isSeries?: boolean;
 }
 
-export const MovieInfo = ({ data, genres, isSeries }: MovieInfoProps) => {
+export const MediaInfo = ({ data, genres, isSeries }: MediaInfoProps) => {
   const releaseDate = formatDate(
     !isSeries
       ? ((data as MovieDetails) || (data as DetailedMovie)).release_date
