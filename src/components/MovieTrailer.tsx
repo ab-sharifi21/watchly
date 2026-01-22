@@ -1,8 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { FaCirclePlay } from 'react-icons/fa6';
-import { Modal } from './Modal';
-import { Button } from '@/shared/components';
+import { Button, Modal } from '@/shared/components';
 import { getOneMovieTrailer } from '@/services/movies/getMovieTrailer';
 import { MovieTrailer } from '@/types/Types';
 

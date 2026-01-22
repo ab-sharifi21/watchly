@@ -10,3 +10,4 @@ export { SearchBox } from './SearchBox';
 export { HorizontalMediaCard } from './HorizontalMediaCard';
 export { VerticalMediaCard } from './VerticalMediaCard';
 export { WatchProviderBadge } from './WatchProviderBadge';
+export { Modal } from './Modal';

@@ -1,6 +1,5 @@
 export { MovieInfo } from './MovieInfo';
 export { Trailer } from './MovieTrailer';
-export { Modal } from './Modal';
 export { Slider } from './Slider';
 export { HomeCarousel } from './HomeCarousel';
 export { GenresMenu } from './GenresMenu';
