@@ -9,11 +9,10 @@ import {
 } from '@/types/Types';
 import { CiCalendar, CiClock2 } from 'react-icons/ci';
 import { MdOutlineStar } from 'react-icons/md';
-import { Trailer } from './MovieTrailer';
 import { getOneMovieGenres } from '@/services';
 import { titleFont } from '@/lib/fonts';
 import { SeeMoreLink } from './SeeMoreLink';
-import { MediaActionButtons } from '@/shared/components';
+import { MediaActionButtons, Trailer } from '@/shared/components';
 
 interface MovieInfoProps {
   data: MovieDetails | SeriesDetails | DetailedMovie;
