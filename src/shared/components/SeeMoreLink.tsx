@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { MdOutlineKeyboardDoubleArrowRight } from 'react-icons/md';
 
-interface Props {
+interface SeeMoreLinkProps {
   id: number;
   isSeries?: boolean;
 }
 
-export function SeeMoreLink({ id, isSeries }: Props) {
+export function SeeMoreLink({ id, isSeries }: SeeMoreLinkProps) {
   const pathname = usePathname();
 
   // Define the expected detail path

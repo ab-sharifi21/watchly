@@ -6,7 +6,6 @@ export { GenrePageContent } from './GenrePageContent';
 export { SeriesGenrePageContent } from './SeriesGenrePageContent';
 export { Pagination } from './Pagination';
 export { MoviesContent } from './MoviesContent';
-export { SeeMoreLink } from './SeeMoreLink';
 export { SavedMediaCard } from './SavedMediaCard';
 export { SavedMediaGrid } from './SavedMediaGrid';
 export { ProfileClient } from './ProfileClient';

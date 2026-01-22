@@ -11,8 +11,7 @@ import { CiCalendar, CiClock2 } from 'react-icons/ci';
 import { MdOutlineStar } from 'react-icons/md';
 import { getOneMovieGenres } from '@/services';
 import { titleFont } from '@/lib/fonts';
-import { SeeMoreLink } from './SeeMoreLink';
-import { MediaActionButtons, Trailer } from '@/shared/components';
+import { MediaActionButtons, Trailer, SeeMoreLink } from '@/shared/components';
 
 interface MovieInfoProps {
   data: MovieDetails | SeriesDetails | DetailedMovie;
