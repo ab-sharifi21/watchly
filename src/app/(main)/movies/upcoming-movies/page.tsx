@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { MoviesContent } from '@/components';
+import { MediaContent } from '@/shared/components';
 import { paths } from '@/constants/constants';
 import { titleFont } from '@/lib/fonts';
 
@@ -16,7 +16,7 @@ export default async function UpcomingMoviesPage() {
       >
         Exciting upcoming movies await!
       </h1>
-      <MoviesContent path={paths.upcomingMovies} />
+      <MediaContent path={paths.upcomingMovies} />
     </>
   );
 }

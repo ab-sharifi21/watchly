@@ -1,7 +1,7 @@
-import { MoviesContent } from '@/components';
+import { Metadata } from 'next';
+import { MediaContent } from '@/shared/components';
 import { paths } from '@/constants/constants';
 import { titleFont } from '@/lib/fonts';
-import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Watchly - top series',
@@ -16,7 +16,7 @@ export default function TopRatedSeriesPage() {
       >
         Dive into the top-rated shows
       </h1>
-      <MoviesContent path={paths.topRatedSeries} isSeries />
+      <MediaContent path={paths.topRatedSeries} isSeries />
     </>
   );
 }

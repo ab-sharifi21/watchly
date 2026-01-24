@@ -5,12 +5,12 @@ import { getMovies } from '@/services';
 import { MovieDetails } from '@/types/Types';
 import { VerticalMediaCard, Pagination } from '@/shared/components';
 
-interface Props {
+interface MediaContentProps {
   path: string;
   isSeries?: boolean;
 }
 
-export const MoviesContent = ({ path, isSeries }: Props) => {
+export const MediaContent = ({ path, isSeries }: MediaContentProps) => {
   const [data, setData] = useState<MovieDetails[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
