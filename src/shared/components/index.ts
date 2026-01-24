@@ -14,3 +14,4 @@ export { Modal } from './Modal';
 export { Trailer } from './MovieTrailer';
 export { SeeMoreLink } from './SeeMoreLink';
 export { MediaInfo } from './MediaInfo';
+export { Pagination } from './Pagination';

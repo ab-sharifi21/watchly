@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import { titleFont } from '@/lib/fonts';
-import { MovieInfo } from '@/components';
-import { ActorsSlider, WatchProviderBadge } from '@/shared/components';
+import {
+  ActorsSlider,
+  WatchProviderBadge,
+  MediaInfo,
+} from '@/shared/components';
 import {
   getMovieActorsById,
   getMovieInfoById,
@@ -46,7 +49,7 @@ export default async function MoviePage({ params }: Props) {
         }
         className="relative h-[70vh] w-full bg-[image:var(--bg-mobile)] bg-contain bg-center bg-no-repeat md:h-screen md:bg-[image:var(--bg-desktop)] md:bg-cover"
       >
-        <MovieInfo data={movieInfo} genres={genres} />
+        <MediaInfo data={movieInfo} genres={genres} />
         <Image
           src={`https://image.tmdb.org/t/p/original${poster_path}`}
           height={230}

@@ -3,7 +3,6 @@ export { HomeCarousel } from './HomeCarousel';
 export { GenresMenu } from './GenresMenu';
 export { GenrePageContent } from './GenrePageContent';
 export { SeriesGenrePageContent } from './SeriesGenrePageContent';
-export { Pagination } from './Pagination';
 export { MoviesContent } from './MoviesContent';
 export { SavedMediaCard } from './SavedMediaCard';
 export { SavedMediaGrid } from './SavedMediaGrid';
