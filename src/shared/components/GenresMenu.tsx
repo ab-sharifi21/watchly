@@ -6,11 +6,11 @@ import { FaCaretDown } from 'react-icons/fa';
 import { toggleMenu } from '@/lib/utils';
 import { genresRoutes } from '@/constants/constants';
 
-interface Props {
+interface GenresMenuProps {
   isSeries?: boolean;
 }
 
-export const GenresMenu = ({ isSeries }: Props) => {
+export const GenresMenu = ({ isSeries }: GenresMenuProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
 
   return (

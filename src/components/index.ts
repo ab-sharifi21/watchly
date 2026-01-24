@@ -1,6 +1,5 @@
 export { Slider } from './Slider';
 export { HomeCarousel } from './HomeCarousel';
-export { GenresMenu } from './GenresMenu';
 export { GenrePageContent } from './GenrePageContent';
 export { SeriesGenrePageContent } from './SeriesGenrePageContent';
 export { SavedMediaCard } from './SavedMediaCard';

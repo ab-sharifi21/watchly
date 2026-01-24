@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import { GenresMenu, HomeCarousel, Slider } from '@/components';
+import { HomeCarousel, Slider } from '@/components';
+import { GenresMenu } from '@/shared/components';
 import { fetchMoviesPageData } from '@/services';
 
 export const metadata: Metadata = {

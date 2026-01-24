@@ -16,3 +16,4 @@ export { SeeMoreLink } from './SeeMoreLink';
 export { MediaInfo } from './MediaInfo';
 export { Pagination } from './Pagination';
 export { MediaContent } from './MediaContent';
+export { GenresMenu } from './GenresMenu';
