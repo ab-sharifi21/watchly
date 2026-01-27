@@ -3,7 +3,7 @@ import { authOptions } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import { FaHeart } from 'react-icons/fa';
-import { SavedMediaGrid } from '@/components';
+import { SavedMediaGrid } from '@/shared/components';
 import { titleFont } from '@/lib/fonts';
 
 export const metadata = {

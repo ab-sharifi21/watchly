@@ -5,7 +5,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 import { MovieDetails, SeriesDetails } from '@/types/Types';
 import Link from 'next/link';
-import { VerticalMediaCard } from '../shared/components/VerticalMediaCard';
+import { VerticalMediaCard } from './VerticalMediaCard';
 import { HorizontalMediaCard } from '@/shared/components';
 import { titleFont } from '@/lib/fonts';
 

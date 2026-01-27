@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import { authOptions } from '@/lib/auth';
-import { ProfileClient } from '@/components';
+import { ProfileClient } from '@/shared/components';
 
 async function ProfilePage() {
   const session = await getServerSession(authOptions);

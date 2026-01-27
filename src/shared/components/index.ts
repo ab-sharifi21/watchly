@@ -17,3 +17,8 @@ export { MediaInfo } from './MediaInfo';
 export { Pagination } from './Pagination';
 export { MediaContent } from './MediaContent';
 export { GenresMenu } from './GenresMenu';
+export { HomeCarousel } from './HomeCarousel';
+export { Slider } from './Slider';
+export { SavedMediaCard } from './SavedMediaCard';
+export { SavedMediaGrid } from './SavedMediaGrid';
+export { ProfileClient } from './ProfileClient';
