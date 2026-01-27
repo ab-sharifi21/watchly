@@ -1,4 +1,4 @@
-import { GenrePageContent } from '@/components';
+import { MovieGenrePageContent } from '@/features/movies/components';
 import { titleFont } from '@/lib/fonts';
 import { getMoviesGenres } from '@/services';
 import { Genre } from '@/types/Types';
@@ -33,7 +33,7 @@ export default async function GenrePage({ params }: Props) {
       >
         Dive into nonstop {genreName} entertainment!
       </h1>
-      <GenrePageContent genreId={genreId} />
+      <MovieGenrePageContent genreId={genreId} />
     </>
   );
 }

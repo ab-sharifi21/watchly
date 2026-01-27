@@ -6,11 +6,13 @@ import { getSeriesByGenreId } from '@/services';
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll';
 import { AnimatedLoader, VerticalMediaCard } from '@/shared/components';
 
-interface Props {
+interface SeriesGenrePageContentProps {
   genreId: number;
 }
 
-export const SeriesGenrePageContent = ({ genreId }: Props) => {
+export const SeriesGenrePageContent = ({
+  genreId,
+}: SeriesGenrePageContentProps) => {
   const fetchSeries = useCallback(async () => {
     const { results } = await getSeriesByGenreId(genreId);
     return results;

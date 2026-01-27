@@ -6,11 +6,13 @@ import { MovieDetails } from '@/types/Types';
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll';
 import { AnimatedLoader, VerticalMediaCard } from '@/shared/components';
 
-interface GenrePageContentProps {
+interface MovieGenrePageContentProps {
   genreId: number;
 }
 
-export const GenrePageContent = ({ genreId }: GenrePageContentProps) => {
+export const MovieGenrePageContent = ({
+  genreId,
+}: MovieGenrePageContentProps) => {
   // Create the fetch function that the hook will use
   const fetchMovies = useCallback(
     async (page: number): Promise<MovieDetails[]> => {
