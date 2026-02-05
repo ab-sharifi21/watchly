@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation'; // For Next.js app router
 import { IoMdClose } from 'react-icons/io';
 import { IoSearchOutline } from 'react-icons/io5';
-import useDevice from '@/hooks/useDevice';
+import useDevice from '@/shared/hooks/useDevice';
 import { handleClickOutside } from '@/lib/utils';
 
 export const SearchBox = () => {

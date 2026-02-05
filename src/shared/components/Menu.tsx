@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useMemo } from 'react';
 import { useSession } from 'next-auth/react';
-import useDevice from '@/hooks/useDevice';
+import useDevice from '@/shared/hooks/useDevice';
 import { FaCaretDown } from 'react-icons/fa';
 import { closeMenu, toggleMenu } from '@/lib/utils';
 
