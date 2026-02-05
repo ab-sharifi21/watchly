@@ -29,7 +29,7 @@ export default async function GenrePage({ params }: Props) {
   return (
     <>
       <h1
-        className={`${titleFont.className} mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color`}
+        className={`${titleFont.className} mb-4 ml-4 mt-16 text-slate-400 lg:text-lg`}
       >
         Dive into nonstop {genreName} entertainment!
       </h1>
