@@ -1,7 +1,7 @@
 'use client';
 
 import { FaHeart, FaRegHeart, FaBookmark, FaRegBookmark } from 'react-icons/fa';
-import { useFavorites, useWatchlist } from '@/hooks/useMediaActions';
+import { useFavorites, useWatchlist } from '@/shared/hooks/useMediaActions';
 
 interface MediaActionButtonsProps {
   mediaId: number;
