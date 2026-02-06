@@ -1,5 +1,5 @@
 import { SeriesDetails } from '@/types/Types';
-import { fetcher } from '@/services/fetcher';
+import { fetcher } from '@/shared/services/fetcher';
 
 export const getSeriesByGenreId = (
   genreId: number,

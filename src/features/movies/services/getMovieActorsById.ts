@@ -1,4 +1,4 @@
-import { fetcher } from '@/services/fetcher';
+import { fetcher } from '@/shared/services/fetcher';
 
 export const getMovieActorsById = (movieId: string | number) => {
   const path = `movie/${movieId}/credits`;

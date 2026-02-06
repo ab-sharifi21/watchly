@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { GenresMenu, HomeCarousel, Slider } from '@/shared/components';
-import { fetchSeriesPageData } from '@/services';
+import { fetchSeriesPageData } from '@/shared/services';
 
 export const metadata: Metadata = {
   title: 'Watchly - Series',

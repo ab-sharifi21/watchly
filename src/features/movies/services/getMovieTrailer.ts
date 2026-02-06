@@ -1,4 +1,4 @@
-import { fetcher } from '@/services/fetcher';
+import { fetcher } from '@/shared/services/fetcher';
 
 export const getOneMovieTrailer = (id: number, isSeries?: boolean) => {
   const path = isSeries ? `tv/${id}/videos` : `movie/${id}/videos`;
