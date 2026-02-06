@@ -1,19 +1,19 @@
-import { paths } from '@/constants/constants';
+import { tmdbApiEndpoints } from '@/shared/constants/constants';
 import { getMoviesGenres, getMovies } from '@/features/movies/services';
 
 export async function fetchMoviesPageData() {
   const { results: trendingMovies } = await getMovies({
-    path: paths.trendingMovies,
+    path: tmdbApiEndpoints.trendingMovies,
   });
   const { genres } = await getMoviesGenres();
   const { results: upcomingMovies } = await getMovies({
-    path: paths.upcomingMovies,
+    path: tmdbApiEndpoints.upcomingMovies,
   });
   const { results: topRatedMovies } = await getMovies({
-    path: paths.topRatedMovies,
+    path: tmdbApiEndpoints.topRatedMovies,
   });
   const { results: todaysTrendingMovies } = await getMovies({
-    path: paths.todaysTrendingovies,
+    path: tmdbApiEndpoints.todaysTrendingovies,
   });
 
   return {

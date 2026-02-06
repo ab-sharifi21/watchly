@@ -1,20 +1,20 @@
-import { paths } from '@/constants/constants';
+import { tmdbApiEndpoints } from '@/shared/constants/constants';
 import { getSeries } from '@/features/series/services';
 import { getMoviesGenres } from '@/features/movies/services';
 
 export async function fetchSeriesPageData() {
   const { results: popularSeries } = await getSeries({
-    path: paths.popularSeries,
+    path: tmdbApiEndpoints.popularSeries,
   });
   const { genres } = await getMoviesGenres();
   const { results: airingTodaySeries } = await getSeries({
-    path: paths.airingTodaySeries,
+    path: tmdbApiEndpoints.airingTodaySeries,
   });
   const { results: topRatedSeries } = await getSeries({
-    path: paths.topRatedSeries,
+    path: tmdbApiEndpoints.topRatedSeries,
   });
   const { results: onTheAirSeries } = await getSeries({
-    path: paths.onTheAirSeries,
+    path: tmdbApiEndpoints.onTheAirSeries,
   });
 
   return {

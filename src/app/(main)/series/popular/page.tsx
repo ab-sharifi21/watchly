@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { MediaContent } from '@/shared/components';
-import { paths } from '@/constants/constants';
+import { tmdbApiEndpoints } from '@/shared/constants/constants';
 import { titleFont } from '@/lib/fonts';
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export default function TopRatedSeriesPage() {
       >
         Check out popular series that everyone is talking about
       </h1>
-      <MediaContent path={paths.popularSeries} isSeries />
+      <MediaContent path={tmdbApiEndpoints.popularSeries} isSeries />
     </>
   );
 }

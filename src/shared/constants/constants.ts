@@ -88,7 +88,7 @@ export const genresRoutes: Route[] = [
   },
 ];
 
-export const paths = {
+export const tmdbApiEndpoints = {
   todaysTrendingovies: 'trending/movie/day',
   trendingMovies: 'trending/movie/week',
   upcomingMovies: 'movie/upcoming',

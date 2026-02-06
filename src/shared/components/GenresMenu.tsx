@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { FaCaretDown } from 'react-icons/fa';
 import { toggleMenu } from '@/lib/utils';
-import { genresRoutes } from '@/constants/constants';
+import { genresRoutes } from '@/shared/constants/constants';
 
 interface GenresMenuProps {
   isSeries?: boolean;
