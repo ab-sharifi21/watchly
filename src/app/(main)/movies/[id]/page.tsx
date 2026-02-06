@@ -10,7 +10,7 @@ import {
   getMovieActorsById,
   getMovieWatchProviders,
 } from '@/features/movies/services';
-import { FlateratedProvider } from '@/types/Types';
+import { FlateratedProvider } from '@/shared/types/Types';
 
 interface Props {
   params: {

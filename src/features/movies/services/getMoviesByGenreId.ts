@@ -1,4 +1,4 @@
-import { MovieDetails } from '@/types/Types';
+import { MovieDetails } from '@/shared/types/movie.types';
 import { fetcher } from '@/shared/services/fetcher';
 
 export const getMoviesByGenreId = (

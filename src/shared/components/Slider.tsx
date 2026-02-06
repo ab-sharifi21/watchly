@@ -3,7 +3,7 @@
 import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
-import { MovieDetails, SeriesDetails } from '@/types/Types';
+import { MovieDetails, SeriesDetails } from '@/shared/types/Types';
 import Link from 'next/link';
 import { VerticalMediaCard } from './VerticalMediaCard';
 import { HorizontalMediaCard } from '@/shared/components';

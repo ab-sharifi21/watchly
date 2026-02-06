@@ -1,4 +1,4 @@
-import { Route } from '@/types/Types';
+import { Route } from '@/shared/types/route.types';
 
 export const genresRoutes: Route[] = [
   {

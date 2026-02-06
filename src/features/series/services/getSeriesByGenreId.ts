@@ -1,4 +1,4 @@
-import { SeriesDetails } from '@/types/Types';
+import { SeriesDetails } from '@/shared/types/series.types';
 import { fetcher } from '@/shared/services/fetcher';
 
 export const getSeriesByGenreId = (

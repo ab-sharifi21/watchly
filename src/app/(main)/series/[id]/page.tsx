@@ -8,7 +8,7 @@ import {
   getSeriesWatchProvider,
 } from '@/features/series/services';
 import { getSeriesActorsById } from '@/features/series/services';
-import { FlateratedProvider } from '@/types/Types';
+import { FlateratedProvider } from '@/shared/types/Types';
 import { titleFont } from '@/lib/fonts';
 
 interface Props {

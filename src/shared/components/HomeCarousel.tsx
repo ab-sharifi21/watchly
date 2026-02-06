@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import useDevice from '@/shared/hooks/useDevice';
-import { Genre, MovieDetails, SeriesDetails } from '@/types/Types';
+import { Genre, MovieDetails, SeriesDetails } from '@/shared/types/Types';
 import { MediaInfo } from '@/shared/components';
 
 interface Props {

@@ -1,6 +1,6 @@
 'use client';
 import { formatDate } from '@/lib/utils';
-import { MovieDetails, SeriesDetails } from '@/types/Types';
+import { MovieDetails, SeriesDetails } from '@/shared/types/Types';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';

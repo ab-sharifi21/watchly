@@ -1,4 +1,4 @@
-import { Genre } from '@/types/Types';
+import { Genre } from '@/shared/types/common.types';
 
 export const getOneMovieGenres = (genreIds: number[], genres: Genre[]) => {
   const movieGenres: Genre[] = [];

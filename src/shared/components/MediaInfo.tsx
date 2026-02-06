@@ -6,7 +6,7 @@ import {
   Genre,
   MovieDetails,
   SeriesDetails,
-} from '@/types/Types';
+} from '@/shared/types/Types';
 import { CiCalendar, CiClock2 } from 'react-icons/ci';
 import { MdOutlineStar } from 'react-icons/md';
 import { getOneMovieGenres } from '@/features/movies/services';

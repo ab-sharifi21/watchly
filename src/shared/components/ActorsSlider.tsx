@@ -1,5 +1,5 @@
 'use client';
-import { ActorDetails } from '@/types/Types';
+import { ActorDetails } from '@/shared/types/Types';
 import Image from 'next/image';
 import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';

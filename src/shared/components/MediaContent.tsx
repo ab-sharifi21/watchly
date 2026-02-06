@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { getMovies } from '@/features/movies/services';
-import { MovieDetails } from '@/types/Types';
+import { MovieDetails } from '@/shared/types/Types';
 import { VerticalMediaCard, Pagination } from '@/shared/components';
 
 interface MediaContentProps {

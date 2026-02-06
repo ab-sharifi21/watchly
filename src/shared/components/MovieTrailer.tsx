@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { FaCirclePlay } from 'react-icons/fa6';
 import { Button, Modal } from '@/shared/components';
 import { getOneMovieTrailer } from '@/features/movies/services';
-import { MovieTrailer } from '@/types/Types';
+import { MovieTrailer } from '@/shared/types/Types';
 
 interface Props {
   id: number;

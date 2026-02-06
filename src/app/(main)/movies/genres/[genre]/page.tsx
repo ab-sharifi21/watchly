@@ -1,7 +1,7 @@
 import { MovieGenrePageContent } from '@/features/movies/components';
 import { titleFont } from '@/lib/fonts';
 import { getMoviesGenres } from '@/features/movies/services';
-import { Genre } from '@/types/Types';
+import { Genre } from '@/shared/types/Types';
 
 interface Props {
   params: {
