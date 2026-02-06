@@ -1,0 +1,9 @@
+export { getMovieActorsById } from './getMovieActorsById';
+export { getMovieByName } from './getMovieByName';
+export { getMoviesGenres } from './getMovieGenres';
+export { getMovieInfoById } from './getMovieInfoById';
+export { getMovies } from './getMovies';
+export { getMoviesByGenreId } from './getMoviesByGenreId';
+export { getOneMovieTrailer } from './getMovieTrailer';
+export { getMovieWatchProviders } from './getMovieWatchProviders';
+export { getOneMovieGenres } from './getOneMovieGenre';

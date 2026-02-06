@@ -1,5 +1,6 @@
 import { paths } from '@/constants/constants';
-import { getMoviesGenres, getMovies, getSeries } from './index';
+import { getSeries } from '@/features/series/services';
+import { getMovies, getMoviesGenres } from '@/features/movies/services';
 
 export async function fetchHomePageData() {
   const { results: trendingMovies } = await getMovies({

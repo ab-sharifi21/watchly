@@ -6,10 +6,10 @@ import {
   MediaInfo,
 } from '@/shared/components';
 import {
-  getMovieActorsById,
   getMovieInfoById,
+  getMovieActorsById,
   getMovieWatchProviders,
-} from '@/services';
+} from '@/features/movies/services';
 import { FlateratedProvider } from '@/types/Types';
 
 interface Props {

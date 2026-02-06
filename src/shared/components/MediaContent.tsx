@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { getMovies } from '@/services';
+import { getMovies } from '@/features/movies/services';
 import { MovieDetails } from '@/types/Types';
 import { VerticalMediaCard, Pagination } from '@/shared/components';
 

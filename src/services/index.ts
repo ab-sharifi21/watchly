@@ -1,18 +1,3 @@
-export { getOneMovieGenres } from './movies/getOneMovieGenre';
-export { getOneMovieTrailer } from './movies/getMovieTrailer';
-export { getMoviesGenres, getSeriesGenres } from './movies/getMovieGenres';
-export { getMovieInfoById } from './movies/getMovieInfoById';
-export { getMovieActorsById } from './movies/getMovieActorsById';
-export { getSeriesInfoById } from './series/getSeriesInfoById';
-export { getSeriesActorsById } from './series/getSeriesActorsById';
-export { getMoviesByGenreId } from './movies/getMoviesByGenreId';
-export { getSeriesByGenreId } from './series/getSeriesByGenreId';
-export { getMovies } from './movies/getMovies';
-export { getSeries } from './series/getSeries';
-export { getMovieByName } from './movies/getMovieByName';
-export { getSeriesByName } from './series/getSeriesByName';
-export { getMovieWatchProviders } from './movies/getMovieWatchProviders';
-export { getSeriesWatchProvider } from './series/getSeriesWatchProvider';
 export { fetchHomePageData } from './fetchHomePageData';
 export { fetchMoviesPageData } from './fetchMoviesPageData';
 export { fetchSeriesPageData } from './fetchSeriesPageData';

@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback } from 'react';
-import { getMoviesByGenreId } from '@/services';
+import { getMoviesByGenreId } from '@/features/movies/services';
 import { MovieDetails } from '@/types/Types';
 import { useInfiniteScroll } from '@/shared/hooks/useInfiniteScroll';
 import { AnimatedLoader, VerticalMediaCard } from '@/shared/components';

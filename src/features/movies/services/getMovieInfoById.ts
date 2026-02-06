@@ -1,4 +1,4 @@
-import { fetcher } from '../fetcher';
+import { fetcher } from '@/services/fetcher';
 
 export const getMovieInfoById = (id: string) => {
   const path = `movie/${id}`;

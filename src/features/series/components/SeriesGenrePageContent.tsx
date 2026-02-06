@@ -2,7 +2,7 @@
 
 import { useCallback } from 'react';
 import { SeriesDetails } from '@/types/Types';
-import { getSeriesByGenreId } from '@/services';
+import { getSeriesByGenreId } from '@/features/series/services';
 import { useInfiniteScroll } from '@/shared/hooks/useInfiniteScroll';
 import { AnimatedLoader, VerticalMediaCard } from '@/shared/components';
 

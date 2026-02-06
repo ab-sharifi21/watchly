@@ -2,7 +2,8 @@
 
 import { Suspense, useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { getMovieByName, getSeriesByName } from '@/services';
+import { getSeriesByName } from '@/features/series/services';
+import { getMovieByName } from '@/features/movies/services';
 import { MovieDetails, SeriesDetails } from '@/types/Types';
 import { VerticalMediaCard } from '@/shared/components';
 import { AnimatedLoader } from '@/shared/components';

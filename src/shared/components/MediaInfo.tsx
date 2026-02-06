@@ -9,7 +9,7 @@ import {
 } from '@/types/Types';
 import { CiCalendar, CiClock2 } from 'react-icons/ci';
 import { MdOutlineStar } from 'react-icons/md';
-import { getOneMovieGenres } from '@/services';
+import { getOneMovieGenres } from '@/features/movies/services';
 import { titleFont } from '@/lib/fonts';
 import { MediaActionButtons, Trailer, SeeMoreLink } from '@/shared/components';
 

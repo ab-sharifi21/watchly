@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { FaCirclePlay } from 'react-icons/fa6';
 import { Button, Modal } from '@/shared/components';
-import { getOneMovieTrailer } from '@/services/movies/getMovieTrailer';
+import { getOneMovieTrailer } from '@/features/movies/services';
 import { MovieTrailer } from '@/types/Types';
 
 interface Props {

@@ -1,6 +1,6 @@
 import { SeriesGenrePageContent } from '@/features/series/components';
 import { titleFont } from '@/lib/fonts';
-import { getSeriesGenres } from '@/services';
+import { getSeriesGenres } from '@/features/series/services';
 import { Genre } from '@/types/Types';
 
 interface Props {
