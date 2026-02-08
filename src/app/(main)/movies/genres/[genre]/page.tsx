@@ -1,7 +1,7 @@
-import { GenrePageContent } from '@/components';
+import { MovieGenrePageContent } from '@/features/movies/components';
 import { titleFont } from '@/lib/fonts';
-import { getMoviesGenres } from '@/services';
-import { Genre } from '@/types/Types';
+import { getMoviesGenres } from '@/features/movies/services';
+import { Genre } from '@/shared/types/Types';
 
 interface Props {
   params: {
@@ -29,11 +29,11 @@ export default async function GenrePage({ params }: Props) {
   return (
     <>
       <h1
-        className={`${titleFont.className} mb-4 ml-4 mt-16 text-2xl font-bold text-primary-color`}
+        className={`${titleFont.className} mb-4 ml-4 mt-16 text-slate-400 lg:text-lg`}
       >
         Dive into nonstop {genreName} entertainment!
       </h1>
-      <GenrePageContent genreId={genreId} />
+      <MovieGenrePageContent genreId={genreId} />
     </>
   );
 }

@@ -1,13 +1,14 @@
 'use server';
 
 import Image from 'next/image';
-import { ActorsSlider, MovieInfo } from '@/components';
+import { MediaInfo } from '@/shared/components';
+import { ActorsSlider } from '@/shared/components';
 import {
-  getSeriesActorsById,
   getSeriesInfoById,
   getSeriesWatchProvider,
-} from '@/services';
-import { FlateratedProvider } from '@/types/Types';
+} from '@/features/series/services';
+import { getSeriesActorsById } from '@/features/series/services';
+import { FlateratedProvider } from '@/shared/types/Types';
 import { titleFont } from '@/lib/fonts';
 
 interface Props {
@@ -46,7 +47,7 @@ export default async function SeriesPage({ params }: Props) {
         }
         className="relative h-[70vh] w-full bg-[image:var(--bg-mobile)] bg-contain bg-center bg-no-repeat md:h-screen md:bg-[image:var(--bg-desktop)] md:bg-cover"
       >
-        <MovieInfo data={seriesInfo} genres={genres} isSeries />
+        <MediaInfo data={seriesInfo} genres={genres} isSeries />
         <Image
           src={`https://image.tmdb.org/t/p/original${poster_path}`}
           height={230}

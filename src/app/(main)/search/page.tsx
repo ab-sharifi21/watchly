@@ -2,11 +2,13 @@
 
 import { Suspense, useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { getMovieByName, getSeriesByName } from '@/services';
-import { MovieDetails, SeriesDetails } from '@/types/Types';
-import { VerticalMovieCard, AnimatedLoader } from '@/components';
+import { getSeriesByName } from '@/features/series/services';
+import { getMovieByName } from '@/features/movies/services';
+import { MovieDetails, SeriesDetails } from '@/shared/types/Types';
+import { VerticalMediaCard } from '@/shared/components';
+import { AnimatedLoader } from '@/shared/components';
 import { titleFont } from '@/lib/fonts';
-import { useInfiniteScroll } from '@/hooks/useInfiniteScroll';
+import { useInfiniteScroll } from '@/shared/hooks/useInfiniteScroll';
 
 const SearchPage = () => {
   const [error, setError] = useState<string | null>(null);
@@ -170,7 +172,7 @@ const SearchPage = () => {
           <div className="flex flex-wrap items-center justify-center gap-4 px-4">
             {movies.map((movie: MovieDetails) => {
               return (
-                <VerticalMovieCard key={movie.backdrop_path} data={movie} />
+                <VerticalMediaCard key={movie.backdrop_path} data={movie} />
               );
             })}
           </div>
@@ -181,7 +183,7 @@ const SearchPage = () => {
           <div className="flex flex-wrap items-center justify-center gap-4 px-4">
             {series.map((series: SeriesDetails) => {
               return (
-                <VerticalMovieCard key={series.id} data={series} isSeries />
+                <VerticalMediaCard key={series.id} data={series} isSeries />
               );
             })}
           </div>

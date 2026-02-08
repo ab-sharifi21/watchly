@@ -1,0 +1,31 @@
+'use client';
+
+import { useCallback } from 'react';
+import { SeriesDetails } from '@/shared/types/Types';
+import { getSeriesByGenreId } from '@/features/series/services';
+import { useInfiniteScroll } from '@/shared/hooks/useInfiniteScroll';
+import { AnimatedLoader, VerticalMediaCard } from '@/shared/components';
+
+interface SeriesGenrePageContentProps {
+  genreId: number;
+}
+
+export const SeriesGenrePageContent = ({
+  genreId,
+}: SeriesGenrePageContentProps) => {
+  const fetchSeries = useCallback(async () => {
+    const { results } = await getSeriesByGenreId(genreId);
+    return results;
+  }, [genreId]);
+
+  const { data, loading } = useInfiniteScroll(fetchSeries);
+
+  return (
+    <section className="flex flex-wrap items-center justify-around gap-4 px-4">
+      {data.map((series: SeriesDetails) => {
+        return <VerticalMediaCard key={series.id} data={series} isSeries />;
+      })}
+      {loading && <AnimatedLoader containerClassName="mt-4" />}
+    </section>
+  );
+};

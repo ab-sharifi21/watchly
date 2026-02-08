@@ -1,7 +1,7 @@
-import { MoviesContent } from '@/components';
-import { paths } from '@/constants/constants';
-import { titleFont } from '@/lib/fonts';
 import { Metadata } from 'next';
+import { MediaContent } from '@/shared/components';
+import { tmdbApiEndpoints } from '@/shared/constants/constants';
+import { titleFont } from '@/lib/fonts';
 
 export const metadata: Metadata = {
   title: 'Watchly - on the air',
@@ -16,7 +16,7 @@ export default function TopRatedSeriesPage() {
       >
         Experience live entertainment
       </h1>
-      <MoviesContent path={paths.onTheAirSeries} isSeries />
+      <MediaContent path={tmdbApiEndpoints.onTheAirSeries} isSeries />
     </>
   );
 }
