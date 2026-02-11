@@ -7,3 +7,5 @@ export { getMoviesByGenreId } from './getMoviesByGenreId';
 export { getOneMovieTrailer } from './getMovieTrailer';
 export { getMovieWatchProviders } from './getMovieWatchProviders';
 export { getOneMovieGenres } from './getOneMovieGenre';
+export { getMovieCollections } from './getMovieCollections';
+export { fetchMoviesPageData } from './fetchMoviesPageData';
