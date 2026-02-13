@@ -5,3 +5,4 @@ export { getSeriesByGenreId } from './getSeriesByGenreId';
 export { getSeriesByName } from './getSeriesByName';
 export { getSeriesInfoById } from './getSeriesInfoById';
 export { getSeriesWatchProvider } from './getSeriesWatchProvider';
+export { fetchSeriesPageData } from './fetchSeriesPageData';
