@@ -97,4 +97,5 @@ export const tmdbApiEndpoints = {
   popularSeries: 'tv/popular',
   onTheAirSeries: 'tv/on_the_air',
   airingTodaySeries: 'tv/airing_today',
+  movieCollection: 'collection',
 };
