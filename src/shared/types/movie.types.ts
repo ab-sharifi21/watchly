@@ -1,3 +1,14 @@
+export interface MovieCollection {
+  id: number;
+  name: string;
+  original_language: string;
+  original_name: string;
+  overview: string;
+  poster_path: string;
+  backdrop_path: string;
+  parts: MovieDetails[];
+}
+
 export interface MovieDetails {
   adult: boolean;
   backdrop_path: string;
