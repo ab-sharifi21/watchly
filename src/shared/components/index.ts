@@ -22,3 +22,5 @@ export { Slider } from './Slider';
 export { SavedMediaCard } from './SavedMediaCard';
 export { SavedMediaGrid } from './SavedMediaGrid';
 export { ProfileClient } from './ProfileClient';
+
+export { MovieCollectionsShowcase } from './MovieCollectionsShowcase';
