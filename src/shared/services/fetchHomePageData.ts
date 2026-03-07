@@ -37,7 +37,10 @@ export async function fetchHomePageData() {
     path: tmdbApiEndpoints.todaysTrendingovies,
   });
 
-  const collectionIds = [86311, 10, 645];
+  const collectionIds = [
+    86311, 263, 556, 748, 10, 119, 121938, 2344, 328, 1241, 435259, 645, 87359,
+    9485, 84, 1575, 5039, 8091, 528,
+  ];
 
   const movieCollections = await Promise.all(
     collectionIds.map((id) => getMovieCollection({ path: `collection/${id}` })),
