@@ -5,6 +5,7 @@ import Image from 'next/image';
 import useEmblaCarousel from 'embla-carousel-react';
 import { MovieCollection } from '@/shared/types/movie.types';
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
+import Link from 'next/link';
 
 interface MovieCollectionsShowcaseProps {
   collections: MovieCollection[];
@@ -31,9 +32,9 @@ export const MovieCollectionsShowcase: React.FC<
       <div className="embla__viewport overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex gap-8">
           {collections.map((collection) => (
-            <a
+            <Link
               key={collection.id}
-              href={`/collections/${collection.id}`}
+              href={`/movies/collections/${collection.id}`}
               className="embla__slide group relative flex h-[180px] w-[400px] flex-none overflow-hidden rounded-2xl border border-gray-800 bg-gray-900 shadow-xl transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
             >
               <div className="relative h-full w-2/5 min-w-[160px]">
@@ -61,7 +62,7 @@ export const MovieCollectionsShowcase: React.FC<
                 </p>
               </div>
               <div className="pointer-events-none absolute inset-0 z-30 bg-white opacity-0 transition-opacity duration-300 group-hover:opacity-20" />
-            </a>
+            </Link>
           ))}
         </div>
       </div>
