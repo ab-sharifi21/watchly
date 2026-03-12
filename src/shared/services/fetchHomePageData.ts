@@ -1,4 +1,4 @@
-import { tmdbApiEndpoints } from '@/shared/constants/constants';
+import { collectionIds, tmdbApiEndpoints } from '@/shared/constants/constants';
 import { getSeries } from '@/features/series/services';
 import {
   getMovieCollection,
@@ -36,11 +36,6 @@ export async function fetchHomePageData() {
   const { results: todaysTrendingMovies } = await getMovies({
     path: tmdbApiEndpoints.todaysTrendingovies,
   });
-
-  const collectionIds = [
-    86311, 131296, 748, 2344, 263, 556, 10, 119, 121938, 328, 1241, 435259,
-    9485, 1575,
-  ];
 
   const movieCollections = await Promise.all(
     collectionIds.map((id) => getMovieCollection({ path: `collection/${id}` })),
