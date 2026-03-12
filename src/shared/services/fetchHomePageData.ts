@@ -38,8 +38,8 @@ export async function fetchHomePageData() {
   });
 
   const collectionIds = [
-    86311, 263, 556, 748, 10, 119, 121938, 2344, 328, 1241, 435259, 645, 87359,
-    9485, 84, 1575, 5039, 8091, 528,
+    86311, 131296, 748, 2344, 263, 556, 10, 119, 121938, 328, 1241, 435259,
+    9485, 1575,
   ];
 
   const movieCollections = await Promise.all(

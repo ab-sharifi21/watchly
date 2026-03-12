@@ -30,12 +30,12 @@ export const MovieCollectionsShowcase: React.FC<
         Author&apos;s Favorite Collections
       </h2>
       <div className="embla__viewport overflow-hidden" ref={emblaRef}>
-        <div className="embla__container flex gap-8">
+        <div className="embla__container flex gap-6">
           {collections.map((collection) => (
             <Link
               key={collection.id}
               href={`/movies/collections/${collection.id}`}
-              className="embla__slide group relative flex h-[180px] w-[400px] flex-none overflow-hidden rounded-2xl border border-gray-800 bg-gray-900 shadow-xl transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+              className="embla__slide group relative flex h-[180px] w-[400px] flex-none overflow-hidden rounded-2xl border border-gray-800 bg-black/50 shadow-xl transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
             >
               <div className="relative h-full w-2/5 min-w-[160px]">
                 <Image
@@ -50,7 +50,9 @@ export const MovieCollectionsShowcase: React.FC<
                 />
                 <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
                 <span className="absolute right-2 top-2 z-20 rounded-full bg-primary-color/90 px-3 py-1 text-xs font-semibold text-white shadow-lg backdrop-blur-sm">
-                  {collection.parts?.length || 0} movies
+                  {collection.parts?.length === 1
+                    ? '1 movie'
+                    : `${collection.parts?.length} movies`}
                 </span>
               </div>
               <div className="relative z-20 flex flex-1 flex-col justify-center gap-2 p-6">

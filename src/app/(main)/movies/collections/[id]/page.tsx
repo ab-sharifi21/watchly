@@ -22,7 +22,6 @@ async function CollectionsPage({ params }: CollectionsPageProps) {
 
   return (
     <section className="relative min-h-screen">
-      {/* Backdrop */}
       {collection.backdrop_path && (
         <div className="absolute inset-0 -z-10 h-[80vh] w-full">
           <Image
@@ -46,7 +45,6 @@ async function CollectionsPage({ params }: CollectionsPageProps) {
           {collection.overview}
         </p>
 
-        {/* Movies in Collection */}
         <h2 className="mb-4 text-xl font-semibold text-white">
           {collection.parts.length} movie
           {collection.parts.length !== 1 ? 's' : ''} in this collection
