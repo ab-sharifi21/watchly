@@ -1,6 +1,10 @@
-import { tmdbApiEndpoints } from '@/shared/constants/constants';
+import { collectionIds, tmdbApiEndpoints } from '@/shared/constants/constants';
 import { getSeries } from '@/features/series/services';
-import { getMovies, getMoviesGenres } from '@/features/movies/services';
+import {
+  getMovieCollection,
+  getMovies,
+  getMoviesGenres,
+} from '@/features/movies/services';
 
 export async function fetchHomePageData() {
   const { results: trendingMovies } = await getMovies({
@@ -33,6 +37,10 @@ export async function fetchHomePageData() {
     path: tmdbApiEndpoints.todaysTrendingovies,
   });
 
+  const movieCollections = await Promise.all(
+    collectionIds.map((id) => getMovieCollection({ path: `collection/${id}` })),
+  );
+
   return {
     trendingMovies,
     genres,
@@ -42,5 +50,6 @@ export async function fetchHomePageData() {
     airingTodaySeries,
     topRatedSeries,
     todaysTrendingMovies,
+    movieCollections,
   };
 }

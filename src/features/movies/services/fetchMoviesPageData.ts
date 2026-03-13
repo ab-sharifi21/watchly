@@ -1,5 +1,9 @@
-import { tmdbApiEndpoints } from '@/shared/constants/constants';
-import { getMoviesGenres, getMovies } from '@/features/movies/services';
+import { collectionIds, tmdbApiEndpoints } from '@/shared/constants/constants';
+import {
+  getMoviesGenres,
+  getMovies,
+  getMovieCollection,
+} from '@/features/movies/services';
 
 export async function fetchMoviesPageData() {
   const { results: trendingMovies } = await getMovies({
@@ -16,11 +20,16 @@ export async function fetchMoviesPageData() {
     path: tmdbApiEndpoints.todaysTrendingovies,
   });
 
+  const collections = await Promise.all(
+    collectionIds.map((id) => getMovieCollection({ path: `collection/${id}` })),
+  );
+
   return {
     trendingMovies,
     genres,
     upcomingMovies,
     topRatedMovies,
     todaysTrendingMovies,
+    collections,
   };
 }

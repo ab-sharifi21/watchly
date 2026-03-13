@@ -97,4 +97,10 @@ export const tmdbApiEndpoints = {
   popularSeries: 'tv/popular',
   onTheAirSeries: 'tv/on_the_air',
   airingTodaySeries: 'tv/airing_today',
+  movieCollection: 'collection',
 };
+
+export const collectionIds = [
+  86311, 131296, 748, 2344, 263, 556, 10, 119, 121938, 328, 1241, 435259, 9485,
+  1575,
+];

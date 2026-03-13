@@ -1,6 +1,11 @@
 import { Metadata } from 'next';
-import { GenresMenu, HomeCarousel, Slider } from '@/shared/components';
-import { fetchMoviesPageData } from '@/shared/services';
+import {
+  GenresMenu,
+  HomeCarousel,
+  MovieCollectionsShowcase,
+  Slider,
+} from '@/shared/components';
+import { fetchMoviesPageData } from '@/features/movies/services';
 
 export const metadata: Metadata = {
   title: 'Watchly - Movies',
@@ -15,12 +20,14 @@ export default async function MoviesPage() {
     upcomingMovies,
     topRatedMovies,
     todaysTrendingMovies,
+    collections,
   } = await fetchMoviesPageData();
 
   return (
     <>
       <HomeCarousel data={trendingMovies} genres={genres} />
       <GenresMenu />
+      <MovieCollectionsShowcase collections={collections} />
       <Slider
         data={upcomingMovies}
         title="Dive into upcoming movies"

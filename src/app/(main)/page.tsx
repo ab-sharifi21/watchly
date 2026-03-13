@@ -1,4 +1,8 @@
-import { HomeCarousel, Slider } from '@/shared/components';
+import {
+  HomeCarousel,
+  MovieCollectionsShowcase,
+  Slider,
+} from '@/shared/components';
 import { fetchHomePageData } from '@/shared/services';
 
 export default async function LandingHomePage() {
@@ -11,11 +15,13 @@ export default async function LandingHomePage() {
     popularSeries,
     todaysTrendingMovies,
     topRatedSeries,
+    movieCollections,
   } = await fetchHomePageData();
 
   return (
     <div className="">
       <HomeCarousel data={trendingMovies} genres={genres} />
+      <MovieCollectionsShowcase collections={movieCollections} />
       <Slider
         data={upcomingMovies}
         title="Exciting upcoming movies await!"

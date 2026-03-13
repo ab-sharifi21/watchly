@@ -1,12 +1,13 @@
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
+import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
+import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { FaBookmark } from 'react-icons/fa';
 import { SavedMediaGrid } from '@/shared/components';
 import { titleFont } from '@/lib/fonts';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Watchly - My Watchlist',
   description: 'Movies and TV shows you want to watch',
 };
